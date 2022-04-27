@@ -3,12 +3,11 @@ using System.Text.Json.Serialization;
 using Satistools.DataReader.Attributes;
 using Satistools.DataReader.Converters;
 using Satistools.DataReader.Converters.Items;
-using Satistools.DataReader.Entities.Items;
 
-namespace Satistools.DataReader.Entities;
+namespace Satistools.DataReader.Entities.Items;
 
-[DataEntity("Class'/Script/FactoryGame.FGItemDescAmmoTypeProjectile'")]
-public class ItemDescAmmoTypeProjectile
+[DataEntity("Class'/Script/FactoryGame.FGResourceDescriptor'")]
+public class ResourceDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
 

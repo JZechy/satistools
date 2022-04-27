@@ -1,14 +1,14 @@
 ﻿using System.Drawing;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using Satistools.DataReader.Attributes;
 using Satistools.DataReader.Converters;
 using Satistools.DataReader.Converters.Items;
-using Satistools.DataReader.Entities.Items;
 
-namespace Satistools.DataReader.Entities;
+namespace Satistools.DataReader.Entities.Items;
 
-[DataEntity("Class'/Script/FactoryGame.FGItemDescAmmoTypeInstantHit'")]
-public class ItemDescAmmoTypeInstantHit
+[DataEntity("Class'/Script/FactoryGame.FGConsumableDescriptor'")]
+public class ConsumableDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
 
@@ -68,4 +68,7 @@ public class ItemDescAmmoTypeInstantHit
     
     [JsonPropertyName("mBuildMenuPriority")]
     public float BuildMenuPriority { get; set; }
+    
+    [JsonExtensionData]
+    public Dictionary<string, JsonElement> ExtensionData { get; set; } = new();
 }

@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using Satistools.DataReader.Attributes;
 
-namespace Satistools.DataReader.Entities;
+namespace Satistools.DataReader.Entities.Buildings;
 
 /// <summary>
 /// Describes manufacturing buildings like smelters or constructors.

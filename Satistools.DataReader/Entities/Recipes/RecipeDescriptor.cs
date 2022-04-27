@@ -2,7 +2,7 @@
 using Satistools.DataReader.Attributes;
 using Satistools.DataReader.Converters.Recipes;
 
-namespace Satistools.DataReader.Entities;
+namespace Satistools.DataReader.Entities.Recipes;
 
 /// <summary>
 /// Describes an in-game recipe.

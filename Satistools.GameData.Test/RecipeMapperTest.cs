@@ -4,6 +4,8 @@ using System.Linq;
 using FluentAssertions;
 using Satistools.DataReader;
 using Satistools.DataReader.Entities;
+using Satistools.DataReader.Entities.Buildings;
+using Satistools.DataReader.Entities.Recipes;
 using Satistools.GameData.Recipes;
 using Xunit;
 

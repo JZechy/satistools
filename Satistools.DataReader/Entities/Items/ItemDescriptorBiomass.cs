@@ -3,12 +3,11 @@ using System.Text.Json.Serialization;
 using Satistools.DataReader.Attributes;
 using Satistools.DataReader.Converters;
 using Satistools.DataReader.Converters.Items;
-using Satistools.DataReader.Entities.Items;
 
-namespace Satistools.DataReader.Entities;
+namespace Satistools.DataReader.Entities.Items;
 
-[DataEntity("Class'/Script/FactoryGame.FGItemDescAmmoTypeColorCartridge'")]
-public class ItemDescAmmoTypeColorCartridge
+[DataEntity("Class'/Script/FactoryGame.FGItemDescriptorBiomass'")]
+public class ItemDescriptorBiomass
 {
     public string ClassName { get; set; } = string.Empty;
 

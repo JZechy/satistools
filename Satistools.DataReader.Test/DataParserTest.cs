@@ -5,7 +5,9 @@ using System.Linq;
 using FluentAssertions;
 using NUnit.Framework;
 using Satistools.DataReader.Entities;
+using Satistools.DataReader.Entities.Buildings;
 using Satistools.DataReader.Entities.Items;
+using Satistools.DataReader.Entities.Recipes;
 
 namespace Satistools.DataReader.Test;
 
