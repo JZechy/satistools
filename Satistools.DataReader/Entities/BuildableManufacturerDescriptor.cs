@@ -8,7 +8,7 @@ namespace Satistools.DataReader.Entities;
 /// Describes manufacturing buildings like smelters or constructors.
 /// </summary>
 [DataEntity("Class'/Script/FactoryGame.FGBuildableManufacturer'")]
-public class BuildableManufacturer
+public class BuildableManufacturerDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
 

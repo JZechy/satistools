@@ -14,7 +14,7 @@ public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
             .WithMany()
             .HasForeignKey(e => e.ProducedInId)
             .IsRequired();
-        
+
         builder.Ignore(p => p.PerMin);
     }
 }

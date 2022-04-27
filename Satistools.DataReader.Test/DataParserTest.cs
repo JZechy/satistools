@@ -17,7 +17,7 @@ public class DataParserTest
     [Test]
     public void Test_ItemDescriptor()
     {
-        DataReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "itemdescriptor.json");
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "itemdescriptor.json");
         List<ItemDescriptor> items = reader.Read<ItemDescriptor>();
         items.Should().HaveCount(1);
 
@@ -37,41 +37,41 @@ public class DataParserTest
     [Test]
     public void Test_Recipe()
     {
-        DataReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "recipe.json");
-        List<Recipe> recipes = reader.Read<Recipe>();
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "recipe.json");
+        List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>();
         recipes.Should().HaveCount(1);
 
-        Recipe recipe = recipes.First();
-        recipe.DisplayName.Should().Be("Reinforced Iron Plate");
-        recipe.ManufactoringDuration.Should().Be(12f);
-        recipe.Ingredients.Should().HaveCount(2);
-        recipe.Products.Should().HaveCount(1);
-        recipe.ProducedIn.Should().HaveCount(3);
+        RecipeDescriptor recipeDescriptor = recipes.First();
+        recipeDescriptor.DisplayName.Should().Be("Reinforced Iron Plate");
+        recipeDescriptor.ManufactoringDuration.Should().Be(12f);
+        recipeDescriptor.Ingredients.Should().HaveCount(2);
+        recipeDescriptor.Products.Should().HaveCount(1);
+        recipeDescriptor.ProducedIn.Should().HaveCount(3);
 
-        Recipe.Part firstPart = recipe.Ingredients.First();
+        RecipeDescriptor.Part firstPart = recipeDescriptor.Ingredients.First();
         firstPart.Amount.Should().Be(6);
         firstPart.ClassName.Should().Be("Desc_IronPlate_C");
 
-        Recipe.Part firstProduct = recipe.Products.First();
+        RecipeDescriptor.Part firstProduct = recipeDescriptor.Products.First();
         firstProduct.Amount.Should().Be(1);
         firstProduct.ClassName.Should().Be("Desc_IronPlateReinforced_C");
 
-        Recipe.Producer firstProducer = recipe.ProducedIn.First();
+        RecipeDescriptor.Producer firstProducer = recipeDescriptor.ProducedIn.First();
         firstProducer.ClassName.Should().Be("Build_AssemblerMk1_C");
     }
 
     [Test]
     public void Test_BuildableManufacturer()
     {
-        DataReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildablemanufacturer.json");
-        List<BuildableManufacturer> manufacturers = reader.Read<BuildableManufacturer>();
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildablemanufacturer.json");
+        List<BuildableManufacturerDescriptor> manufacturers = reader.Read<BuildableManufacturerDescriptor>();
         manufacturers.Should().HaveCount(2);
 
-        BuildableManufacturer manufacturer = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
-        manufacturer.PowerConsumption.Should().Be(4f);
-        manufacturer.PowerConsumptionExponent.Should().Be(1.6f);
-        manufacturer.ExtensionData.Should().NotBeNull();
-        manufacturer.ExtensionData.Should().HaveCountGreaterThan(0);
-        manufacturer.ExtensionData.ContainsKey("mIsPendingToKillVFX").Should().BeTrue();
+        BuildableManufacturerDescriptor manufacturerDescriptor = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
+        manufacturerDescriptor.PowerConsumption.Should().Be(4f);
+        manufacturerDescriptor.PowerConsumptionExponent.Should().Be(1.6f);
+        manufacturerDescriptor.ExtensionData.Should().NotBeNull();
+        manufacturerDescriptor.ExtensionData.Should().HaveCountGreaterThan(0);
+        manufacturerDescriptor.ExtensionData.ContainsKey("mIsPendingToKillVFX").Should().BeTrue();
     }
 }

@@ -37,8 +37,8 @@ public class Recipe
     /// </summary>
     public BuildableManufacturer ProducedIn { get; set; } = null!;
 
-    public ICollection<RecipeIngredient> Ingredients { get; set; } = Array.Empty<RecipeIngredient>();
-    public ICollection<RecipeProduct> Products { get; set; } = Array.Empty<RecipeProduct>();
+    public ICollection<RecipeIngredient> Ingredients { get; set; } = null!;
+    public ICollection<RecipeProduct> Products { get; set; } = null!;
 
     /// <summary>
     /// Gets the rate to calculate the production per minut.

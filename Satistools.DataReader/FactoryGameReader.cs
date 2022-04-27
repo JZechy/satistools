@@ -2,14 +2,13 @@
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Satistools.DataReader.Entities;
-using Satistools.DataReader.Entities.Items;
 
 namespace Satistools.DataReader;
 
 /// <summary>
 /// A tool for reading JSON provided by the FactoryGame.
 /// </summary>
-public class DataReader
+public class FactoryGameReader
 {
     /// <summary>
     /// The name of used file.
@@ -29,7 +28,7 @@ public class DataReader
     /// <summary>
     /// </summary>
     /// <param name="path">Path to the factorygame file</param>
-    public DataReader(string path)
+    public FactoryGameReader(string path)
     {
         _path = path;
         _entities = EntityResolver.Resolve();
@@ -39,7 +38,7 @@ public class DataReader
     /// </summary>
     /// <param name="path">Path to the factorygame file</param>
     /// <param name="fileName">Name of the factorygame file</param>
-    public DataReader(string path, string fileName)
+    public FactoryGameReader(string path, string fileName)
     {
         _path = path;
         _fileName = fileName;

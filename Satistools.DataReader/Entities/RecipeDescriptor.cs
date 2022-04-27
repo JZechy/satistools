@@ -8,7 +8,7 @@ namespace Satistools.DataReader.Entities;
 /// Describes an in-game recipe.
 /// </summary>
 [DataEntity("Class'/Script/FactoryGame.FGRecipe'")]
-public class Recipe
+public class RecipeDescriptor
 {
     /// <summary>
     /// Describes a single part of ingredients or final products.
