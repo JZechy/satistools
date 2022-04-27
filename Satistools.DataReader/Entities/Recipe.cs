@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using Satistools.DataReader.Attributes;
 using Satistools.DataReader.Converters.Recipes;
 
 namespace Satistools.DataReader.Entities;
@@ -6,16 +7,33 @@ namespace Satistools.DataReader.Entities;
 /// <summary>
 /// Describes an in-game recipe.
 /// </summary>
+[DataEntity("Class'/Script/FactoryGame.FGRecipe'")]
 public class Recipe
 {
+    /// <summary>
+    /// Describes a single part of ingredients or final products.
+    /// </summary>
     public class Part
     {
+        /// <summary>
+        /// Name of in-game class describing the item.
+        /// </summary>
         public string ClassName { get; set; } = string.Empty;
+        
+        /// <summary>
+        /// How many of the item is produced or needed.
+        /// </summary>
         public int Amount { get; set; }
     }
 
+    /// <summary>
+    /// Describes a tool or building for producing a recipe.
+    /// </summary>
     public class Producer
     {
+        /// <summary>
+        /// Name of in-game class describing the tool/building.
+        /// </summary>
         public string ClassName { get; set; } = string.Empty;
     }
     

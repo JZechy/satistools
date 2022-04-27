@@ -24,11 +24,7 @@ public class DataReader
     /// <summary>
     /// List of available descriptors used for JSON data.
     /// </summary>
-    private readonly Dictionary<Type, string> _descriptors = new()
-    {
-        { typeof(ItemDescriptor), "Class'/Script/FactoryGame.FGItemDescriptor'" },
-        { typeof(Recipe), "Class'/Script/FactoryGame.FGRecipe'" }
-    };
+    private readonly Dictionary<Type, string> _entities;
 
     /// <summary>
     /// </summary>
@@ -36,6 +32,7 @@ public class DataReader
     public DataReader(string path)
     {
         _path = path;
+        _entities = EntityResolver.Resolve();
     }
 
     /// <summary>
@@ -46,13 +43,14 @@ public class DataReader
     {
         _path = path;
         _fileName = fileName;
+        _entities = EntityResolver.Resolve();
     }
 
     /// <summary>
     /// Reads from the JSON file data described by the selected descriptor.
     /// </summary>
     /// <returns>List of parsed data.</returns>
-    public List<TTargetDescriptor> Read<TTargetDescriptor>()
+    public List<TTargetEntity> Read<TTargetEntity>()
     {
         string filePath = Path.Combine(_path, _fileName);
 
@@ -68,26 +66,26 @@ public class DataReader
             throw new NullReferenceException($"Data from the file '{fileContent}' could not be read.");
         }
 
-        Type descriptorType = typeof(TTargetDescriptor);
-        if (!_descriptors.ContainsKey(descriptorType))
+        Type entityType = typeof(TTargetEntity);
+        if (!_entities.ContainsKey(entityType))
         {
-            throw new Exception($"Descriptor for target type '{descriptorType}' not found.");
+            throw new Exception($"Descriptor for target type '{entityType}' not found.");
         }
 
-        string nativeClass = _descriptors[descriptorType];
+        string nativeClass = _entities[entityType];
         Data data = fileContent.Single(f => f.NativeClass == nativeClass);
 
         JsonSerializerOptions options = new()
         {
             NumberHandling = JsonNumberHandling.AllowReadingFromString
         };
-        List<TTargetDescriptor> parsedData = new(data.Classes.Length);
+        List<TTargetEntity> parsedData = new(data.Classes.Length);
         foreach (JsonNode node in data.Classes)
         {
-            TTargetDescriptor? parsed = node.Deserialize<TTargetDescriptor>(options);
+            TTargetEntity? parsed = node.Deserialize<TTargetEntity>(options);
             if (parsed is null)
             {
-                throw new NullReferenceException($"Node {node} could not be parsed to target type {descriptorType}");
+                throw new NullReferenceException($"Node {node} could not be parsed to target type {entityType}");
             }
 
             parsedData.Add(parsed);

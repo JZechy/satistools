@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Text.Json.Serialization;
+using Satistools.DataReader.Attributes;
 using Satistools.DataReader.Converters;
 using Satistools.DataReader.Converters.Items;
 
@@ -9,6 +9,7 @@ namespace Satistools.DataReader.Entities.Items;
 /// <summary>
 /// Description of in-game items.
 /// </summary>
+[DataEntity("Class'/Script/FactoryGame.FGItemDescriptor'")]
 public class ItemDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
