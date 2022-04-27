@@ -59,4 +59,19 @@ public class DataParserTest
         Recipe.Producer firstProducer = recipe.ProducedIn.First();
         firstProducer.ClassName.Should().Be("Build_AssemblerMk1_C");
     }
+
+    [Test]
+    public void Test_BuildableManufacturer()
+    {
+        DataReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildablemanufacturer.json");
+        List<BuildableManufacturer> manufacturers = reader.Read<BuildableManufacturer>();
+        manufacturers.Should().HaveCount(2);
+
+        BuildableManufacturer manufacturer = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
+        manufacturer.PowerConsumption.Should().Be(4f);
+        manufacturer.PowerConsumptionExponent.Should().Be(1.6f);
+        manufacturer.ExtensionData.Should().NotBeNull();
+        manufacturer.ExtensionData.Should().HaveCountGreaterThan(0);
+        manufacturer.ExtensionData.ContainsKey("mIsPendingToKillVFX").Should().BeTrue();
+    }
 }
