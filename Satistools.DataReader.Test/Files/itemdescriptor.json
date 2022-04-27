@@ -1,0 +1,27 @@
+﻿[
+  {
+    "NativeClass": "Class'/Script/FactoryGame.FGItemDescriptor'",
+    "Classes": [
+      {
+        "ClassName": "Desc_NuclearWaste_C",
+        "mDisplayName": "Uranium Waste",
+        "mDescription": "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.",
+        "mAbbreviatedDisplayName": "",
+        "mStackSize": "SS_HUGE",
+        "mCanBeDiscarded": "False",
+        "mRememberPickUp": "False",
+        "mEnergyValue": "0.000000",
+        "mRadioactiveDecay": "10.000000",
+        "mForm": "RF_SOLID",
+        "mSmallIcon": "Texture2D /Game/FactoryGame/Resource/Parts/NuclearWaste/UI/IconDesc_NuclearWaste_64.IconDesc_NuclearWaste_64",
+        "mPersistentBigIcon": "Texture2D /Game/FactoryGame/Resource/Parts/NuclearWaste/UI/IconDesc_NuclearWaste_256.IconDesc_NuclearWaste_256",
+        "mSubCategories": "",
+        "mMenuPriority": "0.000000",
+        "mFluidColor": "(B=0,G=0,R=0,A=0)",
+        "mGasColor": "(B=0,G=0,R=0,A=0)",
+        "mResourceSinkPoints": "0",
+        "mBuildMenuPriority": "0.000000"
+      }
+    ]
+  }
+]

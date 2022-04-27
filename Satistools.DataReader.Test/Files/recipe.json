@@ -1,0 +1,21 @@
+﻿[
+  {
+    "NativeClass": "Class'/Script/FactoryGame.FGRecipe'",
+    "Classes": [
+      {
+        "ClassName": "Recipe_IronPlateReinforced_C",
+        "FullName": "BlueprintGeneratedClass /Game/FactoryGame/Recipes/Assembler/Recipe_IronPlateReinforced.Recipe_IronPlateReinforced_C",
+        "mDisplayName": "Reinforced Iron Plate",
+        "mIngredients": "((ItemClass=BlueprintGeneratedClass'\"/Game/FactoryGame/Resource/Parts/IronPlate/Desc_IronPlate.Desc_IronPlate_C\"',Amount=6),(ItemClass=BlueprintGeneratedClass'\"/Game/FactoryGame/Resource/Parts/IronScrew/Desc_IronScrew.Desc_IronScrew_C\"',Amount=12))",
+        "mProduct": "((ItemClass=BlueprintGeneratedClass'\"/Game/FactoryGame/Resource/Parts/IronPlateReinforced/Desc_IronPlateReinforced.Desc_IronPlateReinforced_C\"',Amount=1))",
+        "mManufacturingMenuPriority": "2.000000",
+        "mManufactoringDuration": "12.000000",
+        "mManualManufacturingMultiplier": "1.000000",
+        "mProducedIn": "(/Game/FactoryGame/Buildable/Factory/AssemblerMk1/Build_AssemblerMk1.Build_AssemblerMk1_C,/Game/FactoryGame/Buildable/-Shared/WorkBench/BP_WorkBenchComponent.BP_WorkBenchComponent_C,/Script/FactoryGame.FGBuildableAutomatedWorkBench)",
+        "mRelevantEvents": "",
+        "mVariablePowerConsumptionConstant": "0.000000",
+        "mVariablePowerConsumptionFactor": "1.000000"
+      }
+    ]
+  }
+]

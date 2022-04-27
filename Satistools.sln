@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.DataReader", "Satistools.DataReader\Satistools.DataReader.csproj", "{2FA1BD80-5F41-4A88-B38D-6BBEC075AB4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.GameData", "Satistools.GameData\Satistools.GameData.csproj", "{8D481BE6-2029-44B8-BB97-798260CC9FD4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1A767ABF-7E0B-4E30-BC4F-D7FCBFC52F44}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1B36C950-076F-4D86-9875-87248184E888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.DataReader.Test", "Satistools.DataReader.Test\Satistools.DataReader.Test.csproj", "{852B5F63-A368-42FB-A2AF-38C8F599D436}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FA1BD80-5F41-4A88-B38D-6BBEC075AB4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA1BD80-5F41-4A88-B38D-6BBEC075AB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA1BD80-5F41-4A88-B38D-6BBEC075AB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA1BD80-5F41-4A88-B38D-6BBEC075AB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D481BE6-2029-44B8-BB97-798260CC9FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D481BE6-2029-44B8-BB97-798260CC9FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D481BE6-2029-44B8-BB97-798260CC9FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D481BE6-2029-44B8-BB97-798260CC9FD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{852B5F63-A368-42FB-A2AF-38C8F599D436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{852B5F63-A368-42FB-A2AF-38C8F599D436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{852B5F63-A368-42FB-A2AF-38C8F599D436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{852B5F63-A368-42FB-A2AF-38C8F599D436}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{852B5F63-A368-42FB-A2AF-38C8F599D436} = {1B36C950-076F-4D86-9875-87248184E888}
+	EndGlobalSection
+EndGlobal
