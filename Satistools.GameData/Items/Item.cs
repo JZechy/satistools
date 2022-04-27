@@ -1,5 +1,7 @@
 ﻿using System.Drawing;
 using Satistools.DataReader.Entities.Items;
+using Satistools.GameData.Extensions;
+using Satistools.GameData.Helpers;
 
 namespace Satistools.GameData.Items;
 
@@ -37,16 +39,34 @@ public class Item
     /// Is the item radioactive?
     /// </summary>
     public bool IsRadioactive { get; set; }
+
+    /// <summary>
+    /// The color of the fluid in the hexa format.
+    /// </summary>
+    public string FluidColorHexa { get; set; } = Color.Transparent.ToHexaString();
     
+    /// <summary>
+    /// The color of the gas in the hexa format.
+    /// </summary>
+    public string GasColorHexa { get; set; } = Color.Transparent.ToHexaString();
+
     /// <summary>
     /// The color of the fluid form of the item.
     /// </summary>
-    public Color FluidColor { get; set; }
-    
+    public Color FluidColor
+    {
+        get => ColorHelper.FromHexaString(FluidColorHexa);
+        set => FluidColorHexa = value.ToHexaString();
+    }
+
     /// <summary>
     /// The color of the gas form of the item.
     /// </summary>
-    public Color GasColor { get; set; }
+    public Color GasColor
+    {
+        get => ColorHelper.FromHexaString(GasColorHexa);
+        set => GasColorHexa = value.ToHexaString();
+    }
     
     /// <summary>
     /// How many points are rewarded in the resource sink.

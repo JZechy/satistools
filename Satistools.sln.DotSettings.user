@@ -10,5 +10,6 @@
     &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.RecipeTest.Test_CRUD&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.BuildableManufacturerTest.Test_CRUD&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.RecipeMapperTest.Test_RecipeMapper&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.Helpers.ColorHelperTest.Test_FromHexaString&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

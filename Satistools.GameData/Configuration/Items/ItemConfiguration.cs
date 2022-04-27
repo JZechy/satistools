@@ -13,5 +13,7 @@ public class ItemConfiguration : IEntityTypeConfiguration<Item>
     {
         builder.HasKey(nameof(Item.Id));
         builder.Property(p => p.DisplayName).IsRequired();
+        builder.Ignore(p => p.FluidColor);
+        builder.Ignore(p => p.GasColor);
     }
 }

@@ -8,35 +8,35 @@ public enum ItemStackSize
     /// <summary>
     /// The stack size value could not be determined.
     /// </summary>
-    NotAvailable,
+    NotAvailable = -1,
 
     /// <summary>
     /// Item can be stacked by one in inventory.
     /// </summary>
-    One,
+    One = 1,
 
     /// <summary>
     /// Item can be stacked up to 50 units.
     /// </summary>
-    Small,
+    Small = 50,
 
     /// <summary>
     /// Item can be stacked up to 100 units.
     /// </summary>
-    Medium,
+    Medium = 100,
 
     /// <summary>
     /// Item can be stacked up to 200 units.
     /// </summary>
-    Big,
+    Big = 200,
 
     /// <summary>
     /// Item can be stacked up to 500 units.
     /// </summary>
-    Huge,
+    Huge = 500,
 
     /// <summary>
     /// The item is fluid.
     /// </summary>
-    Fluid
+    Fluid = 0
 }
