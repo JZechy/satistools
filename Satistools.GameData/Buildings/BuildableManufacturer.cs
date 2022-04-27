@@ -7,4 +7,5 @@ public class BuildableManufacturer
     public string Description { get; set; } = string.Empty;
     public float PowerConsumption { get; set; }
     public float PowerConsumptionExponent { get; set; }
+    public bool IsOverclockable { get; set; }
 }

@@ -31,6 +31,11 @@ public class Recipe
     /// In which building is the recipe produced.
     /// </summary>
     public string ProducedInId { get; set; } = string.Empty;
+    
+    /// <summary>
+    /// Marks if the recipe is alternative.
+    /// </summary>
+    public bool IsAlternate { get; set; }
 
     /// <summary>
     /// 

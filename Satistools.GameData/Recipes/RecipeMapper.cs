@@ -19,7 +19,8 @@ public static class RecipeMapper
                 .ForMember(d => d.Ingredients, opt => opt.Ignore())
                 .ForMember(d => d.Products, opt => opt.Ignore())
                 .ForMember(d => d.ProducedInId, opt => opt.MapFrom(src => src.ProducedIn.Where(p => buildings.Any(b => b.ClassName == p.ClassName)).Select(p => p.ClassName).Single()))
-                .ForMember(d => d.ProducedIn, opt => opt.Ignore());
+                .ForMember(d => d.ProducedIn, opt => opt.Ignore())
+                .ForMember(d => d.IsAlternate, opt => opt.MapFrom(src => src.ClassName.Contains("_Alternate_")));
         }).CreateMapper();
     }
 }

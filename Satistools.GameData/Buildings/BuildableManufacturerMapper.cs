@@ -15,7 +15,8 @@ public static class BuildableManufacturerMapper
                 .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
                 .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(d => d.PowerConsumption, opt => opt.MapFrom(src => src.PowerConsumption))
-                .ForMember(d => d.PowerConsumptionExponent, opt => opt.MapFrom(src => src.PowerConsumptionExponent));
+                .ForMember(d => d.PowerConsumptionExponent, opt => opt.MapFrom(src => src.PowerConsumptionExponent))
+                .ForMember(d => d.IsOverclockable, opt => opt.MapFrom(src => src.CanChangePotential));
         }).CreateMapper();
     }
 }
