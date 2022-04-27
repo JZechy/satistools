@@ -6,5 +6,7 @@
     &lt;TestId&gt;NUnit3x::852B5F63-A368-42FB-A2AF-38C8F599D436::net6.0::Satistools.DataReader.Test.Others.RegexTest.Test_ColorRegexGroups&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::852B5F63-A368-42FB-A2AF-38C8F599D436::net6.0::Satistools.DataReader.Test.RegexTest.Test_Regex&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::852B5F63-A368-42FB-A2AF-38C8F599D436::net6.0::Satistools.DataReader.Test.EntityResolverTest.Test_ResolveEntities&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.ItemTest.Test_CRUD&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.RecipeTest.Test_CRUD&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -59,11 +59,11 @@ public class ItemDescriptor
 
     [JsonPropertyName("mFluidColor")]
     [JsonConverter(typeof(ColorJsonConvertor))]
-    public Color FluidColor { get; set; } = Color.Transparent;
+    public Color FluidColor { get; set; }
 
     [JsonPropertyName("mGasColor")]
     [JsonConverter(typeof(ColorJsonConvertor))]
-    public Color GasColor { get; set; } = Color.Transparent;
+    public Color GasColor { get; set; }
     
     [JsonPropertyName("mResourceSinkPoints")]
     public int ResourceSinkPoints { get; set; }
