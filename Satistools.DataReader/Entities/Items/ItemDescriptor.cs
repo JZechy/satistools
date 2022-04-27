@@ -10,7 +10,7 @@ namespace Satistools.DataReader.Entities.Items;
 /// Description of in-game items.
 /// </summary>
 [DataEntity("Class'/Script/FactoryGame.FGItemDescriptor'")]
-public class ItemDescriptor : IItemDescriptor
+public class ItemDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
 
@@ -30,14 +30,14 @@ public class ItemDescriptor : IItemDescriptor
     [JsonPropertyName("mCanBeDiscarded")]
     [JsonConverter(typeof(BooleanJsonConverter))]
     public bool CanBeDiscarded { get; set; }
-    
+
     [JsonPropertyName("mRememberPickUp")]
     [JsonConverter(typeof(BooleanJsonConverter))]
     public bool RememberPickUp { get; set; }
-    
+
     [JsonPropertyName("mEnergyValue")]
     public float EnergyValue { get; set; }
-    
+
     [JsonPropertyName("mRadioactiveDecay")]
     public float RadioactiveDecay { get; set; }
 
@@ -53,7 +53,7 @@ public class ItemDescriptor : IItemDescriptor
 
     [JsonPropertyName("mSubCategories")]
     public string SubCategories { get; set; } = string.Empty;
-    
+
     [JsonPropertyName("mMenuPriority")]
     public float MenuPriority { get; set; }
 
@@ -64,10 +64,10 @@ public class ItemDescriptor : IItemDescriptor
     [JsonPropertyName("mGasColor")]
     [JsonConverter(typeof(ColorJsonConvertor))]
     public Color GasColor { get; set; }
-    
+
     [JsonPropertyName("mResourceSinkPoints")]
     public int ResourceSinkPoints { get; set; }
-    
+
     [JsonPropertyName("mBuildMenuPriority")]
     public float BuildMenuPriority { get; set; }
 }

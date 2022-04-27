@@ -1,4 +1,7 @@
-﻿namespace Satistools.GameData.Items;
+﻿using System.Drawing;
+using Satistools.DataReader.Entities.Items;
+
+namespace Satistools.GameData.Items;
 
 /// <summary>
 /// Description of single in-game item.
@@ -19,4 +22,34 @@ public class Item
     /// Description of the item.
     /// </summary>
     public string Description { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The physical form of the item.
+    /// </summary>
+    public ItemForm Form { get; set; } = ItemForm.NotAvailable;
+
+    /// <summary>
+    /// By how many units can be item stacked in inventory. 
+    /// </summary>
+    public ItemStackSize StackSize { get; set; } = ItemStackSize.NotAvailable;
+    
+    /// <summary>
+    /// Is the item radioactive?
+    /// </summary>
+    public bool IsRadioactive { get; set; }
+    
+    /// <summary>
+    /// The color of the fluid form of the item.
+    /// </summary>
+    public Color FluidColor { get; set; }
+    
+    /// <summary>
+    /// The color of the gas form of the item.
+    /// </summary>
+    public Color GasColor { get; set; }
+    
+    /// <summary>
+    /// How many points are rewarded in the resource sink.
+    /// </summary>
+    public int ResourceSinkPoints { get; set; }
 }

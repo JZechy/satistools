@@ -101,7 +101,7 @@ public class FactoryGameReader
             throw new FileNotFoundException($"The JSON at '{filePath}' was not found.");
         }
 
-        
+
         using FileStream stream = File.OpenRead(filePath);
         Data[]? fileContent = JsonSerializer.Deserialize<Data[]>(stream);
         if (fileContent is null)

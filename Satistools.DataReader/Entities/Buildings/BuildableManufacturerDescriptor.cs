@@ -20,7 +20,7 @@ public class BuildableManufacturerDescriptor
 
     [JsonPropertyName("mPowerConsumption")]
     public float PowerConsumption { get; set; }
-    
+
     [JsonPropertyName("mPowerConsumptionExponent")]
     public float PowerConsumptionExponent { get; set; }
 

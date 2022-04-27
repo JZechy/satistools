@@ -10,10 +10,11 @@ public class ItemStackSizeJsonConverter : JsonConverter<ItemStackSize>
     {
         return reader.GetString()! switch
         {
-            "SS_HUGE" => ItemStackSize.Huge,
-            "SS_BIG" => ItemStackSize.Big,
-            "SS_MEDIUM" => ItemStackSize.Medium,
+            "SS_ONE" => ItemStackSize.One,
             "SS_SMALL" => ItemStackSize.Small,
+            "SS_MEDIUM" => ItemStackSize.Medium,
+            "SS_BIG" => ItemStackSize.Big,
+            "SS_HUGE" => ItemStackSize.Huge,
             "SS_FLUID" => ItemStackSize.Fluid,
             _ => ItemStackSize.NotAvailable
         };
