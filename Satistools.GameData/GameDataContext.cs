@@ -47,19 +47,59 @@ public class GameDataContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GameDataContext).Assembly);
-        if (_populateData)
+        if (!_populateData)
         {
-            ImportDataFromJson(modelBuilder);
+            return;
         }
+
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), ".."), "FactoryGame.json");
+        ImportItems(modelBuilder, reader);
+        List<BuildableManufacturerDescriptor> buildings = ImportBuildings(modelBuilder, reader);
+        ImportRecipes(modelBuilder, reader, buildings);
     }
 
     /// <summary>
-    /// Configures default data for database from the FactoryGame JSON.
+    /// Configures default data about buildings.
     /// </summary>
-    private static void ImportDataFromJson(ModelBuilder modelBuilder)
+    private static List<BuildableManufacturerDescriptor> ImportBuildings(ModelBuilder modelBuilder, FactoryGameReader reader)
     {
-        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), ".."), "FactoryGame.json");
+        List<BuildableManufacturerDescriptor> buildings = reader.Read<BuildableManufacturerDescriptor>();
+        modelBuilder.Entity<BuildableManufacturer>()
+            .HasData(BuildableManufacturerMapper.Create().Map<List<BuildableManufacturerDescriptor>, List<BuildableManufacturer>>(buildings));
 
+        return buildings;
+    }
+
+    /// <summary>
+    /// Configures default data about recipes.
+    /// </summary>
+    /// <param name="modelBuilder"></param>
+    /// <param name="reader"></param>
+    /// <param name="buildings"></param>
+    private static void ImportRecipes(ModelBuilder modelBuilder, FactoryGameReader reader, List<BuildableManufacturerDescriptor> buildings)
+    {
+        List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>().Where(r => r.ProducedIn.Any(p => buildings.Any(b => b.ClassName == p.ClassName))).ToList();
+        modelBuilder.Entity<Recipe>().HasData(RecipeMapper.Create(buildings).Map<List<RecipeDescriptor>, List<Recipe>>(recipes));
+
+        List<RecipeIngredient> ingredients = new();
+        List<RecipeProduct> products = new();
+        foreach (RecipeDescriptor recipe in recipes)
+        {
+            ingredients.AddRange(RecipeIngredientMapper.Create(recipe).Map<RecipeDescriptor.Part[], List<RecipeIngredient>>(recipe.Ingredients));
+            products.AddRange(RecipeProductMapper.Create(recipe).Map<RecipeDescriptor.Part[], List<RecipeProduct>>(recipe.Products));
+        }
+
+        modelBuilder.Entity<RecipeIngredient>().HasData(ingredients);
+        modelBuilder.Entity<RecipeProduct>().HasData(products);
+    }
+
+    /// <summary>
+    /// Configures default item data.
+    /// </summary>
+    /// <param name="modelBuilder"></param>
+    /// <param name="reader"></param>
+    private static void ImportItems(ModelBuilder modelBuilder, FactoryGameReader reader)
+    {
         List<ItemDescriptor> items = reader.Read<ItemDescriptor>();
         List<ResourceDescriptor> resources = reader.Read<ResourceDescriptor>();
         List<ItemDescriptorBiomass> biomasses = reader.Read<ItemDescriptorBiomass>();
@@ -81,23 +121,5 @@ public class GameDataContext : DbContext
         mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeInstantHit>, List<Item>>(instantHits));
         mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeColorCartridge>, List<Item>>(colorCartridges));
         modelBuilder.Entity<Item>().HasData(mappedItems);
-
-        List<BuildableManufacturerDescriptor> buildings = reader.Read<BuildableManufacturerDescriptor>();
-        modelBuilder.Entity<BuildableManufacturer>()
-            .HasData(BuildableManufacturerMapper.Create().Map<List<BuildableManufacturerDescriptor>, List<BuildableManufacturer>>(buildings));
-
-        List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>().Where(r => r.ProducedIn.Any(p => buildings.Any(b => b.ClassName == p.ClassName))).ToList();
-        modelBuilder.Entity<Recipe>().HasData(RecipeMapper.Create(buildings).Map<List<RecipeDescriptor>, List<Recipe>>(recipes));
-
-        List<RecipeIngredient> ingredients = new();
-        List<RecipeProduct> products = new();
-        foreach (RecipeDescriptor recipe in recipes)
-        {
-            ingredients.AddRange(RecipeIngredientMapper.Create(recipe).Map<RecipeDescriptor.Part[], List<RecipeIngredient>>(recipe.Ingredients));
-            products.AddRange(RecipeProductMapper.Create(recipe).Map<RecipeDescriptor.Part[], List<RecipeProduct>>(recipe.Products));
-        }
-
-        modelBuilder.Entity<RecipeIngredient>().HasData(ingredients);
-        modelBuilder.Entity<RecipeProduct>().HasData(products);
     }
 }

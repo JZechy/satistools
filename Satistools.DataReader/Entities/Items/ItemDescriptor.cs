@@ -10,7 +10,7 @@ namespace Satistools.DataReader.Entities.Items;
 /// Description of in-game items.
 /// </summary>
 [DataEntity("Class'/Script/FactoryGame.FGItemDescriptor'")]
-public class ItemDescriptor
+public class ItemDescriptor : IItemDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
 

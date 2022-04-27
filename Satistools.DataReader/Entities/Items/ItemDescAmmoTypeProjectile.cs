@@ -8,7 +8,7 @@ using Satistools.DataReader.Converters.Items;
 namespace Satistools.DataReader.Entities.Items;
 
 [DataEntity("Class'/Script/FactoryGame.FGItemDescAmmoTypeProjectile'")]
-public class ItemDescAmmoTypeProjectile
+public class ItemDescAmmoTypeProjectile : IItemDescriptor
 {
     public string ClassName { get; set; } = string.Empty;
 

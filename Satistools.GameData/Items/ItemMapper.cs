@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Satistools.DataReader.Entities;
 using Satistools.DataReader.Entities.Items;
 
 namespace Satistools.GameData.Items;
@@ -10,50 +9,28 @@ public static class ItemMapper
     {
         return new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<ItemDescriptor, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ResourceDescriptor, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ItemDescriptorBiomass, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ConsumableDescriptor, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<EquipmentDescriptor, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ItemDescAmmoTypeProjectile, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ItemDescriptorNuclearFuel, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ItemDescAmmoTypeInstantHit, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
-            
-            cfg.CreateMap<ItemDescAmmoTypeColorCartridge, Item>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
-                .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
-                .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
+            MapDescriptor<ItemDescriptor>(cfg);
+            MapDescriptor<ResourceDescriptor>(cfg);
+            MapDescriptor<ItemDescriptorBiomass>(cfg);
+            MapDescriptor<ConsumableDescriptor>(cfg);
+            MapDescriptor<EquipmentDescriptor>(cfg);
+            MapDescriptor<ItemDescAmmoTypeProjectile>(cfg);
+            MapDescriptor<ItemDescriptorNuclearFuel>(cfg);
+            MapDescriptor<ItemDescAmmoTypeInstantHit>(cfg);
+            MapDescriptor<ItemDescAmmoTypeColorCartridge>(cfg);
         }).CreateMapper();
+    }
+
+    /// <summary>
+    /// Maps a item descriptor class to Item entity.
+    /// </summary>
+    /// <param name="cfg">Mapper configuration class.</param>
+    /// <typeparam name="TDescriptor">Type of mapped descriptor.</typeparam>
+    private static void MapDescriptor<TDescriptor>(IProfileExpression cfg) where TDescriptor : class, IItemDescriptor
+    {
+        cfg.CreateMap<TDescriptor, Item>()
+            .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
+            .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
+            .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description));
     }
 }
