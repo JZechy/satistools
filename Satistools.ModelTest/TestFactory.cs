@@ -8,11 +8,6 @@ namespace Satistools.ModelTest;
 public abstract class TestFactory
 {
     /// <summary>
-    /// A name of file containing the default connection string.
-    /// </summary>
-    private const string ConnectionStringFile = "connectionString.txt";
-
-    /// <summary>
     /// Collection for building <see cref="IServiceProvider" />
     /// </summary>
     private readonly ServiceCollection _serviceCollection = new();
