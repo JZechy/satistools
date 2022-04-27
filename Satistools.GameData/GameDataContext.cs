@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Satistools.GameData.Buildings;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
 
@@ -10,6 +11,7 @@ public class GameDataContext : DbContext
     public DbSet<Recipe> Recipes { get; set; }
     public DbSet<RecipeIngredient> RecipeIngredients { get; set; }
     public DbSet<RecipeProduct> RecipeProducts { get; set; }
+    public DbSet<BuildableManufacturer> BuildableManufacturers { get; set; }
 
     public GameDataContext(DbContextOptions<GameDataContext> options) : base(options)
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Satistools.GameData.Items;
 
-namespace Satistools.GameData.Configuration;
+namespace Satistools.GameData.Configuration.Items;
 
 /// <summary>
 /// Configuration of <see cref="Item"/> table.

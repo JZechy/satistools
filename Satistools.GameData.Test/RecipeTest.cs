@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Satistools.GameData.Buildings;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
 using Satistools.GameData.Test.SetUp;
@@ -31,8 +32,15 @@ public class RecipeTest : GameDataTest
         {
             Id = "Desc_IronPlateReinforced_C"
         };
+        BuildableManufacturer b = new()
+        {
+            Id = "Build_AssemblerMk1_C",
+            DisplayName = "Assembler",
+            PowerConsumption = 15f,
+            PowerConsumptionExponent = 1.6f
+        };
 
-        await Context.AddRangeAsync(ironPlate, screw, reinforced);
+        await Context.AddRangeAsync(ironPlate, screw, reinforced, b);
         await Context.SaveChangesAsync();
     }
 
@@ -45,6 +53,7 @@ public class RecipeTest : GameDataTest
             DisplayName = "Reinforced Iron Plate",
             ManufactoringDuration = 12f,
             ManualManufacturingMultiplier = 1f,
+            ProducedInId = "Build_AssemblerMk1_C",
             Ingredients = new[]
             {
                 new RecipeIngredient
@@ -82,5 +91,7 @@ public class RecipeTest : GameDataTest
         ingredient.PerMin.Should().Be(30);
 
         retrieved.Products.First().PerMin.Should().Be(5);
+
+        retrieved.ProducedIn.Should().NotBeNull();
     }
 }

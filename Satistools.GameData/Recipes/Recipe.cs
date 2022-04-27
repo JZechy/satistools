@@ -1,4 +1,6 @@
-﻿namespace Satistools.GameData.Recipes;
+﻿using Satistools.GameData.Buildings;
+
+namespace Satistools.GameData.Recipes;
 
 /// <summary>
 /// Represents an in-game recipe.
@@ -24,6 +26,16 @@ public class Recipe
     /// TODO: How this works? is there multipler other than one?
     /// </summary>
     public float ManualManufacturingMultiplier { get; set; }
+
+    /// <summary>
+    /// In which building is the recipe produced.
+    /// </summary>
+    public string ProducedInId { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public BuildableManufacturer ProducedIn { get; set; } = null!;
 
     public ICollection<RecipeIngredient> Ingredients { get; set; } = Array.Empty<RecipeIngredient>();
     public ICollection<RecipeProduct> Products { get; set; } = Array.Empty<RecipeProduct>();

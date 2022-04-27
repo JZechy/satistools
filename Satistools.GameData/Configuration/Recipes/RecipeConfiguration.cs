@@ -10,6 +10,11 @@ public class RecipeConfiguration : IEntityTypeConfiguration<Recipe>
     {
         builder.HasKey(nameof(Recipe.Id));
         builder.Property(p => p.DisplayName).IsRequired();
+        builder.HasOne(e => e.ProducedIn)
+            .WithMany()
+            .HasForeignKey(e => e.ProducedInId)
+            .IsRequired();
+        
         builder.Ignore(p => p.PerMin);
     }
 }
