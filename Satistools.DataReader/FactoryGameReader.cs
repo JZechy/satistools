@@ -26,12 +26,18 @@ public class FactoryGameReader
     private readonly Dictionary<Type, string> _entities;
 
     /// <summary>
+    /// Array of parsed data from the factory game json.
+    /// </summary>
+    private readonly Data[] _jsonData;
+
+    /// <summary>
     /// </summary>
     /// <param name="path">Path to the factorygame file</param>
     public FactoryGameReader(string path)
     {
         _path = path;
         _entities = EntityResolver.Resolve();
+        _jsonData = OpenJson();
     }
 
     /// <summary>
@@ -43,6 +49,7 @@ public class FactoryGameReader
         _path = path;
         _fileName = fileName;
         _entities = EntityResolver.Resolve();
+        _jsonData = OpenJson();
     }
 
     /// <summary>
@@ -51,20 +58,6 @@ public class FactoryGameReader
     /// <returns>List of parsed data.</returns>
     public List<TTargetEntity> Read<TTargetEntity>()
     {
-        string filePath = Path.Combine(_path, _fileName);
-
-        if (!File.Exists(filePath))
-        {
-            throw new FileNotFoundException($"The JSON at '{filePath}' was not found.");
-        }
-
-        FileStream stream = File.OpenRead(filePath);
-        Data[]? fileContent = JsonSerializer.Deserialize<Data[]>(stream);
-        if (fileContent is null)
-        {
-            throw new NullReferenceException($"Data from the file '{fileContent}' could not be read.");
-        }
-
         Type entityType = typeof(TTargetEntity);
         if (!_entities.ContainsKey(entityType))
         {
@@ -72,7 +65,7 @@ public class FactoryGameReader
         }
 
         string nativeClass = _entities[entityType];
-        Data data = fileContent.Single(f => f.NativeClass == nativeClass);
+        Data data = _jsonData.Single(f => f.NativeClass == nativeClass);
 
         JsonSerializerOptions options = new()
         {
@@ -91,5 +84,31 @@ public class FactoryGameReader
         }
 
         return parsedData;
+    }
+
+    /// <summary>
+    /// Opens the file and read initial json data.
+    /// </summary>
+    /// <returns>Parsed initial data for further deserialization.</returns>
+    /// <exception cref="FileNotFoundException">The specified file was not found.</exception>
+    /// <exception cref="NullReferenceException">Data could not be read from the file.</exception>
+    private Data[] OpenJson()
+    {
+        string filePath = Path.Combine(_path, _fileName);
+
+        if (!File.Exists(filePath))
+        {
+            throw new FileNotFoundException($"The JSON at '{filePath}' was not found.");
+        }
+
+        
+        using FileStream stream = File.OpenRead(filePath);
+        Data[]? fileContent = JsonSerializer.Deserialize<Data[]>(stream);
+        if (fileContent is null)
+        {
+            throw new NullReferenceException($"Data from the file '{fileContent}' could not be read.");
+        }
+
+        return fileContent;
     }
 }

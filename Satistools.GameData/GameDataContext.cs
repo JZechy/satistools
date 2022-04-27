@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Satistools.DataReader;
-using Satistools.DataReader.Entities;
 using Satistools.DataReader.Entities.Buildings;
 using Satistools.DataReader.Entities.Items;
 using Satistools.DataReader.Entities.Recipes;
