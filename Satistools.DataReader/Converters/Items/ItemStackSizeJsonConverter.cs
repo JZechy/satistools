@@ -14,6 +14,7 @@ public class ItemStackSizeJsonConverter : JsonConverter<ItemStackSize>
             "SS_BIG" => ItemStackSize.Big,
             "SS_MEDIUM" => ItemStackSize.Medium,
             "SS_SMALL" => ItemStackSize.Small,
+            "SS_FLUID" => ItemStackSize.Fluid,
             _ => ItemStackSize.NotAvailable
         };
     }

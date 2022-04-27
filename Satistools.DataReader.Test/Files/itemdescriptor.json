@@ -3,24 +3,24 @@
     "NativeClass": "Class'/Script/FactoryGame.FGItemDescriptor'",
     "Classes": [
       {
-        "ClassName": "Desc_NuclearWaste_C",
-        "mDisplayName": "Uranium Waste",
-        "mDescription": "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.",
-        "mAbbreviatedDisplayName": "",
-        "mStackSize": "SS_HUGE",
-        "mCanBeDiscarded": "False",
-        "mRememberPickUp": "False",
-        "mEnergyValue": "0.000000",
-        "mRadioactiveDecay": "10.000000",
-        "mForm": "RF_SOLID",
-        "mSmallIcon": "Texture2D /Game/FactoryGame/Resource/Parts/NuclearWaste/UI/IconDesc_NuclearWaste_64.IconDesc_NuclearWaste_64",
-        "mPersistentBigIcon": "Texture2D /Game/FactoryGame/Resource/Parts/NuclearWaste/UI/IconDesc_NuclearWaste_256.IconDesc_NuclearWaste_256",
-        "mSubCategories": "",
-        "mMenuPriority": "0.000000",
-        "mFluidColor": "(B=0,G=0,R=0,A=0)",
-        "mGasColor": "(B=0,G=0,R=0,A=0)",
-        "mResourceSinkPoints": "0",
-        "mBuildMenuPriority": "0.000000"
+        "ClassName":"Desc_LiquidTurboFuel_C",
+        "mDisplayName":"Turbofuel",
+        "mDescription":"A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.",
+        "mAbbreviatedDisplayName":"Turbo",
+        "mStackSize":"SS_FLUID",
+        "mCanBeDiscarded":"True",
+        "mRememberPickUp":"False",
+        "mEnergyValue":"2.000000",
+        "mRadioactiveDecay":"0.000000",
+        "mForm":"RF_LIQUID",
+        "mSmallIcon":"Texture2D /Game/FactoryGame/Resource/Parts/Turbofuel/UI/IconDesc_LiquidTurboFuel_Pipe_256.IconDesc_LiquidTurboFuel_Pipe_256",
+        "mPersistentBigIcon":"Texture2D /Game/FactoryGame/Resource/Parts/Turbofuel/UI/IconDesc_LiquidTurboFuel_Pipe_512.IconDesc_LiquidTurboFuel_Pipe_512",
+        "mSubCategories":"",
+        "mMenuPriority":"0.000000",
+        "mFluidColor":"(B=46,G=41,R=212,A=255)",
+        "mGasColor":"(B=0,G=0,R=0,A=0)",
+        "mResourceSinkPoints":"225",
+        "mBuildMenuPriority":"0.000000"
       }
     ]
   }

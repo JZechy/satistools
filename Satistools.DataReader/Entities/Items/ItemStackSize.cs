@@ -6,5 +6,6 @@ public enum ItemStackSize
     Huge,
     Big,
     Medium,
-    Small
+    Small,
+    Fluid
 }

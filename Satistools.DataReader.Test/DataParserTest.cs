@@ -22,12 +22,12 @@ public class DataParserTest
         items.Should().HaveCount(1);
 
         ItemDescriptor item = items.First();
-        item.DisplayName.Should().Be("Uranium Waste");
-        item.ClassName.Should().Be("Desc_NuclearWaste_C");
-        item.StackSize.Should().Be(ItemStackSize.Huge);
-        item.Form.Should().Be(ItemForm.Solid);
-        item.CanBeDiscarded.Should().BeFalse();
-        item.FluidColor.Equals(Color.FromArgb(0, 0, 0, 0)).Should().BeTrue();
+        item.DisplayName.Should().Be("Turbofuel");
+        item.ClassName.Should().Be("Desc_LiquidTurboFuel_C");
+        item.StackSize.Should().Be(ItemStackSize.Fluid);
+        item.Form.Should().Be(ItemForm.Liquid);
+        item.CanBeDiscarded.Should().BeTrue();
+        item.FluidColor.Equals(Color.FromArgb(255, 212, 41, 46)).Should().BeTrue();
         item.GasColor.Equals(Color.FromArgb(0, 0, 0, 0)).Should().BeTrue();
     }
 
