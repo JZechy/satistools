@@ -11,7 +11,7 @@ public static class EntityResolver
     public static Dictionary<Type, string> Resolve()
     {
         IEnumerable<KeyValuePair<Type, string>> values = AppDomain.CurrentDomain.GetAssemblies()
-            .Where(a => a.FullName is not null && a.FullName!.StartsWith("Satistools.DataReader") && !a.FullName.Contains("Test"))
+            .Where(a => a.FullName is not null && a.FullName.StartsWith("Satistools.DataReader") && !a.FullName.Contains("Test"))
             .SelectMany(a => a.DefinedTypes.Where(t => t.GetCustomAttribute<DataEntityAttribute>() is not null))
             .Select(t => new KeyValuePair<Type, string>(t, t.GetCustomAttribute<DataEntityAttribute>()!.NativeClass));
 

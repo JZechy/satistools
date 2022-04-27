@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E74876
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.ModelTest", "Satistools.ModelTest\Satistools.ModelTest.csproj", "{7680AEEC-B421-445B-A144-ED226614382B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.Web", "Satistools.Web\Satistools.Web.csproj", "{D9906108-E5E6-4485-AD7C-AA24689910DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{7680AEEC-B421-445B-A144-ED226614382B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7680AEEC-B421-445B-A144-ED226614382B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7680AEEC-B421-445B-A144-ED226614382B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9906108-E5E6-4485-AD7C-AA24689910DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9906108-E5E6-4485-AD7C-AA24689910DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9906108-E5E6-4485-AD7C-AA24689910DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9906108-E5E6-4485-AD7C-AA24689910DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{852B5F63-A368-42FB-A2AF-38C8F599D436} = {1B36C950-076F-4D86-9875-87248184E888}
