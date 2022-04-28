@@ -47,7 +47,7 @@ export class Items extends Component<EmptyProps, ItemsState> {
             
         return (
             <>
-                <h1>Items</h1>
+                <h1>Items database</h1>
                 {content}
             </>
         )

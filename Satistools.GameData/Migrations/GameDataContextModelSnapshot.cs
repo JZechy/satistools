@@ -122,6 +122,10 @@ namespace Satistools.GameData.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("BigIcon")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -141,11 +145,18 @@ namespace Satistools.GameData.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<bool>("IsEvent")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsRadioactive")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ResourceSinkPoints")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("SmallIcon")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("StackSize")
                         .HasColumnType("INTEGER");
@@ -158,1861 +169,2326 @@ namespace Satistools.GameData.Migrations
                         new
                         {
                             Id = "Desc_NuclearWaste_C",
+                            BigIcon = "IconDesc_NuclearWaste_256",
                             Description = "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.",
                             DisplayName = "Uranium Waste",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_NuclearWaste_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_PlutoniumWaste_C",
+                            BigIcon = "IconDesc_PlutoniumWaste_256",
                             Description = "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.",
                             DisplayName = "Plutonium Waste",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_PlutoniumWaste_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Cement_C",
+                            BigIcon = "IconDesc_Concrete_256",
                             Description = "Used for building.\r\nGood for stable foundations.",
                             DisplayName = "Concrete",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 12,
+                            SmallIcon = "IconDesc_Concrete_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Silica_C",
+                            BigIcon = "IconDesc_Silica_256",
                             Description = "Derived from Raw Quartz. Commonly used to create glass structures, advanced refinement processes, and alternative production of electronics.",
                             DisplayName = "Silica",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 20,
+                            SmallIcon = "IconDesc_Silica_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_IronPlate_C",
+                            BigIcon = "IconDesc_IronPlates_256",
                             Description = "Used for crafting.\r\nOne of the most basic parts.",
                             DisplayName = "Iron Plate",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 6,
+                            SmallIcon = "IconDesc_IronPlates_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_SteelPlate_C",
+                            BigIcon = "IconDesc_SteelBeam_256",
                             Description = "Steel Beams are used most often when constructing a little more advanced buildings.",
                             DisplayName = "Steel Beam",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 64,
+                            SmallIcon = "IconDesc_SteelBeam_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_Battery_C",
+                            BigIcon = "IconDesc_Battery_256",
                             Description = "Primarily used as fuel for Drones and Vehicles.",
                             DisplayName = "Battery",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 465,
+                            SmallIcon = "IconDesc_Battery_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_Fuel_C",
+                            BigIcon = "IconDesc_Fuel_256",
                             Description = "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.",
                             DisplayName = "Packaged Fuel",
                             FluidColorHexa = "#EB7D15FF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 270,
+                            SmallIcon = "IconDesc_Fuel_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_TurboFuel_C",
+                            BigIcon = "IconDesc_TurboFuel_256",
                             Description = "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
                             DisplayName = "Packaged Turbofuel",
                             FluidColorHexa = "#D4292EFF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 570,
+                            SmallIcon = "IconDesc_TurboFuel_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_HazmatFilter_C",
+                            BigIcon = "IconDesc_HazmatFilter_256",
                             Description = "Used in hazmat suits to filter out radioactive particles in the air.",
                             DisplayName = "Iodine Infused Filter",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2718,
+                            SmallIcon = "IconDesc_HazmatFilter_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_IronRod_C",
+                            BigIcon = "IconDesc_IronRods_256",
                             Description = "Used for crafting.\r\nOne of the most basic parts.",
                             DisplayName = "Iron Rod",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 4,
+                            SmallIcon = "IconDesc_IronRods_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_Wire_C",
+                            BigIcon = "IconDesc_Wire_256",
                             Description = "Used for crafting.\r\nOne of the most basic parts.",
                             DisplayName = "Wire",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 6,
+                            SmallIcon = "IconDesc_Wire_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Cable_C",
+                            BigIcon = "IconDesc_Cables_256",
                             Description = "Used for crafting.\r\nPrimarily used to build power lines.",
                             DisplayName = "Cable",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 24,
+                            SmallIcon = "IconDesc_Cables_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_CrystalShard_C",
+                            BigIcon = "PowerShard_256",
                             Description = "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.",
                             DisplayName = "Power Shard",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "PowerShard_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Filter_C",
+                            BigIcon = "IconDesc_GasMaskFilter_256",
                             Description = "Used in gas masks to filter out pollutants in the air.",
                             DisplayName = "Gas Filter",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 830,
+                            SmallIcon = "IconDesc_GasMaskFilter_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_HUBParts_C",
+                            BigIcon = "IconDesc_HubParts_256",
                             Description = "The parts required to build the basic structure of the HUB.",
                             DisplayName = "HUB Parts",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_HubParts_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "Desc_IronPlateReinforced_C",
+                            BigIcon = "IconDesc_ReinforcedIronPlates_256",
                             Description = "Used for crafting.\r\nA sturdier and more durable Iron Plate.",
                             DisplayName = "Reinforced Iron Plate",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 120,
+                            SmallIcon = "IconDesc_ReinforcedIronPlates_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_CopperIngot_C",
+                            BigIcon = "IconDesc_CopperIngot_256",
                             Description = "Used for crafting.\r\nCrafted into the most basic parts.",
                             DisplayName = "Copper Ingot",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 6,
+                            SmallIcon = "IconDesc_CopperIngot_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_IronScrew_C",
+                            BigIcon = "IconDesc_IronScrews_256",
                             Description = "Used for crafting.\r\nOne of the most basic parts.",
                             DisplayName = "Screw",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2,
+                            SmallIcon = "IconDesc_IronScrews_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Gift_C",
+                            BigIcon = "IconDesc_Gift_256",
                             Description = "Special FICSMAS buildings and parts can be obtained and produced from this FICSIT Holiday present.\r\n\r\n*Watch the sky for deliveries from orbit!",
                             DisplayName = "FICSMAS Gift",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Gift_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_CandyCane_C",
+                            BigIcon = "IconDesc_CanePart_256",
                             Description = "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays. \r\n*Disclaimer: Can't be consumed...",
                             DisplayName = "Candy Cane",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_CanePart_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_XmasBranch_C",
+                            BigIcon = "IconDesc_Branch_256",
                             Description = "A special Tree Branch, used to produce parts and buildings during the FICSMAS Event.",
                             DisplayName = "FICSMAS Tree Branch",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Branch_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_XmasBow_C",
+                            BigIcon = "IconDesc_Bow_256",
                             Description = "A fancy Bow, maybe someone can wear this? You certainly can't! Probably, some parts and decorations can be made from this.",
                             DisplayName = "FICSMAS Bow",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Bow_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Snow_C",
+                            BigIcon = "IconDesc_Snow_256",
                             Description = "It's snow. Not the nice, thick, crunchy kind though... more the disgustingly wet, slushy kind... Guess we can make stuff from it.",
                             DisplayName = "Actual Snow",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Snow_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_XmasStar_C",
+                            BigIcon = "IconDesc_Star_256",
                             Description = "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Event, so it's time to get back to work.",
                             DisplayName = "FICSMAS Wonder Star",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Star_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_XmasBall1_C",
+                            BigIcon = "IconDesc_XmasBall_Red_256",
                             Description = "Used for making FICSMAS Decorations.",
                             DisplayName = "Red FICSMAS Ornament",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_XmasBall_Red_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_XmasBall2_C",
+                            BigIcon = "IconDesc_XmasBall_Blue_256",
                             Description = "Again, used for making FICSMAS Decorations.",
                             DisplayName = "Blue FICSMAS Ornament",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_XmasBall_Blue_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_XmasBall3_C",
+                            BigIcon = "IconDesc_XmasBall_Yellow_256",
                             Description = "Still used for making FICSMAS Decorations.",
                             DisplayName = "Copper FICSMAS Ornament",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_XmasBall_Yellow_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_XmasBall4_C",
+                            BigIcon = "IconDesc_XmasBall_Silver_256",
                             Description = "This super special... nope... still just used for making FICSMAS Decorations.",
                             DisplayName = "Iron FICSMAS Ornament",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_XmasBall_Silver_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_XmasBallCluster_C",
+                            BigIcon = "IconDesc_Balls_256",
                             Description = "All the FICSMAS Ornaments smashed together to make even more FICSMAS Decorations!",
                             DisplayName = "FICSMAS Ornament Bundle",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Balls_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_XmasWreath_C",
+                            BigIcon = "IconDesc_Wreath_256",
                             Description = "A decoration used to make decorations. Its use cases are questionable.",
                             DisplayName = "FICSMAS Decoration",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_Wreath_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_ModularFrameFused_C",
+                            BigIcon = "IconDesc_FusedModularFrame_256",
                             Description = "A corrosion resistant, nitride hardened, highly robust, yet lightweight modular frame.",
                             DisplayName = "Fused Modular Frame",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 62840,
+                            SmallIcon = "IconDesc_FusedModularFrame_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_CircuitBoard_C",
+                            BigIcon = "IconDesc_CircuitBoard_256",
                             Description = "Circuit Boards are advanced electronics that are used in a plethora of different ways.",
                             DisplayName = "Circuit Board",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 696,
+                            SmallIcon = "IconDesc_CircuitBoard_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_CopperSheet_C",
+                            BigIcon = "IconDesc_CopperSheet_256",
                             Description = "Used for crafting.\r\nPrimarily used for pipelines due to its high corrosion resistance.",
                             DisplayName = "Copper Sheet",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 24,
+                            SmallIcon = "IconDesc_CopperSheet_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_CrystalOscillator_C",
+                            BigIcon = "IconDesc_CrystalOscillator_256",
                             Description = "A crystal oscillator is an electronic oscillator circuit that uses the mechanical resonance of a vibrating crystal to create an electrical signal with a precise frequency.",
                             DisplayName = "Crystal Oscillator",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 3072,
+                            SmallIcon = "IconDesc_CrystalOscillator_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_1_C",
+                            BigIcon = "IconDesc_SpelevatorPart_1_256",
                             Description = "Project Part #1. Ship with the Space Elevator to complete phases of Project Assembly.",
                             DisplayName = "Smart Plating",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 520,
+                            SmallIcon = "IconDesc_SpelevatorPart_1_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_2_C",
+                            BigIcon = "IconDesc_SpelevatorPart_2_256",
                             Description = "Project Part #2. Ship with the Space Elevator to complete phases of Project Assembly.",
                             DisplayName = "Versatile Framework",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1176,
+                            SmallIcon = "IconDesc_SpelevatorPart_2_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_3_C",
+                            BigIcon = "SpelevatorPart_3_256",
                             Description = "Project Part #3. Ship with the Space Elevator to complete phases of Project Assembly.",
                             DisplayName = "Automated Wiring",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1440,
+                            SmallIcon = "SpelevatorPart_3_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_4_C",
+                            BigIcon = "IconDesc_SpelevatorPart_4_256",
                             Description = "Project Part #4. Ship with the Space Elevator to complete phases of Project Assembly.",
                             DisplayName = "Modular Engine",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 9960,
+                            SmallIcon = "IconDesc_SpelevatorPart_4_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_PackagedWater_C",
+                            BigIcon = "IconDesc_PackagedWater_256",
                             Description = "Water, packaged for alternative transport.",
                             DisplayName = "Packaged Water",
                             FluidColorHexa = "#7AB0D4FF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 130,
+                            SmallIcon = "IconDesc_PackagedWater_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_5_C",
+                            BigIcon = "IconDesc_SpelevatorPart_5_256",
                             Description = "Project Part #5. Ship with the Space Elevator to complete phases of Project Assembly.",
                             DisplayName = "Adaptive Control Unit",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 86120,
+                            SmallIcon = "IconDesc_SpelevatorPart_5_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_6_C",
+                            BigIcon = "IconDesc_MagneticFieldGenerator_256",
                             Description = "Project Part #7. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThese modular generators use superconducting magnets and vast amounts of electricity to produce an easily expandable and powerful magnetic field.",
                             DisplayName = "Magnetic Field Generator",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 15650,
+                            SmallIcon = "IconDesc_MagneticFieldGenerator_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_7_C",
+                            BigIcon = "IconDesc_AssemblyDirectorSystem_256",
                             Description = "Project Part #6. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThis extremely fast and precise computing system is specifically designed to direct the Project Assembly: Assembly Phase.",
                             DisplayName = "Assembly Director System",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 543632,
+                            SmallIcon = "IconDesc_AssemblyDirectorSystem_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_8_C",
+                            BigIcon = "IconDesc_ThermalPropulsionRocket_256",
                             Description = "Project Part #8. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nUses extreme heat to produce the high pressure plasma required to get Project Assembly into motion.",
                             DisplayName = "Thermal Propulsion Rocket",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 732956,
+                            SmallIcon = "IconDesc_ThermalPropulsionRocket_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpaceElevatorPart_9_C",
+                            BigIcon = "IconDesc_NuclearPasta_256",
                             Description = "Project Part #9. Ship with the Space Elevator to complete phases of Project Assembly.\r\nPower Usage: 500-1500 MW (1000 MW average).\r\n\r\nNuclear Pasta is extremely dense degenerate matter, formed when extreme pressure forces protons and electrons together into neutrons. It is theorized to exist naturally within the crust of neutron stars.",
                             DisplayName = "Nuclear Pasta",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 543424,
+                            SmallIcon = "IconDesc_NuclearPasta_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_IronIngot_C",
+                            BigIcon = "IconDesc_IronIngot_256",
                             Description = "Used for crafting.\r\nCrafted into the most basic parts.",
                             DisplayName = "Iron Ingot",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2,
+                            SmallIcon = "IconDesc_IronIngot_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_AluminumPlate_C",
+                            BigIcon = "IconDesc_AluminiumSheet_256",
                             Description = "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.",
                             DisplayName = "Alclad Aluminum Sheet",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 266,
+                            SmallIcon = "IconDesc_AluminiumSheet_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_Motor_C",
+                            BigIcon = "IconDesc_Engine_256",
                             Description = "The Motor creates a mechanical force that is used to move things from machines to vehicles.",
                             DisplayName = "Motor",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1520,
+                            SmallIcon = "IconDesc_Engine_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Rotor_C",
+                            BigIcon = "IconDesc_Rotor_256",
                             Description = "Used for crafting.\r\nThe moving parts of a motor.",
                             DisplayName = "Rotor",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 140,
+                            SmallIcon = "IconDesc_Rotor_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Rubber_C",
+                            BigIcon = "IconDesc_Rubber_256",
                             Description = "Rubber is a material that is very flexible and has a lot of friction.",
                             DisplayName = "Rubber",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 60,
+                            SmallIcon = "IconDesc_Rubber_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_Plastic_C",
+                            BigIcon = "IconDesc_Plastic_256",
                             Description = "A versatile and easy to manufacture material that can be used for a lot of things.",
                             DisplayName = "Plastic",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 75,
+                            SmallIcon = "IconDesc_Plastic_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_SteelPlateReinforced_C",
+                            BigIcon = "IconDesc_EncasedSteelBeam_256",
                             Description = "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.",
                             DisplayName = "Encased Industrial Beam",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 632,
+                            SmallIcon = "IconDesc_EncasedSteelBeam_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_SteelPipe_C",
+                            BigIcon = "IconDesc_SteelPipe_256",
                             Description = "Steel Pipes are used most often when constructing a little more advanced buildings.",
                             DisplayName = "Steel Pipe",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 24,
+                            SmallIcon = "IconDesc_SteelPipe_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_LiquidFuel_C",
+                            BigIcon = "IconDesc_LiquidFuel_Pipe_512",
                             Description = "Fuel can be used to generate power or packaged to be used as fuel for Vehicles or the Jetpack.",
                             DisplayName = "Fuel",
                             FluidColorHexa = "#EB7D15FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 75,
+                            SmallIcon = "IconDesc_LiquidFuel_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_PolymerResin_C",
+                            BigIcon = "IconDesc_PolymerResin_256",
                             Description = "Used for crafting.\r\nA by-product of oil refinement into fuel. Commonly used to manufacture plastics.",
                             DisplayName = "Polymer Resin",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 12,
+                            SmallIcon = "IconDesc_PolymerResin_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_HeavyOilResidue_C",
+                            BigIcon = "IconDesc_LiquidHeavyOilResidue_Pipe_512",
                             Description = "A by-product of Plastic and Rubber production. Can be further refined into Fuel and Petroleum Coke.",
                             DisplayName = "Heavy Oil Residue",
                             FluidColorHexa = "#6D2D78FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 30,
+                            SmallIcon = "IconDesc_LiquidHeavyOilResidue_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_PetroleumCoke_C",
+                            BigIcon = "IconDesc_PetroleumCoke_256",
                             Description = "Used for crafting.\r\nA carbon-rich material distilled from Heavy Oil Residue. \r\nUsed as a less efficient coal replacement or for aluminum refinement.",
                             DisplayName = "Petroleum Coke",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 20,
+                            SmallIcon = "IconDesc_PetroleumCoke_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_ModularFrame_C",
+                            BigIcon = "IconDesc_ModularFrame_256",
                             Description = "Used for crafting.\r\nMulti-purpose building block.",
                             DisplayName = "Modular Frame",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 408,
+                            SmallIcon = "IconDesc_ModularFrame_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_FluidCanister_C",
+                            BigIcon = "IconDesc_EmptyCannister_256",
                             Description = "Used to package fluids for transportation.",
                             DisplayName = "Empty Canister",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 60,
+                            SmallIcon = "IconDesc_EmptyCannister_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_ModularFrameHeavy_C",
+                            BigIcon = "IconDesc_ModularFrameHeavy_256",
                             Description = "A more robust multi-purpose frame.",
                             DisplayName = "Heavy Modular Frame",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 11520,
+                            SmallIcon = "IconDesc_ModularFrameHeavy_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_PackagedOil_C",
+                            BigIcon = "Oil_256",
                             Description = "Crude Oil, packaged for alternative transport. Can be used as fuel for Vehicles.",
                             DisplayName = "Packaged Oil",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 180,
+                            SmallIcon = "Oil_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_PackagedOilResidue_C",
+                            BigIcon = "OilResidue_256",
                             Description = "Heavy Oil Residue, packaged for alternative transport. Can be used as fuel for Vehicles.",
                             DisplayName = "Packaged Heavy Oil Residue",
                             FluidColorHexa = "#6D2D78FF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 180,
+                            SmallIcon = "OilResidue_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_SteelIngot_C",
+                            BigIcon = "IconDesc_SteelIngot_256",
                             Description = "Steel Ingots are made from Iron Ore that's been smelted with Coal. They are made into several parts used in building construction.",
                             DisplayName = "Steel Ingot",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 8,
+                            SmallIcon = "IconDesc_SteelIngot_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_AluminaSolution_C",
+                            BigIcon = "LiquidAlumina_Pipe_512",
                             Description = "Dissolved Alumina, extracted from Bauxite. Can be further refined into Aluminum Scrap for Aluminum Ingot production.",
                             DisplayName = "Alumina Solution",
                             FluidColorHexa = "#C1C1C1FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 20,
+                            SmallIcon = "LiquidAlumina_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_AluminumScrap_C",
+                            BigIcon = "IconDesc_AluminiumScrap_256",
                             Description = "Aluminum Scrap is pure aluminum refined from Alumina. Can be smelted down to Aluminum Ingots for industrial usage.",
                             DisplayName = "Aluminum Scrap",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 27,
+                            SmallIcon = "IconDesc_AluminiumScrap_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_SulfuricAcid_C",
+                            BigIcon = "IconDesc_LiquidSulfuricAcid_Pipe_512",
                             Description = "A mineral acid produced by combining Sulfur and Water in a complex reaction. Primarily used in refinement processes and Battery production.",
                             DisplayName = "Sulfuric Acid",
                             FluidColorHexa = "#FFFF00FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 16,
+                            SmallIcon = "IconDesc_LiquidSulfuricAcid_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_UraniumCell_C",
+                            BigIcon = "IconDesc_NuclearCell_256",
                             Description = "Uranium Cells are produced from Uranium Ore. \r\nUsed to produce Uranium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Mildly Radioactive.",
                             DisplayName = "Encased Uranium Cell",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 147,
+                            SmallIcon = "IconDesc_NuclearCell_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_AluminumPlateReinforced_C",
+                            BigIcon = "IconDesc_Heatsink_256",
                             Description = "Used to dissipate heat faster.",
                             DisplayName = "Heat Sink",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2804,
+                            SmallIcon = "IconDesc_Heatsink_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_CoolingSystem_C",
+                            BigIcon = "IconDesc_CoolingSystem_256",
                             Description = "Used to keep temperatures of advanced parts and buildings from exceeding to inefficient levels.",
                             DisplayName = "Cooling System",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 12006,
+                            SmallIcon = "IconDesc_CoolingSystem_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_NitricAcid_C",
+                            BigIcon = "IconDesc_NitricAcid_256",
                             Description = "Produced by reaction of Nitrogen Gas with Water. Its high corrosiveness and oxidizing properties make it an excellent choice for refinement and fuel production processes.",
                             DisplayName = "Nitric Acid",
                             FluidColorHexa = "#D9D9A2FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 94,
+                            SmallIcon = "IconDesc_NitricAcid_64",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_NonFissibleUranium_C",
+                            BigIcon = "IconDesc_NonFissileUranium_256",
                             Description = "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.",
                             DisplayName = "Non-fissile Uranium",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_NonFissileUranium_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_AluminumCasing_C",
+                            BigIcon = "IconDesc_AluminiumCasing_256",
                             Description = "A versatile container cast from Aluminum Ingots.",
                             DisplayName = "Aluminum Casing",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 393,
+                            SmallIcon = "IconDesc_AluminiumCasing_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_ModularFrameLightweight_C",
+                            BigIcon = "IconDesc_RadioControlUnit_256",
                             Description = "Enhances and directs radio signals.",
                             DisplayName = "Radio Control Unit",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 32908,
+                            SmallIcon = "IconDesc_RadioControlUnit_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_AluminumIngot_C",
+                            BigIcon = "IconDesc_AluminiumIngot_256",
                             Description = "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.",
                             DisplayName = "Aluminum Ingot",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 131,
+                            SmallIcon = "IconDesc_AluminiumIngot_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Computer_C",
+                            BigIcon = "IconDesc_Computer_256",
                             Description = "A Computer is a complex logic machine that is used to control advanced behaviour in machines.",
                             DisplayName = "Computer",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 17260,
+                            SmallIcon = "IconDesc_Computer_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_QuartzCrystal_C",
+                            BigIcon = "IconDesc_QuartzResource_256",
                             Description = "Derived from Raw Quartz. Used in the production of advanced radar technology and high-quality display screens.",
                             DisplayName = "Quartz Crystal",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 50,
+                            SmallIcon = "IconDesc_QuartzResource_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_GoldIngot_C",
+                            BigIcon = "IconDesc_CateriumIngot_256",
                             Description = "Caterium Ingots are smelted from Caterium Ore. Caterium Ingots are mostly used for advanced electronics.",
                             DisplayName = "Caterium Ingot",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 42,
+                            SmallIcon = "IconDesc_CateriumIngot_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_HighSpeedConnector_C",
+                            BigIcon = "IconDesc_HighSpeedConnector_256",
                             Description = "The high-speed connector connects several cables and wires in a very efficient way. Uses a standard pattern so its applications are many and varied.",
                             DisplayName = "High-Speed Connector",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 3776,
+                            SmallIcon = "IconDesc_HighSpeedConnector_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Stator_C",
+                            BigIcon = "IconDesc_Stator_256",
                             Description = "Used for crafting.\r\nThe static parts of a motor.",
                             DisplayName = "Stator",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 240,
+                            SmallIcon = "IconDesc_Stator_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_CircuitBoardHighSpeed_C",
+                            BigIcon = "IconDesc_AILimiter_256",
                             Description = "AI Limiters are super advanced electronics that are used to control AIs and keep them from evolving in malicious ways.",
                             DisplayName = "AI Limiter",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 920,
+                            SmallIcon = "IconDesc_AILimiter_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_HighSpeedWire_C",
+                            BigIcon = "IconDesc_Quickwire_256",
                             Description = "Caterium's high conductivity and resistance to corrosion makes it ideal for small, advanced electronics.",
                             DisplayName = "Quickwire",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 17,
+                            SmallIcon = "IconDesc_Quickwire_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_CompactedCoal_C",
+                            BigIcon = "IconDesc_CompactedCoal_256",
                             Description = "A much more efficient alternative for Coal. Used as fuel for vehicles & coal generators.",
                             DisplayName = "Compacted Coal",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 28,
+                            SmallIcon = "IconDesc_CompactedCoal_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_LiquidTurboFuel_C",
+                            BigIcon = "IconDesc_LiquidTurboFuel_Pipe_512",
                             Description = "A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.",
                             DisplayName = "Turbofuel",
                             FluidColorHexa = "#D4292EFF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 225,
+                            SmallIcon = "IconDesc_LiquidTurboFuel_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_ComputerSuper_C",
+                            BigIcon = "IconDesc_SuperComputer_256",
                             Description = "The supercomputer is the next-gen version of the computer.",
                             DisplayName = "Supercomputer",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 99576,
+                            SmallIcon = "IconDesc_SuperComputer_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_GasTank_C",
+                            BigIcon = "IconDesc_PressureTank_256",
                             Description = "Used to package gases and volatile liquids for transportation.",
                             DisplayName = "Empty Fluid Tank",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 225,
+                            SmallIcon = "IconDesc_PressureTank_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_ElectromagneticControlRod_C",
+                            BigIcon = "IconDesc_ElectromagneticControlRod_256",
                             Description = "Control Rods regulate power output via electromagnetism.",
                             DisplayName = "Electromagnetic Control Rod",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2560,
+                            SmallIcon = "IconDesc_ElectromagneticControlRod_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_PlutoniumCell_C",
+                            BigIcon = "IconDesc_EncasedPlutoniumCell_256",
                             Description = "Plutonium Cells are concrete encased Plutonium Pellets.\r\nUsed to produce Plutonium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Moderately Radioactive.",
                             DisplayName = "Encased Plutonium Cell",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_EncasedPlutoniumCell_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_PlutoniumPellet_C",
+                            BigIcon = "IconDesc_PlutoniumPellet_256",
                             Description = "Produced in the Particle Accelerator through conversion of Non-fissile Uranium.\r\nUsed to produce Encased Plutonium Cells for Plutonium Fuel Rods.\r\n\r\nPower Usage: 250-750 MW (500 MW average).\r\nCaution: Moderately Radioactive.",
                             DisplayName = "Plutonium Pellet",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_PlutoniumPellet_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_PressureConversionCube_C",
+                            BigIcon = "IconDesc_ConversionCube_256",
                             Description = "Converts outgoing force into internal pressure. Required to contain unstable, high-energy matter.",
                             DisplayName = "Pressure Conversion Cube",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 257312,
+                            SmallIcon = "IconDesc_ConversionCube_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_MotorLightweight_C",
+                            BigIcon = "IconDesc_TurboMotor_256",
                             Description = "The Turbo Motor is a more complex, and more powerful, version of the regular Motor.",
                             DisplayName = "Turbo Motor",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 242720,
+                            SmallIcon = "IconDesc_TurboMotor_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_CopperDust_C",
+                            BigIcon = "IconDesc_CopperDust_256",
                             Description = "Ground down Copper Ingots.\r\nThe high natural density of Copper, combined with the granularity of the powder, make this part fit for producing Nuclear Pasta in the Particle Accelerator.",
                             DisplayName = "Copper Powder",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 72,
+                            SmallIcon = "IconDesc_CopperDust_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Gunpowder_C",
+                            BigIcon = "IconDesc_Gunpowder_256",
                             Description = "An explosive powder that is commonly used in explosives and cartridges.",
                             DisplayName = "Black Powder",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 50,
+                            SmallIcon = "IconDesc_Gunpowder_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Crystal_C",
+                            BigIcon = "PowerSlugGreen_256",
                             Description = "A strange slug radiating a weak strange power.",
                             DisplayName = "Blue Power Slug",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "PowerSlugGreen_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Crystal_mk2_C",
+                            BigIcon = "PowerSlugYellow_256",
                             Description = "A strange slug radiating a strange power.",
                             DisplayName = "Yellow Power Slug",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "PowerSlugYellow_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Crystal_mk3_C",
+                            BigIcon = "PowerSlugPurple_256",
                             Description = "A strange slug radiating a powerful strange power.",
                             DisplayName = "Purple Power Slug",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "PowerSlugPurple_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Water_C",
+                            BigIcon = "LiquidWater_Pipe_512",
                             Description = "It's water.",
                             DisplayName = "Water",
                             FluidColorHexa = "#7AB0D4FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 5,
+                            SmallIcon = "LiquidWater_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_OreIron_C",
+                            BigIcon = "IconDesc_iron_new_256",
                             Description = "Used for crafting.\r\nThe most essential basic resource.",
                             DisplayName = "Iron Ore",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_iron_new_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_OreCopper_C",
+                            BigIcon = "IconDesc_copper_new_256",
                             Description = "Used for crafting.\r\nBasic resource mainly used for electricity.",
                             DisplayName = "Copper Ore",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 3,
+                            SmallIcon = "IconDesc_copper_new_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Stone_C",
+                            BigIcon = "Stone_256",
                             Description = "Used for crafting.\r\nBasic resource mainly used for stable foundations.",
                             DisplayName = "Limestone",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2,
+                            SmallIcon = "Stone_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Coal_C",
+                            BigIcon = "IconDesc_CoalOre_256",
                             Description = "Mainly used as fuel for vehicles & coal generators and for steel production.",
                             DisplayName = "Coal",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 3,
+                            SmallIcon = "IconDesc_CoalOre_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_LiquidOil_C",
+                            BigIcon = "LiquidOil_Pipe_512",
                             Description = "Crude Oil is refined into all kinds of Oil-based resources, like Fuel and Plastic.",
                             DisplayName = "Crude Oil",
                             FluidColorHexa = "#190019FF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 30,
+                            SmallIcon = "LiquidOil_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_OreBauxite_C",
+                            BigIcon = "IconDesc_Bauxite_256",
                             Description = "Bauxite is used to produce Alumina, which can be further refined into the Aluminum Scrap required to produce Aluminum Ingots.",
                             DisplayName = "Bauxite",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 8,
+                            SmallIcon = "IconDesc_Bauxite_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_OreGold_C",
+                            BigIcon = "IconDesc_CateriumOre_256",
                             Description = "Caterium Ore is smelted into Caterium Ingots. Caterium Ingots are mostly used for advanced electronics.",
                             DisplayName = "Caterium Ore",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 7,
+                            SmallIcon = "IconDesc_CateriumOre_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_OreUranium_C",
+                            BigIcon = "IconDesc_UraniumOre_256",
                             Description = "Uranium is a radioactive element. \r\nUsed to produce Encased Uranium Cells for Uranium Fuel Rods.\r\n\r\nCaution: Moderately Radioactive.",
                             DisplayName = "Uranium",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 35,
+                            SmallIcon = "IconDesc_UraniumOre_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_RawQuartz_C",
+                            BigIcon = "IconDesc_QuartzCrystal_256",
                             Description = "Raw Quartz can be processed into Quartz Crystals and Silica, which both offer a variety of applications.",
                             DisplayName = "Raw Quartz",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 15,
+                            SmallIcon = "IconDesc_QuartzCrystal_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Sulfur_C",
+                            BigIcon = "Sulfur_256",
                             Description = "Sulfur is primarily used for Black Powder.",
                             DisplayName = "Sulfur",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 11,
+                            SmallIcon = "Sulfur_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_NitrogenGas_C",
+                            BigIcon = "LiquidAlumina_Pipe_512",
                             Description = "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.",
                             DisplayName = "Nitrogen Gas",
                             FluidColorHexa = "#595959FF",
                             Form = 0,
                             GasColorHexa = "#FFFFFFFF",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 10,
+                            SmallIcon = "LiquidAlumina_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_Biofuel_C",
+                            BigIcon = "IconDesc_SolidBiofuel_256",
                             Description = "The most energy-efficient form of solid biomass. Can be used as fuel for the Chainsaw.",
                             DisplayName = "Solid Biofuel",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 48,
+                            SmallIcon = "IconDesc_SolidBiofuel_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_PackagedBiofuel_C",
+                            BigIcon = "IconDesc_LiquidBiofuel_256",
                             Description = "Liquid Biofuel, packaged for alternative transport. Can be used as fuel for Vehicles.",
                             DisplayName = "Packaged Liquid Biofuel",
                             FluidColorHexa = "#3A532AFF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 370,
+                            SmallIcon = "IconDesc_LiquidBiofuel_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_FlowerPetals_C",
+                            BigIcon = "FlowerPetals_Final_256",
                             Description = "Used for crafting.\r\nColorful native flower petals.",
                             DisplayName = "Flower Petals",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 10,
+                            SmallIcon = "FlowerPetals_Final_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_GenericBiomass_C",
+                            BigIcon = "IconDesc_Biomass_Final_256",
                             Description = "Primarily used as fuel.\r\nBiomass burners and vehicles can use it for power.\r\nBiomass is much more energy-efficient than raw biological matter.",
                             DisplayName = "Biomass",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 12,
+                            SmallIcon = "IconDesc_Biomass_Final_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_Leaves_C",
+                            BigIcon = "IconDesc_Leaves_256",
                             Description = "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.",
                             DisplayName = "Leaves",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 3,
+                            SmallIcon = "IconDesc_Leaves_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Wood_C",
+                            BigIcon = "IconDesc_Wood_256",
                             Description = "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.",
                             DisplayName = "Wood",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 30,
+                            SmallIcon = "IconDesc_Wood_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_LiquidBiofuel_C",
+                            BigIcon = "IconDesc_LiquidBiofuel_Pipe_512",
                             Description = "Liquid Biofuel can be used to generate power or packaged to be used as fuel for Vehicles.",
                             DisplayName = "Liquid Biofuel",
                             FluidColorHexa = "#3B532CFF",
                             Form = 3,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 261,
+                            SmallIcon = "IconDesc_LiquidBiofuel_Pipe_256",
                             StackSize = 0
                         },
                         new
                         {
                             Id = "Desc_PackagedAlumina_C",
+                            BigIcon = "IconDesc_PackagedAluminaSolution_256",
                             Description = "Alumina Solution, packaged for alternative transport.",
                             DisplayName = "Packaged Alumina Solution",
                             FluidColorHexa = "#3A532AFF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 160,
+                            SmallIcon = "IconDesc_PackagedAluminaSolution_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Fabric_C",
+                            BigIcon = "IconDesc_Fabric_256",
                             Description = "Used for equipment crafting.\r\nFlexible but durable fabric.",
                             DisplayName = "Fabric",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 140,
+                            SmallIcon = "IconDesc_Fabric_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Mycelia_C",
+                            BigIcon = "IconDesc_Mycelia_256",
                             Description = "Used for crafting.\r\nBiomass Burners and vehicles can use it for power.",
                             DisplayName = "Mycelia",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 10,
+                            SmallIcon = "IconDesc_Mycelia_64",
                             StackSize = 200
                         },
                         new
                         {
                             Id = "Desc_PackagedSulfuricAcid_C",
+                            BigIcon = "IconDesc_PckagedSulphuricAcid_256",
                             Description = "Sulfuric Acid, packaged for alternative transport.",
                             DisplayName = "Packaged Sulfuric Acid",
                             FluidColorHexa = "#3A532AFF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 152,
+                            SmallIcon = "IconDesc_PckagedSulphuricAcid_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_PackagedNitrogenGas_C",
+                            BigIcon = "IconDesc_PackagedNitrogen_256",
                             Description = "Nitrogen Gas, packaged for alternative transport.",
                             DisplayName = "Packaged Nitrogen Gas",
                             FluidColorHexa = "#3A532AFF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 312,
+                            SmallIcon = "IconDesc_PackagedNitrogen_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_PackagedNitricAcid_C",
+                            BigIcon = "IconDesc_PackagedNitricAcid_256",
                             Description = "Nitric Acid, packaged for alternative transport.",
                             DisplayName = "Packaged Nitric Acid",
                             FluidColorHexa = "#3A532AFF",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 412,
+                            SmallIcon = "IconDesc_PackagedNitricAcid_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_HogParts_C",
+                            BigIcon = "IconDesc_HogPart_256",
                             Description = "Thick and sturdy natural armor plates from alien creatures.",
                             DisplayName = "Alien Carapace",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_HogPart_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_SpitterParts_C",
+                            BigIcon = "IconDesc_SpitterPart_256",
                             Description = "Organs from alien creatures.",
                             DisplayName = "Alien Organs",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_SpitterPart_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Berry_C",
+                            BigIcon = "IconDesc_Berry_256",
                             Description = "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore one health segment.",
                             DisplayName = "Paleberry",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_Berry_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Shroom_C",
+                            BigIcon = "Mushroom_256",
                             Description = "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore two health segments.",
                             DisplayName = "Bacon Agaric",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "Mushroom_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Nut_C",
+                            BigIcon = "Nut_256_New",
                             Description = "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore half a health segment.",
                             DisplayName = "Beryl Nut",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "Nut_64_new",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Medkit_C",
+                            BigIcon = "Inhaler_256",
                             Description = "Slot: Hands\r\nConsumable\r\n\r\nCan be inhaled to fully restore health.",
                             DisplayName = "Medicinal Inhaler",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 67,
+                            SmallIcon = "Inhaler_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorBeacon_C",
+                            BigIcon = "IconDesc_Beacon_256",
                             Description = "Slot: Hands\r\nConsumable\r\n\r\nUsed to mark areas of interest. Displayed on your compass with the color and name you set for it.",
                             DisplayName = "Beacon",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 320,
+                            SmallIcon = "IconDesc_Beacon_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_Parachute_C",
+                            BigIcon = "Parachute_256",
                             Description = "Slot: Body\r\nConsumable\r\n\r\nSlows down your fall when activated in mid-air.",
                             DisplayName = "Parachute",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 608,
+                            SmallIcon = "Parachute_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Chainsaw_C",
+                            BigIcon = "IconDesc_Chainsaw_256",
                             Description = "Slot: Hands\r\nFuel: Biofuel\r\n\r\nUsed to clear an area of flora that is too difficult to remove by hand.",
                             DisplayName = "Chainsaw",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 2760,
+                            SmallIcon = "IconDesc_Chainsaw_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "Desc_GolfCart_C",
+                            BigIcon = "IconDesc_GolfCart_256",
                             Description = "The one and only FICSIT Factory Cart™\r\nNow with special - FICSIT Foundation only - Grip Wheels, for an even smoother and faster factory floor experience!",
                             DisplayName = "Factory Cart™",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1552,
+                            SmallIcon = "IconDesc_GolfCart_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorHazmatSuit_C",
+                            BigIcon = "IconDesc_HazmatSuit_256",
                             Description = "Slot: Body\r\n\r\nShields you from the adverse effects of radiation. \r\nConsumes Iodine Infused Filters from your inventory when you are in radioactive areas.",
                             DisplayName = "Hazmat Suit",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 54100,
+                            SmallIcon = "IconDesc_HazmatSuit_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorJetPack_C",
+                            BigIcon = "Jetpack_256",
                             Description = "Slot: Body\r\n\r\nAllows you to move more freely in the air. Consumes Fuel when used and refills with Fuel from your inventory when you're on the ground.",
                             DisplayName = "Jetpack",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 49580,
+                            SmallIcon = "Jetpack_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorJumpingStilts_C",
+                            BigIcon = "IconDesc_SprintingStilts_256",
                             Description = "Slot: Body\r\n\r\nAn exoskeleton for your lower legs that assists movement, allowing you to sprint faster and jump higher.\r\nAlso dampens the impact of landing.",
                             DisplayName = "Blade Runners",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 4988,
+                            SmallIcon = "IconDesc_SprintingStilts_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "Desc_RebarGunProjectile_C",
+                            BigIcon = "RebarGun_256",
                             Description = "Slot: Hands\r\nAmmo: Spiked Rebar\r\n\r\nImprovised ranged weapon for self defense. Has to be reloaded after each use.",
                             DisplayName = "Rebar Gun",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1968,
+                            SmallIcon = "RebarGun_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorRifle_C",
+                            BigIcon = "RifleMk1_256",
                             Description = "Slot: Hands\r\nAmmo: Rifle Cartridges\r\n\r\nRapid-firing weapon for self-defense.",
                             DisplayName = "Rifle",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 99160,
+                            SmallIcon = "RifleMK1_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorShockShank_C",
+                            BigIcon = "IconDesc_XenoZapper_256",
                             Description = "Slot: Hands\r\n\r\nStandard issue electroshock self defense weapon for melee range.",
                             DisplayName = "Xeno-Zapper",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1880,
+                            SmallIcon = "IconDesc_XenoZapper_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorStunSpear_C",
+                            BigIcon = "ShockBaton_256",
                             Description = "Slot: Hands\r\n\r\nHeavy electroshock self defense weapon for melee range.",
                             DisplayName = "Xeno-Basher",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 18800,
+                            SmallIcon = "ShockBaton_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_ItemDescriptorPortableMiner_C",
+                            BigIcon = "PortableMiner_256",
                             Description = "Slot: Hands\r\n\r\nCan be set up on a resource node to automatically extract the resource. Very limited storage space.",
                             DisplayName = "Portable Miner",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 56,
+                            SmallIcon = "PortableMiner_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorObjectScanner_C",
+                            BigIcon = "ObjectScanner_256",
                             Description = "Slot: Hands\r\n\r\nScans the area for a set item. Beeps at a rate proportional to proximity and direction.",
                             DisplayName = "Object Scanner",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 3080,
+                            SmallIcon = "ObjectScanner_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorGasmask_C",
+                            BigIcon = "GasMask_256",
                             Description = "Slot: Body\r\n\r\nAllows you to breathe normally in poison gas. Consumes Gas Filters from your inventory when you are in poison gas.",
                             DisplayName = "Gas Mask",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 55000,
+                            SmallIcon = "GasMask_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorHoverPack_C",
+                            BigIcon = "IconDesc_Hoverpack_256",
                             Description = "Slot: Body\r\nPower consumption: 100 MW\r\n\r\nAllows for vertical movement and hovering in mid-air to improve building efficiency and factory traversal. Wirelessly connects to nearby power connections, such as Power Poles and Buildings, for power consumption.\r\n\r\nSlow-fall: Hold ascend input after losing connection mid-air.\r\nDisable Hoverpack: Double tap descend input while hovering.",
                             DisplayName = "Hover Pack",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 413920,
+                            SmallIcon = "IconDesc_Hoverpack_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EqDescZipLine_C",
+                            BigIcon = "IconDesc_Zipline_256",
                             Description = "Slot: Hand\r\n\r\nProvides faster traversal in factories by allowing Pioneers to zip along Power lines.\r\nActivate the Zipline and aim at a nearby Power Line to connect to it.",
                             DisplayName = "Zipline",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 5284,
+                            SmallIcon = "IconDesc_Zipline_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorNobeliskDetonator_C",
+                            BigIcon = "Detonator_256",
                             Description = "Slot: Hands\r\nAmmo: Nobelisk\r\n\r\nUsed to blow up cracked boulders, rocks and invasive vegetation.",
                             DisplayName = "Nobelisk Detonator",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 39520,
+                            SmallIcon = "Detonator_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "BP_EquipmentDescriptorCandyCane_C",
+                            BigIcon = "IconDesc_CaneEquipment_256",
                             Description = "Slot: Hands\r\n\r\nHeavy delicious self defense weapon for melee range.",
                             DisplayName = "Candy Cane Basher",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_CaneEquipment_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "Desc_GolfCartGold_C",
+                            BigIcon = "IconDesc_GolfCartGold_256",
                             Description = "The one and only Golden FICSIT Factory Cart™\r\n\r\nYou have now officially ascended. \r\nGo forth now, Master of Spaghetti, God of the Factory, Sinker of Cups, Employee of the Planet... travel in STYLE!",
                             DisplayName = "Golden Factory Cart™",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_GolfCartGold_64",
                             StackSize = 1
                         },
                         new
                         {
                             Id = "Desc_SpikedRebar_C",
+                            BigIcon = "IconDesc_SpikedRebar_256",
                             Description = "Ammo for the Rebar Gun.",
                             DisplayName = "Spiked Rebar",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 8,
+                            SmallIcon = "IconDesc_SpikedRebar_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_Fireworks_Projectile_01_C",
+                            BigIcon = "IconDesc_Rocket01_256",
                             Description = "Merry FICSMAS and a Happy New Year!\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
                             DisplayName = "Sweet Fireworks",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_Rocket01_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Fireworks_Projectile_02_C",
+                            BigIcon = "IconDesc_Rocket02_256",
                             Description = "Fireworks are produced from random ingredients. Primarily used for having a good time.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
                             DisplayName = "Fancy Fireworks",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_Rocket02_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_Fireworks_Projectile_03_C",
+                            BigIcon = "IconDesc_Rocket03_256",
                             Description = "Goes Pfffeeeeew... BOOM! *Sparkle*\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
                             DisplayName = "Sparkly Fireworks",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 0,
+                            SmallIcon = "IconDesc_Rocket03_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_SnowballProjectile_C",
+                            BigIcon = "IconDesc_SnowballProjectile_256",
                             Description = "Compressed dihydrogen monoxide crystals.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!",
                             DisplayName = "Snowball",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = true,
                             IsRadioactive = false,
                             ResourceSinkPoints = 1,
+                            SmallIcon = "IconDesc_SnowballProjectile_64",
                             StackSize = 500
                         },
                         new
                         {
                             Id = "Desc_NobeliskExplosive_C",
+                            BigIcon = "IconDesc_Explosive_256",
                             Description = "Can be used with the Nobelisk Detonator to blow up cracked boulders, vegetation or other vulnerable targets.",
                             DisplayName = "Nobelisk",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 980,
+                            SmallIcon = "IconDesc_Explosive_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_NuclearFuelRod_C",
+                            BigIcon = "IconDesc_NuclearFuelRod_256",
                             Description = "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Uranium Waste when consumed.\r\nCaution: Moderately Radioactive.",
                             DisplayName = "Uranium Fuel Rod",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 44092,
+                            SmallIcon = "IconDesc_NuclearFuelRod_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_PlutoniumFuelRod_C",
+                            BigIcon = "IconDesc_PlutoniumFuelRod_256",
                             Description = "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Plutonium Waste when consumed.\r\nCaution: HIGHLY Radioactive.",
                             DisplayName = "Plutonium Fuel Rod",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = true,
                             ResourceSinkPoints = 153184,
+                            SmallIcon = "IconDesc_PlutoniumFuelRod_64",
                             StackSize = 50
                         },
                         new
                         {
                             Id = "Desc_CartridgeStandard_C",
+                            BigIcon = "Rifle_Magazine_256",
                             Description = "Ammo for the Rifle.",
                             DisplayName = "Rifle Cartridge",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 664,
+                            SmallIcon = "Rifle_Magazine_64",
                             StackSize = 100
                         },
                         new
                         {
                             Id = "Desc_ColorCartridge_C",
+                            BigIcon = "IconDesc_ColorCartridge_256",
                             Description = "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)",
                             DisplayName = "Color Cartridge",
                             FluidColorHexa = "#00000000",
                             Form = 2,
                             GasColorHexa = "#00000000",
+                            IsEvent = false,
                             IsRadioactive = false,
                             ResourceSinkPoints = 10,
+                            SmallIcon = "IconDesc_ColorCartridge_64",
                             StackSize = 200
                         });
                 });

@@ -5,6 +5,34 @@ namespace Satistools.GameData.Items;
 
 public static class ItemMapper
 {
+    /// <summary>
+    /// List of event items.
+    /// </summary>
+    private static readonly string[] EventItems = {
+        "BP_EquipmentDescriptorCandyCane_C",
+        "BP_EquipmentDescriptorSnowballMittens_C",
+        "Desc_CandyCane_C",
+        "Desc_Gift_C",
+        "Desc_Snow_C",
+        "Desc_SnowballProjectile_C",
+        "Desc_XmasBall1_C",
+        "Desc_XmasBall2_C",
+        "Desc_XmasBall3_C",
+        "Desc_XmasBall4_C",
+        "Desc_XmasBallCluster_C",
+        "Desc_XmasBow_C",
+        "Desc_XmasBranch_C",
+        "Desc_XmasStar_C",
+        "Desc_XmasWreath_C",
+        "Desc_CandyCaneDecor_C",
+        "Desc_Snowman_C",
+        "Desc_WreathDecor_C",
+        "Desc_XmassTree_C",
+        "Desc_Fireworks_Projectile_01_C",
+        "Desc_Fireworks_Projectile_02_C",
+        "Desc_Fireworks_Projectile_03_C"
+    };
+    
     public static IMapper Create()
     {
         return new MapperConfiguration(cfg =>
@@ -37,6 +65,9 @@ public static class ItemMapper
             .ForMember(d => d.IsRadioactive, opt => opt.MapFrom(src => src.RadioactiveDecay > 0))
             .ForMember(d => d.FluidColor, opt => opt.MapFrom(src => src.FluidColor))
             .ForMember(d => d.GasColor, opt => opt.MapFrom(src => src.GasColor))
-            .ForMember(d => d.ResourceSinkPoints, opt => opt.MapFrom(src => src.ResourceSinkPoints));
+            .ForMember(d => d.ResourceSinkPoints, opt => opt.MapFrom(src => src.ResourceSinkPoints))
+            .ForMember(d => d.SmallIcon, opt => opt.MapFrom(src => src.SmallIcon))
+            .ForMember(d => d.BigIcon, opt => opt.MapFrom(src => src.PersistentBigIcon))
+            .ForMember(d => d.IsEvent, opt => opt.MapFrom(src => EventItems.Contains(src.ClassName)));
     }
 }

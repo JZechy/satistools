@@ -36,6 +36,9 @@ namespace Satistools.GameData.Migrations
                     IsRadioactive = table.Column<bool>(type: "INTEGER", nullable: false),
                     FluidColorHexa = table.Column<string>(type: "TEXT", nullable: false),
                     GasColorHexa = table.Column<string>(type: "TEXT", nullable: false),
+                    SmallIcon = table.Column<string>(type: "TEXT", nullable: false),
+                    BigIcon = table.Column<string>(type: "TEXT", nullable: false),
+                    IsEvent = table.Column<bool>(type: "INTEGER", nullable: false),
                     ResourceSinkPoints = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -157,778 +160,778 @@ namespace Satistools.GameData.Migrations
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EqDescZipLine_C", "Slot: Hand\r\n\r\nProvides faster traversal in factories by allowing Pioneers to zip along Power lines.\r\nActivate the Zipline and aim at a nearby Power Line to connect to it.", "Zipline", "#00000000", 2, "#00000000", false, 5284, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EqDescZipLine_C", "IconDesc_Zipline_256", "Slot: Hand\r\n\r\nProvides faster traversal in factories by allowing Pioneers to zip along Power lines.\r\nActivate the Zipline and aim at a nearby Power Line to connect to it.", "Zipline", "#00000000", 2, "#00000000", false, false, 5284, "IconDesc_Zipline_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorBeacon_C", "Slot: Hands\r\nConsumable\r\n\r\nUsed to mark areas of interest. Displayed on your compass with the color and name you set for it.", "Beacon", "#00000000", 2, "#00000000", false, 320, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorBeacon_C", "IconDesc_Beacon_256", "Slot: Hands\r\nConsumable\r\n\r\nUsed to mark areas of interest. Displayed on your compass with the color and name you set for it.", "Beacon", "#00000000", 2, "#00000000", false, false, 320, "IconDesc_Beacon_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorCandyCane_C", "Slot: Hands\r\n\r\nHeavy delicious self defense weapon for melee range.", "Candy Cane Basher", "#00000000", 2, "#00000000", false, 1, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorCandyCane_C", "IconDesc_CaneEquipment_256", "Slot: Hands\r\n\r\nHeavy delicious self defense weapon for melee range.", "Candy Cane Basher", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_CaneEquipment_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorGasmask_C", "Slot: Body\r\n\r\nAllows you to breathe normally in poison gas. Consumes Gas Filters from your inventory when you are in poison gas.", "Gas Mask", "#00000000", 2, "#00000000", false, 55000, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorGasmask_C", "GasMask_256", "Slot: Body\r\n\r\nAllows you to breathe normally in poison gas. Consumes Gas Filters from your inventory when you are in poison gas.", "Gas Mask", "#00000000", 2, "#00000000", false, false, 55000, "GasMask_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorHazmatSuit_C", "Slot: Body\r\n\r\nShields you from the adverse effects of radiation. \r\nConsumes Iodine Infused Filters from your inventory when you are in radioactive areas.", "Hazmat Suit", "#00000000", 2, "#00000000", false, 54100, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorHazmatSuit_C", "IconDesc_HazmatSuit_256", "Slot: Body\r\n\r\nShields you from the adverse effects of radiation. \r\nConsumes Iodine Infused Filters from your inventory when you are in radioactive areas.", "Hazmat Suit", "#00000000", 2, "#00000000", false, false, 54100, "IconDesc_HazmatSuit_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorHoverPack_C", "Slot: Body\r\nPower consumption: 100 MW\r\n\r\nAllows for vertical movement and hovering in mid-air to improve building efficiency and factory traversal. Wirelessly connects to nearby power connections, such as Power Poles and Buildings, for power consumption.\r\n\r\nSlow-fall: Hold ascend input after losing connection mid-air.\r\nDisable Hoverpack: Double tap descend input while hovering.", "Hover Pack", "#00000000", 2, "#00000000", false, 413920, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorHoverPack_C", "IconDesc_Hoverpack_256", "Slot: Body\r\nPower consumption: 100 MW\r\n\r\nAllows for vertical movement and hovering in mid-air to improve building efficiency and factory traversal. Wirelessly connects to nearby power connections, such as Power Poles and Buildings, for power consumption.\r\n\r\nSlow-fall: Hold ascend input after losing connection mid-air.\r\nDisable Hoverpack: Double tap descend input while hovering.", "Hover Pack", "#00000000", 2, "#00000000", false, false, 413920, "IconDesc_Hoverpack_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorJetPack_C", "Slot: Body\r\n\r\nAllows you to move more freely in the air. Consumes Fuel when used and refills with Fuel from your inventory when you're on the ground.", "Jetpack", "#00000000", 2, "#00000000", false, 49580, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorJetPack_C", "Jetpack_256", "Slot: Body\r\n\r\nAllows you to move more freely in the air. Consumes Fuel when used and refills with Fuel from your inventory when you're on the ground.", "Jetpack", "#00000000", 2, "#00000000", false, false, 49580, "Jetpack_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorJumpingStilts_C", "Slot: Body\r\n\r\nAn exoskeleton for your lower legs that assists movement, allowing you to sprint faster and jump higher.\r\nAlso dampens the impact of landing.", "Blade Runners", "#00000000", 2, "#00000000", false, 4988, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorJumpingStilts_C", "IconDesc_SprintingStilts_256", "Slot: Body\r\n\r\nAn exoskeleton for your lower legs that assists movement, allowing you to sprint faster and jump higher.\r\nAlso dampens the impact of landing.", "Blade Runners", "#00000000", 2, "#00000000", false, false, 4988, "IconDesc_SprintingStilts_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorNobeliskDetonator_C", "Slot: Hands\r\nAmmo: Nobelisk\r\n\r\nUsed to blow up cracked boulders, rocks and invasive vegetation.", "Nobelisk Detonator", "#00000000", 2, "#00000000", false, 39520, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorNobeliskDetonator_C", "Detonator_256", "Slot: Hands\r\nAmmo: Nobelisk\r\n\r\nUsed to blow up cracked boulders, rocks and invasive vegetation.", "Nobelisk Detonator", "#00000000", 2, "#00000000", false, false, 39520, "Detonator_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorObjectScanner_C", "Slot: Hands\r\n\r\nScans the area for a set item. Beeps at a rate proportional to proximity and direction.", "Object Scanner", "#00000000", 2, "#00000000", false, 3080, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorObjectScanner_C", "ObjectScanner_256", "Slot: Hands\r\n\r\nScans the area for a set item. Beeps at a rate proportional to proximity and direction.", "Object Scanner", "#00000000", 2, "#00000000", false, false, 3080, "ObjectScanner_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorRifle_C", "Slot: Hands\r\nAmmo: Rifle Cartridges\r\n\r\nRapid-firing weapon for self-defense.", "Rifle", "#00000000", 2, "#00000000", false, 99160, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorRifle_C", "RifleMk1_256", "Slot: Hands\r\nAmmo: Rifle Cartridges\r\n\r\nRapid-firing weapon for self-defense.", "Rifle", "#00000000", 2, "#00000000", false, false, 99160, "RifleMK1_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorShockShank_C", "Slot: Hands\r\n\r\nStandard issue electroshock self defense weapon for melee range.", "Xeno-Zapper", "#00000000", 2, "#00000000", false, 1880, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorShockShank_C", "IconDesc_XenoZapper_256", "Slot: Hands\r\n\r\nStandard issue electroshock self defense weapon for melee range.", "Xeno-Zapper", "#00000000", 2, "#00000000", false, false, 1880, "IconDesc_XenoZapper_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_EquipmentDescriptorStunSpear_C", "Slot: Hands\r\n\r\nHeavy electroshock self defense weapon for melee range.", "Xeno-Basher", "#00000000", 2, "#00000000", false, 18800, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_EquipmentDescriptorStunSpear_C", "ShockBaton_256", "Slot: Hands\r\n\r\nHeavy electroshock self defense weapon for melee range.", "Xeno-Basher", "#00000000", 2, "#00000000", false, false, 18800, "ShockBaton_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "BP_ItemDescriptorPortableMiner_C", "Slot: Hands\r\n\r\nCan be set up on a resource node to automatically extract the resource. Very limited storage space.", "Portable Miner", "#00000000", 2, "#00000000", false, 56, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "BP_ItemDescriptorPortableMiner_C", "PortableMiner_256", "Slot: Hands\r\n\r\nCan be set up on a resource node to automatically extract the resource. Very limited storage space.", "Portable Miner", "#00000000", 2, "#00000000", false, false, 56, "PortableMiner_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_AluminaSolution_C", "Dissolved Alumina, extracted from Bauxite. Can be further refined into Aluminum Scrap for Aluminum Ingot production.", "Alumina Solution", "#C1C1C1FF", 3, "#00000000", false, 20, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_AluminaSolution_C", "LiquidAlumina_Pipe_512", "Dissolved Alumina, extracted from Bauxite. Can be further refined into Aluminum Scrap for Aluminum Ingot production.", "Alumina Solution", "#C1C1C1FF", 3, "#00000000", false, false, 20, "LiquidAlumina_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_AluminumCasing_C", "A versatile container cast from Aluminum Ingots.", "Aluminum Casing", "#00000000", 2, "#00000000", false, 393, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_AluminumCasing_C", "IconDesc_AluminiumCasing_256", "A versatile container cast from Aluminum Ingots.", "Aluminum Casing", "#00000000", 2, "#00000000", false, false, 393, "IconDesc_AluminiumCasing_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_AluminumIngot_C", "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.", "Aluminum Ingot", "#00000000", 2, "#00000000", false, 131, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_AluminumIngot_C", "IconDesc_AluminiumIngot_256", "Aluminum Ingots are made from Aluminum Scrap, which is refined from Alumina Solution.\r\nUsed to produce specialized aluminum-based parts.", "Aluminum Ingot", "#00000000", 2, "#00000000", false, false, 131, "IconDesc_AluminiumIngot_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_AluminumPlate_C", "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.", "Alclad Aluminum Sheet", "#00000000", 2, "#00000000", false, 266, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_AluminumPlate_C", "IconDesc_AluminiumSheet_256", "Thin, lightweight, and highly durable sheets that are mainly used for products that require high heat conduction or a high specific strength.", "Alclad Aluminum Sheet", "#00000000", 2, "#00000000", false, false, 266, "IconDesc_AluminiumSheet_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_AluminumPlateReinforced_C", "Used to dissipate heat faster.", "Heat Sink", "#00000000", 2, "#00000000", false, 2804, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_AluminumPlateReinforced_C", "IconDesc_Heatsink_256", "Used to dissipate heat faster.", "Heat Sink", "#00000000", 2, "#00000000", false, false, 2804, "IconDesc_Heatsink_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_AluminumScrap_C", "Aluminum Scrap is pure aluminum refined from Alumina. Can be smelted down to Aluminum Ingots for industrial usage.", "Aluminum Scrap", "#00000000", 2, "#00000000", false, 27, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_AluminumScrap_C", "IconDesc_AluminiumScrap_256", "Aluminum Scrap is pure aluminum refined from Alumina. Can be smelted down to Aluminum Ingots for industrial usage.", "Aluminum Scrap", "#00000000", 2, "#00000000", false, false, 27, "IconDesc_AluminiumScrap_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Battery_C", "Primarily used as fuel for Drones and Vehicles.", "Battery", "#00000000", 2, "#00000000", false, 465, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Battery_C", "IconDesc_Battery_256", "Primarily used as fuel for Drones and Vehicles.", "Battery", "#00000000", 2, "#00000000", false, false, 465, "IconDesc_Battery_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Berry_C", "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore one health segment.", "Paleberry", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Berry_C", "IconDesc_Berry_256", "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore one health segment.", "Paleberry", "#00000000", 2, "#00000000", false, false, 0, "IconDesc_Berry_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Biofuel_C", "The most energy-efficient form of solid biomass. Can be used as fuel for the Chainsaw.", "Solid Biofuel", "#00000000", 2, "#00000000", false, 48, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Biofuel_C", "IconDesc_SolidBiofuel_256", "The most energy-efficient form of solid biomass. Can be used as fuel for the Chainsaw.", "Solid Biofuel", "#00000000", 2, "#00000000", false, false, 48, "IconDesc_SolidBiofuel_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Cable_C", "Used for crafting.\r\nPrimarily used to build power lines.", "Cable", "#00000000", 2, "#00000000", false, 24, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Cable_C", "IconDesc_Cables_256", "Used for crafting.\r\nPrimarily used to build power lines.", "Cable", "#00000000", 2, "#00000000", false, false, 24, "IconDesc_Cables_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CandyCane_C", "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays. \r\n*Disclaimer: Can't be consumed...", "Candy Cane", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CandyCane_C", "IconDesc_CanePart_256", "A delicious Candy Cane to be enjoyed during the FICSMAS Holidays. \r\n*Disclaimer: Can't be consumed...", "Candy Cane", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_CanePart_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CartridgeStandard_C", "Ammo for the Rifle.", "Rifle Cartridge", "#00000000", 2, "#00000000", false, 664, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CartridgeStandard_C", "Rifle_Magazine_256", "Ammo for the Rifle.", "Rifle Cartridge", "#00000000", 2, "#00000000", false, false, 664, "Rifle_Magazine_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Cement_C", "Used for building.\r\nGood for stable foundations.", "Concrete", "#00000000", 2, "#00000000", false, 12, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Cement_C", "IconDesc_Concrete_256", "Used for building.\r\nGood for stable foundations.", "Concrete", "#00000000", 2, "#00000000", false, false, 12, "IconDesc_Concrete_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CircuitBoard_C", "Circuit Boards are advanced electronics that are used in a plethora of different ways.", "Circuit Board", "#00000000", 2, "#00000000", false, 696, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CircuitBoard_C", "IconDesc_CircuitBoard_256", "Circuit Boards are advanced electronics that are used in a plethora of different ways.", "Circuit Board", "#00000000", 2, "#00000000", false, false, 696, "IconDesc_CircuitBoard_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CircuitBoardHighSpeed_C", "AI Limiters are super advanced electronics that are used to control AIs and keep them from evolving in malicious ways.", "AI Limiter", "#00000000", 2, "#00000000", false, 920, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CircuitBoardHighSpeed_C", "IconDesc_AILimiter_256", "AI Limiters are super advanced electronics that are used to control AIs and keep them from evolving in malicious ways.", "AI Limiter", "#00000000", 2, "#00000000", false, false, 920, "IconDesc_AILimiter_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Coal_C", "Mainly used as fuel for vehicles & coal generators and for steel production.", "Coal", "#00000000", 2, "#00000000", false, 3, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Coal_C", "IconDesc_CoalOre_256", "Mainly used as fuel for vehicles & coal generators and for steel production.", "Coal", "#00000000", 2, "#00000000", false, false, 3, "IconDesc_CoalOre_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ColorCartridge_C", "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)", "Color Cartridge", "#00000000", 2, "#00000000", false, 10, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ColorCartridge_C", "IconDesc_ColorCartridge_256", "Used for applying Patterns to structures with the Customizer.\r\n\r\n(Patterns can be purchased in the AWESOME Shop.)", "Color Cartridge", "#00000000", 2, "#00000000", false, false, 10, "IconDesc_ColorCartridge_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CompactedCoal_C", "A much more efficient alternative for Coal. Used as fuel for vehicles & coal generators.", "Compacted Coal", "#00000000", 2, "#00000000", false, 28, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CompactedCoal_C", "IconDesc_CompactedCoal_256", "A much more efficient alternative for Coal. Used as fuel for vehicles & coal generators.", "Compacted Coal", "#00000000", 2, "#00000000", false, false, 28, "IconDesc_CompactedCoal_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Computer_C", "A Computer is a complex logic machine that is used to control advanced behaviour in machines.", "Computer", "#00000000", 2, "#00000000", false, 17260, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Computer_C", "IconDesc_Computer_256", "A Computer is a complex logic machine that is used to control advanced behaviour in machines.", "Computer", "#00000000", 2, "#00000000", false, false, 17260, "IconDesc_Computer_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ComputerSuper_C", "The supercomputer is the next-gen version of the computer.", "Supercomputer", "#00000000", 2, "#00000000", false, 99576, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ComputerSuper_C", "IconDesc_SuperComputer_256", "The supercomputer is the next-gen version of the computer.", "Supercomputer", "#00000000", 2, "#00000000", false, false, 99576, "IconDesc_SuperComputer_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CoolingSystem_C", "Used to keep temperatures of advanced parts and buildings from exceeding to inefficient levels.", "Cooling System", "#00000000", 2, "#00000000", false, 12006, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CoolingSystem_C", "IconDesc_CoolingSystem_256", "Used to keep temperatures of advanced parts and buildings from exceeding to inefficient levels.", "Cooling System", "#00000000", 2, "#00000000", false, false, 12006, "IconDesc_CoolingSystem_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CopperDust_C", "Ground down Copper Ingots.\r\nThe high natural density of Copper, combined with the granularity of the powder, make this part fit for producing Nuclear Pasta in the Particle Accelerator.", "Copper Powder", "#00000000", 2, "#00000000", false, 72, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CopperDust_C", "IconDesc_CopperDust_256", "Ground down Copper Ingots.\r\nThe high natural density of Copper, combined with the granularity of the powder, make this part fit for producing Nuclear Pasta in the Particle Accelerator.", "Copper Powder", "#00000000", 2, "#00000000", false, false, 72, "IconDesc_CopperDust_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CopperIngot_C", "Used for crafting.\r\nCrafted into the most basic parts.", "Copper Ingot", "#00000000", 2, "#00000000", false, 6, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CopperIngot_C", "IconDesc_CopperIngot_256", "Used for crafting.\r\nCrafted into the most basic parts.", "Copper Ingot", "#00000000", 2, "#00000000", false, false, 6, "IconDesc_CopperIngot_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CopperSheet_C", "Used for crafting.\r\nPrimarily used for pipelines due to its high corrosion resistance.", "Copper Sheet", "#00000000", 2, "#00000000", false, 24, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CopperSheet_C", "IconDesc_CopperSheet_256", "Used for crafting.\r\nPrimarily used for pipelines due to its high corrosion resistance.", "Copper Sheet", "#00000000", 2, "#00000000", false, false, 24, "IconDesc_CopperSheet_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Crystal_C", "A strange slug radiating a weak strange power.", "Blue Power Slug", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Crystal_C", "PowerSlugGreen_256", "A strange slug radiating a weak strange power.", "Blue Power Slug", "#00000000", 2, "#00000000", false, false, 0, "PowerSlugGreen_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Crystal_mk2_C", "A strange slug radiating a strange power.", "Yellow Power Slug", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Crystal_mk2_C", "PowerSlugYellow_256", "A strange slug radiating a strange power.", "Yellow Power Slug", "#00000000", 2, "#00000000", false, false, 0, "PowerSlugYellow_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Crystal_mk3_C", "A strange slug radiating a powerful strange power.", "Purple Power Slug", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Crystal_mk3_C", "PowerSlugPurple_256", "A strange slug radiating a powerful strange power.", "Purple Power Slug", "#00000000", 2, "#00000000", false, false, 0, "PowerSlugPurple_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CrystalOscillator_C", "A crystal oscillator is an electronic oscillator circuit that uses the mechanical resonance of a vibrating crystal to create an electrical signal with a precise frequency.", "Crystal Oscillator", "#00000000", 2, "#00000000", false, 3072, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CrystalOscillator_C", "IconDesc_CrystalOscillator_256", "A crystal oscillator is an electronic oscillator circuit that uses the mechanical resonance of a vibrating crystal to create an electrical signal with a precise frequency.", "Crystal Oscillator", "#00000000", 2, "#00000000", false, false, 3072, "IconDesc_CrystalOscillator_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_CrystalShard_C", "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.", "Power Shard", "#00000000", 2, "#00000000", false, 0, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_CrystalShard_C", "PowerShard_256", "Mucus from the power slugs compressed into a solid crystal-like shard. \r\nIt radiates a strange power.", "Power Shard", "#00000000", 2, "#00000000", false, false, 0, "PowerShard_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ElectromagneticControlRod_C", "Control Rods regulate power output via electromagnetism.", "Electromagnetic Control Rod", "#00000000", 2, "#00000000", false, 2560, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ElectromagneticControlRod_C", "IconDesc_ElectromagneticControlRod_256", "Control Rods regulate power output via electromagnetism.", "Electromagnetic Control Rod", "#00000000", 2, "#00000000", false, false, 2560, "IconDesc_ElectromagneticControlRod_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Fabric_C", "Used for equipment crafting.\r\nFlexible but durable fabric.", "Fabric", "#00000000", 2, "#00000000", false, 140, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Fabric_C", "IconDesc_Fabric_256", "Used for equipment crafting.\r\nFlexible but durable fabric.", "Fabric", "#00000000", 2, "#00000000", false, false, 140, "IconDesc_Fabric_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Filter_C", "Used in gas masks to filter out pollutants in the air.", "Gas Filter", "#00000000", 2, "#00000000", false, 830, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Filter_C", "IconDesc_GasMaskFilter_256", "Used in gas masks to filter out pollutants in the air.", "Gas Filter", "#00000000", 2, "#00000000", false, false, 830, "IconDesc_GasMaskFilter_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Fireworks_Projectile_01_C", "Merry FICSMAS and a Happy New Year!\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Sweet Fireworks", "#00000000", 2, "#00000000", false, 0, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Fireworks_Projectile_01_C", "IconDesc_Rocket01_256", "Merry FICSMAS and a Happy New Year!\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Sweet Fireworks", "#00000000", 2, "#00000000", true, false, 0, "IconDesc_Rocket01_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Fireworks_Projectile_02_C", "Fireworks are produced from random ingredients. Primarily used for having a good time.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Fancy Fireworks", "#00000000", 2, "#00000000", false, 0, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Fireworks_Projectile_02_C", "IconDesc_Rocket02_256", "Fireworks are produced from random ingredients. Primarily used for having a good time.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Fancy Fireworks", "#00000000", 2, "#00000000", true, false, 0, "IconDesc_Rocket02_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Fireworks_Projectile_03_C", "Goes Pfffeeeeew... BOOM! *Sparkle*\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Sparkly Fireworks", "#00000000", 2, "#00000000", false, 0, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Fireworks_Projectile_03_C", "IconDesc_Rocket03_256", "Goes Pfffeeeeew... BOOM! *Sparkle*\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Sparkly Fireworks", "#00000000", 2, "#00000000", true, false, 0, "IconDesc_Rocket03_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_FlowerPetals_C", "Used for crafting.\r\nColorful native flower petals.", "Flower Petals", "#00000000", 2, "#00000000", false, 10, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_FlowerPetals_C", "FlowerPetals_Final_256", "Used for crafting.\r\nColorful native flower petals.", "Flower Petals", "#00000000", 2, "#00000000", false, false, 10, "FlowerPetals_Final_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_FluidCanister_C", "Used to package fluids for transportation.", "Empty Canister", "#00000000", 2, "#00000000", false, 60, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_FluidCanister_C", "IconDesc_EmptyCannister_256", "Used to package fluids for transportation.", "Empty Canister", "#00000000", 2, "#00000000", false, false, 60, "IconDesc_EmptyCannister_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Fuel_C", "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.", "Packaged Fuel", "#EB7D15FF", 2, "#00000000", false, 270, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Fuel_C", "IconDesc_Fuel_256", "Fuel, packaged for alternative transport. Can be used as fuel for Vehicles or the Jetpack.", "Packaged Fuel", "#EB7D15FF", 2, "#00000000", false, false, 270, "IconDesc_Fuel_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_GasTank_C", "Used to package gases and volatile liquids for transportation.", "Empty Fluid Tank", "#00000000", 2, "#00000000", false, 225, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_GasTank_C", "IconDesc_PressureTank_256", "Used to package gases and volatile liquids for transportation.", "Empty Fluid Tank", "#00000000", 2, "#00000000", false, false, 225, "IconDesc_PressureTank_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_GenericBiomass_C", "Primarily used as fuel.\r\nBiomass burners and vehicles can use it for power.\r\nBiomass is much more energy-efficient than raw biological matter.", "Biomass", "#00000000", 2, "#00000000", false, 12, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_GenericBiomass_C", "IconDesc_Biomass_Final_256", "Primarily used as fuel.\r\nBiomass burners and vehicles can use it for power.\r\nBiomass is much more energy-efficient than raw biological matter.", "Biomass", "#00000000", 2, "#00000000", false, false, 12, "IconDesc_Biomass_Final_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Gift_C", "Special FICSMAS buildings and parts can be obtained and produced from this FICSIT Holiday present.\r\n\r\n*Watch the sky for deliveries from orbit!", "FICSMAS Gift", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Gift_C", "IconDesc_Gift_256", "Special FICSMAS buildings and parts can be obtained and produced from this FICSIT Holiday present.\r\n\r\n*Watch the sky for deliveries from orbit!", "FICSMAS Gift", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Gift_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_GoldIngot_C", "Caterium Ingots are smelted from Caterium Ore. Caterium Ingots are mostly used for advanced electronics.", "Caterium Ingot", "#00000000", 2, "#00000000", false, 42, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_GoldIngot_C", "IconDesc_CateriumIngot_256", "Caterium Ingots are smelted from Caterium Ore. Caterium Ingots are mostly used for advanced electronics.", "Caterium Ingot", "#00000000", 2, "#00000000", false, false, 42, "IconDesc_CateriumIngot_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_GolfCart_C", "The one and only FICSIT Factory Cart™\r\nNow with special - FICSIT Foundation only - Grip Wheels, for an even smoother and faster factory floor experience!", "Factory Cart™", "#00000000", 2, "#00000000", false, 1552, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_GolfCart_C", "IconDesc_GolfCart_256", "The one and only FICSIT Factory Cart™\r\nNow with special - FICSIT Foundation only - Grip Wheels, for an even smoother and faster factory floor experience!", "Factory Cart™", "#00000000", 2, "#00000000", false, false, 1552, "IconDesc_GolfCart_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_GolfCartGold_C", "The one and only Golden FICSIT Factory Cart™\r\n\r\nYou have now officially ascended. \r\nGo forth now, Master of Spaghetti, God of the Factory, Sinker of Cups, Employee of the Planet... travel in STYLE!", "Golden Factory Cart™", "#00000000", 2, "#00000000", false, 0, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_GolfCartGold_C", "IconDesc_GolfCartGold_256", "The one and only Golden FICSIT Factory Cart™\r\n\r\nYou have now officially ascended. \r\nGo forth now, Master of Spaghetti, God of the Factory, Sinker of Cups, Employee of the Planet... travel in STYLE!", "Golden Factory Cart™", "#00000000", 2, "#00000000", false, false, 0, "IconDesc_GolfCartGold_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Gunpowder_C", "An explosive powder that is commonly used in explosives and cartridges.", "Black Powder", "#00000000", 2, "#00000000", false, 50, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Gunpowder_C", "IconDesc_Gunpowder_256", "An explosive powder that is commonly used in explosives and cartridges.", "Black Powder", "#00000000", 2, "#00000000", false, false, 50, "IconDesc_Gunpowder_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_HazmatFilter_C", "Used in hazmat suits to filter out radioactive particles in the air.", "Iodine Infused Filter", "#00000000", 2, "#00000000", false, 2718, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_HazmatFilter_C", "IconDesc_HazmatFilter_256", "Used in hazmat suits to filter out radioactive particles in the air.", "Iodine Infused Filter", "#00000000", 2, "#00000000", false, false, 2718, "IconDesc_HazmatFilter_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_HeavyOilResidue_C", "A by-product of Plastic and Rubber production. Can be further refined into Fuel and Petroleum Coke.", "Heavy Oil Residue", "#6D2D78FF", 3, "#00000000", false, 30, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_HeavyOilResidue_C", "IconDesc_LiquidHeavyOilResidue_Pipe_512", "A by-product of Plastic and Rubber production. Can be further refined into Fuel and Petroleum Coke.", "Heavy Oil Residue", "#6D2D78FF", 3, "#00000000", false, false, 30, "IconDesc_LiquidHeavyOilResidue_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_HighSpeedConnector_C", "The high-speed connector connects several cables and wires in a very efficient way. Uses a standard pattern so its applications are many and varied.", "High-Speed Connector", "#00000000", 2, "#00000000", false, 3776, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_HighSpeedConnector_C", "IconDesc_HighSpeedConnector_256", "The high-speed connector connects several cables and wires in a very efficient way. Uses a standard pattern so its applications are many and varied.", "High-Speed Connector", "#00000000", 2, "#00000000", false, false, 3776, "IconDesc_HighSpeedConnector_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_HighSpeedWire_C", "Caterium's high conductivity and resistance to corrosion makes it ideal for small, advanced electronics.", "Quickwire", "#00000000", 2, "#00000000", false, 17, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_HighSpeedWire_C", "IconDesc_Quickwire_256", "Caterium's high conductivity and resistance to corrosion makes it ideal for small, advanced electronics.", "Quickwire", "#00000000", 2, "#00000000", false, false, 17, "IconDesc_Quickwire_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_HogParts_C", "Thick and sturdy natural armor plates from alien creatures.", "Alien Carapace", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_HogParts_C", "IconDesc_HogPart_256", "Thick and sturdy natural armor plates from alien creatures.", "Alien Carapace", "#00000000", 2, "#00000000", false, false, 0, "IconDesc_HogPart_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_HUBParts_C", "The parts required to build the basic structure of the HUB.", "HUB Parts", "#00000000", 2, "#00000000", false, 0, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_HUBParts_C", "IconDesc_HubParts_256", "The parts required to build the basic structure of the HUB.", "HUB Parts", "#00000000", 2, "#00000000", false, false, 0, "IconDesc_HubParts_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Chainsaw_C", "Slot: Hands\r\nFuel: Biofuel\r\n\r\nUsed to clear an area of flora that is too difficult to remove by hand.", "Chainsaw", "#00000000", 2, "#00000000", false, 2760, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Chainsaw_C", "IconDesc_Chainsaw_256", "Slot: Hands\r\nFuel: Biofuel\r\n\r\nUsed to clear an area of flora that is too difficult to remove by hand.", "Chainsaw", "#00000000", 2, "#00000000", false, false, 2760, "IconDesc_Chainsaw_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_IronIngot_C", "Used for crafting.\r\nCrafted into the most basic parts.", "Iron Ingot", "#00000000", 2, "#00000000", false, 2, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_IronIngot_C", "IconDesc_IronIngot_256", "Used for crafting.\r\nCrafted into the most basic parts.", "Iron Ingot", "#00000000", 2, "#00000000", false, false, 2, "IconDesc_IronIngot_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_IronPlate_C", "Used for crafting.\r\nOne of the most basic parts.", "Iron Plate", "#00000000", 2, "#00000000", false, 6, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_IronPlate_C", "IconDesc_IronPlates_256", "Used for crafting.\r\nOne of the most basic parts.", "Iron Plate", "#00000000", 2, "#00000000", false, false, 6, "IconDesc_IronPlates_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_IronPlateReinforced_C", "Used for crafting.\r\nA sturdier and more durable Iron Plate.", "Reinforced Iron Plate", "#00000000", 2, "#00000000", false, 120, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_IronPlateReinforced_C", "IconDesc_ReinforcedIronPlates_256", "Used for crafting.\r\nA sturdier and more durable Iron Plate.", "Reinforced Iron Plate", "#00000000", 2, "#00000000", false, false, 120, "IconDesc_ReinforcedIronPlates_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_IronRod_C", "Used for crafting.\r\nOne of the most basic parts.", "Iron Rod", "#00000000", 2, "#00000000", false, 4, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_IronRod_C", "IconDesc_IronRods_256", "Used for crafting.\r\nOne of the most basic parts.", "Iron Rod", "#00000000", 2, "#00000000", false, false, 4, "IconDesc_IronRods_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_IronScrew_C", "Used for crafting.\r\nOne of the most basic parts.", "Screw", "#00000000", 2, "#00000000", false, 2, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_IronScrew_C", "IconDesc_IronScrews_256", "Used for crafting.\r\nOne of the most basic parts.", "Screw", "#00000000", 2, "#00000000", false, false, 2, "IconDesc_IronScrews_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Leaves_C", "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.", "Leaves", "#00000000", 2, "#00000000", false, 3, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Leaves_C", "IconDesc_Leaves_256", "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.", "Leaves", "#00000000", 2, "#00000000", false, false, 3, "IconDesc_Leaves_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_LiquidBiofuel_C", "Liquid Biofuel can be used to generate power or packaged to be used as fuel for Vehicles.", "Liquid Biofuel", "#3B532CFF", 3, "#00000000", false, 261, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_LiquidBiofuel_C", "IconDesc_LiquidBiofuel_Pipe_512", "Liquid Biofuel can be used to generate power or packaged to be used as fuel for Vehicles.", "Liquid Biofuel", "#3B532CFF", 3, "#00000000", false, false, 261, "IconDesc_LiquidBiofuel_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_LiquidFuel_C", "Fuel can be used to generate power or packaged to be used as fuel for Vehicles or the Jetpack.", "Fuel", "#EB7D15FF", 3, "#00000000", false, 75, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_LiquidFuel_C", "IconDesc_LiquidFuel_Pipe_512", "Fuel can be used to generate power or packaged to be used as fuel for Vehicles or the Jetpack.", "Fuel", "#EB7D15FF", 3, "#00000000", false, false, 75, "IconDesc_LiquidFuel_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_LiquidOil_C", "Crude Oil is refined into all kinds of Oil-based resources, like Fuel and Plastic.", "Crude Oil", "#190019FF", 3, "#00000000", false, 30, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_LiquidOil_C", "LiquidOil_Pipe_512", "Crude Oil is refined into all kinds of Oil-based resources, like Fuel and Plastic.", "Crude Oil", "#190019FF", 3, "#00000000", false, false, 30, "LiquidOil_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_LiquidTurboFuel_C", "A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.", "Turbofuel", "#D4292EFF", 3, "#00000000", false, 225, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_LiquidTurboFuel_C", "IconDesc_LiquidTurboFuel_Pipe_512", "A more efficient alternative to Fuel. Can be used to generate power or packaged to be used as fuel for Vehicles.", "Turbofuel", "#D4292EFF", 3, "#00000000", false, false, 225, "IconDesc_LiquidTurboFuel_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Medkit_C", "Slot: Hands\r\nConsumable\r\n\r\nCan be inhaled to fully restore health.", "Medicinal Inhaler", "#00000000", 2, "#00000000", false, 67, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Medkit_C", "Inhaler_256", "Slot: Hands\r\nConsumable\r\n\r\nCan be inhaled to fully restore health.", "Medicinal Inhaler", "#00000000", 2, "#00000000", false, false, 67, "Inhaler_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ModularFrame_C", "Used for crafting.\r\nMulti-purpose building block.", "Modular Frame", "#00000000", 2, "#00000000", false, 408, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ModularFrame_C", "IconDesc_ModularFrame_256", "Used for crafting.\r\nMulti-purpose building block.", "Modular Frame", "#00000000", 2, "#00000000", false, false, 408, "IconDesc_ModularFrame_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ModularFrameFused_C", "A corrosion resistant, nitride hardened, highly robust, yet lightweight modular frame.", "Fused Modular Frame", "#00000000", 2, "#00000000", false, 62840, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ModularFrameFused_C", "IconDesc_FusedModularFrame_256", "A corrosion resistant, nitride hardened, highly robust, yet lightweight modular frame.", "Fused Modular Frame", "#00000000", 2, "#00000000", false, false, 62840, "IconDesc_FusedModularFrame_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ModularFrameHeavy_C", "A more robust multi-purpose frame.", "Heavy Modular Frame", "#00000000", 2, "#00000000", false, 11520, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ModularFrameHeavy_C", "IconDesc_ModularFrameHeavy_256", "A more robust multi-purpose frame.", "Heavy Modular Frame", "#00000000", 2, "#00000000", false, false, 11520, "IconDesc_ModularFrameHeavy_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_ModularFrameLightweight_C", "Enhances and directs radio signals.", "Radio Control Unit", "#00000000", 2, "#00000000", false, 32908, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_ModularFrameLightweight_C", "IconDesc_RadioControlUnit_256", "Enhances and directs radio signals.", "Radio Control Unit", "#00000000", 2, "#00000000", false, false, 32908, "IconDesc_RadioControlUnit_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Motor_C", "The Motor creates a mechanical force that is used to move things from machines to vehicles.", "Motor", "#00000000", 2, "#00000000", false, 1520, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Motor_C", "IconDesc_Engine_256", "The Motor creates a mechanical force that is used to move things from machines to vehicles.", "Motor", "#00000000", 2, "#00000000", false, false, 1520, "IconDesc_Engine_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_MotorLightweight_C", "The Turbo Motor is a more complex, and more powerful, version of the regular Motor.", "Turbo Motor", "#00000000", 2, "#00000000", false, 242720, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_MotorLightweight_C", "IconDesc_TurboMotor_256", "The Turbo Motor is a more complex, and more powerful, version of the regular Motor.", "Turbo Motor", "#00000000", 2, "#00000000", false, false, 242720, "IconDesc_TurboMotor_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Mycelia_C", "Used for crafting.\r\nBiomass Burners and vehicles can use it for power.", "Mycelia", "#00000000", 2, "#00000000", false, 10, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Mycelia_C", "IconDesc_Mycelia_256", "Used for crafting.\r\nBiomass Burners and vehicles can use it for power.", "Mycelia", "#00000000", 2, "#00000000", false, false, 10, "IconDesc_Mycelia_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_NitricAcid_C", "Produced by reaction of Nitrogen Gas with Water. Its high corrosiveness and oxidizing properties make it an excellent choice for refinement and fuel production processes.", "Nitric Acid", "#D9D9A2FF", 3, "#00000000", false, 94, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_NitricAcid_C", "IconDesc_NitricAcid_256", "Produced by reaction of Nitrogen Gas with Water. Its high corrosiveness and oxidizing properties make it an excellent choice for refinement and fuel production processes.", "Nitric Acid", "#D9D9A2FF", 3, "#00000000", false, false, 94, "IconDesc_NitricAcid_64", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_NitrogenGas_C", "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.", "Nitrogen Gas", "#595959FF", 0, "#FFFFFFFF", false, 10, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_NitrogenGas_C", "LiquidAlumina_Pipe_512", "Nitrogen can be used in a variety of ways, such as metallurgy, cooling, and Nitric Acid production. On Massage-2(AB)b, it can be extracted from underground gas wells.", "Nitrogen Gas", "#595959FF", 0, "#FFFFFFFF", false, false, 10, "LiquidAlumina_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_NobeliskExplosive_C", "Can be used with the Nobelisk Detonator to blow up cracked boulders, vegetation or other vulnerable targets.", "Nobelisk", "#00000000", 2, "#00000000", false, 980, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_NobeliskExplosive_C", "IconDesc_Explosive_256", "Can be used with the Nobelisk Detonator to blow up cracked boulders, vegetation or other vulnerable targets.", "Nobelisk", "#00000000", 2, "#00000000", false, false, 980, "IconDesc_Explosive_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_NonFissibleUranium_C", "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.", "Non-fissile Uranium", "#00000000", 2, "#00000000", true, 0, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_NonFissibleUranium_C", "IconDesc_NonFissileUranium_256", "The isotope Uranium-238 is non-fissile, meaning it cannot be used for nuclear fission. It can, however, be conversed into fissile Plutonium in the Particle Accelerator.\r\n\r\nCaution: Mildly Radioactive.", "Non-fissile Uranium", "#00000000", 2, "#00000000", false, true, 0, "IconDesc_NonFissileUranium_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_NuclearFuelRod_C", "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Uranium Waste when consumed.\r\nCaution: Moderately Radioactive.", "Uranium Fuel Rod", "#00000000", 2, "#00000000", true, 44092, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_NuclearFuelRod_C", "IconDesc_NuclearFuelRod_256", "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Uranium Waste when consumed.\r\nCaution: Moderately Radioactive.", "Uranium Fuel Rod", "#00000000", 2, "#00000000", false, true, 44092, "IconDesc_NuclearFuelRod_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_NuclearWaste_C", "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.", "Uranium Waste", "#00000000", 2, "#00000000", true, 0, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_NuclearWaste_C", "IconDesc_NuclearWaste_256", "The by-product of consuming Uranium Fuel Rods in the Nuclear Power Plant.\r\nNon-fissible Uranium can be extracted. Handle with caution.\r\n\r\nCaution: HIGHLY Radioactive.", "Uranium Waste", "#00000000", 2, "#00000000", false, true, 0, "IconDesc_NuclearWaste_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Nut_C", "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore half a health segment.", "Beryl Nut", "#00000000", 2, "#00000000", false, 0, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Nut_C", "Nut_256_New", "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore half a health segment.", "Beryl Nut", "#00000000", 2, "#00000000", false, false, 0, "Nut_64_new", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_OreBauxite_C", "Bauxite is used to produce Alumina, which can be further refined into the Aluminum Scrap required to produce Aluminum Ingots.", "Bauxite", "#00000000", 2, "#00000000", false, 8, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_OreBauxite_C", "IconDesc_Bauxite_256", "Bauxite is used to produce Alumina, which can be further refined into the Aluminum Scrap required to produce Aluminum Ingots.", "Bauxite", "#00000000", 2, "#00000000", false, false, 8, "IconDesc_Bauxite_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_OreCopper_C", "Used for crafting.\r\nBasic resource mainly used for electricity.", "Copper Ore", "#00000000", 2, "#00000000", false, 3, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_OreCopper_C", "IconDesc_copper_new_256", "Used for crafting.\r\nBasic resource mainly used for electricity.", "Copper Ore", "#00000000", 2, "#00000000", false, false, 3, "IconDesc_copper_new_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_OreGold_C", "Caterium Ore is smelted into Caterium Ingots. Caterium Ingots are mostly used for advanced electronics.", "Caterium Ore", "#00000000", 2, "#00000000", false, 7, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_OreGold_C", "IconDesc_CateriumOre_256", "Caterium Ore is smelted into Caterium Ingots. Caterium Ingots are mostly used for advanced electronics.", "Caterium Ore", "#00000000", 2, "#00000000", false, false, 7, "IconDesc_CateriumOre_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_OreIron_C", "Used for crafting.\r\nThe most essential basic resource.", "Iron Ore", "#00000000", 2, "#00000000", false, 1, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_OreIron_C", "IconDesc_iron_new_256", "Used for crafting.\r\nThe most essential basic resource.", "Iron Ore", "#00000000", 2, "#00000000", false, false, 1, "IconDesc_iron_new_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_OreUranium_C", "Uranium is a radioactive element. \r\nUsed to produce Encased Uranium Cells for Uranium Fuel Rods.\r\n\r\nCaution: Moderately Radioactive.", "Uranium", "#00000000", 2, "#00000000", true, 35, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_OreUranium_C", "IconDesc_UraniumOre_256", "Uranium is a radioactive element. \r\nUsed to produce Encased Uranium Cells for Uranium Fuel Rods.\r\n\r\nCaution: Moderately Radioactive.", "Uranium", "#00000000", 2, "#00000000", false, true, 35, "IconDesc_UraniumOre_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedAlumina_C", "Alumina Solution, packaged for alternative transport.", "Packaged Alumina Solution", "#3A532AFF", 2, "#00000000", false, 160, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedAlumina_C", "IconDesc_PackagedAluminaSolution_256", "Alumina Solution, packaged for alternative transport.", "Packaged Alumina Solution", "#3A532AFF", 2, "#00000000", false, false, 160, "IconDesc_PackagedAluminaSolution_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedBiofuel_C", "Liquid Biofuel, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Liquid Biofuel", "#3A532AFF", 2, "#00000000", false, 370, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedBiofuel_C", "IconDesc_LiquidBiofuel_256", "Liquid Biofuel, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Liquid Biofuel", "#3A532AFF", 2, "#00000000", false, false, 370, "IconDesc_LiquidBiofuel_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedNitricAcid_C", "Nitric Acid, packaged for alternative transport.", "Packaged Nitric Acid", "#3A532AFF", 2, "#00000000", false, 412, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedNitricAcid_C", "IconDesc_PackagedNitricAcid_256", "Nitric Acid, packaged for alternative transport.", "Packaged Nitric Acid", "#3A532AFF", 2, "#00000000", false, false, 412, "IconDesc_PackagedNitricAcid_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedNitrogenGas_C", "Nitrogen Gas, packaged for alternative transport.", "Packaged Nitrogen Gas", "#3A532AFF", 2, "#00000000", false, 312, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedNitrogenGas_C", "IconDesc_PackagedNitrogen_256", "Nitrogen Gas, packaged for alternative transport.", "Packaged Nitrogen Gas", "#3A532AFF", 2, "#00000000", false, false, 312, "IconDesc_PackagedNitrogen_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedOil_C", "Crude Oil, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Oil", "#00000000", 2, "#00000000", false, 180, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedOil_C", "Oil_256", "Crude Oil, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Oil", "#00000000", 2, "#00000000", false, false, 180, "Oil_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedOilResidue_C", "Heavy Oil Residue, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Heavy Oil Residue", "#6D2D78FF", 2, "#00000000", false, 180, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedOilResidue_C", "OilResidue_256", "Heavy Oil Residue, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Heavy Oil Residue", "#6D2D78FF", 2, "#00000000", false, false, 180, "OilResidue_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedSulfuricAcid_C", "Sulfuric Acid, packaged for alternative transport.", "Packaged Sulfuric Acid", "#3A532AFF", 2, "#00000000", false, 152, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedSulfuricAcid_C", "IconDesc_PckagedSulphuricAcid_256", "Sulfuric Acid, packaged for alternative transport.", "Packaged Sulfuric Acid", "#3A532AFF", 2, "#00000000", false, false, 152, "IconDesc_PckagedSulphuricAcid_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PackagedWater_C", "Water, packaged for alternative transport.", "Packaged Water", "#7AB0D4FF", 2, "#00000000", false, 130, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PackagedWater_C", "IconDesc_PackagedWater_256", "Water, packaged for alternative transport.", "Packaged Water", "#7AB0D4FF", 2, "#00000000", false, false, 130, "IconDesc_PackagedWater_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Parachute_C", "Slot: Body\r\nConsumable\r\n\r\nSlows down your fall when activated in mid-air.", "Parachute", "#00000000", 2, "#00000000", false, 608, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Parachute_C", "Parachute_256", "Slot: Body\r\nConsumable\r\n\r\nSlows down your fall when activated in mid-air.", "Parachute", "#00000000", 2, "#00000000", false, false, 608, "Parachute_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PetroleumCoke_C", "Used for crafting.\r\nA carbon-rich material distilled from Heavy Oil Residue. \r\nUsed as a less efficient coal replacement or for aluminum refinement.", "Petroleum Coke", "#00000000", 2, "#00000000", false, 20, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PetroleumCoke_C", "IconDesc_PetroleumCoke_256", "Used for crafting.\r\nA carbon-rich material distilled from Heavy Oil Residue. \r\nUsed as a less efficient coal replacement or for aluminum refinement.", "Petroleum Coke", "#00000000", 2, "#00000000", false, false, 20, "IconDesc_PetroleumCoke_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Plastic_C", "A versatile and easy to manufacture material that can be used for a lot of things.", "Plastic", "#00000000", 2, "#00000000", false, 75, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Plastic_C", "IconDesc_Plastic_256", "A versatile and easy to manufacture material that can be used for a lot of things.", "Plastic", "#00000000", 2, "#00000000", false, false, 75, "IconDesc_Plastic_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PlutoniumCell_C", "Plutonium Cells are concrete encased Plutonium Pellets.\r\nUsed to produce Plutonium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Moderately Radioactive.", "Encased Plutonium Cell", "#00000000", 2, "#00000000", true, 0, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PlutoniumCell_C", "IconDesc_EncasedPlutoniumCell_256", "Plutonium Cells are concrete encased Plutonium Pellets.\r\nUsed to produce Plutonium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Moderately Radioactive.", "Encased Plutonium Cell", "#00000000", 2, "#00000000", false, true, 0, "IconDesc_EncasedPlutoniumCell_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PlutoniumFuelRod_C", "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Plutonium Waste when consumed.\r\nCaution: HIGHLY Radioactive.", "Plutonium Fuel Rod", "#00000000", 2, "#00000000", true, 153184, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PlutoniumFuelRod_C", "IconDesc_PlutoniumFuelRod_256", "Used as fuel for the Nuclear Power Plant.\r\n\r\nCaution: Produces radioactive Plutonium Waste when consumed.\r\nCaution: HIGHLY Radioactive.", "Plutonium Fuel Rod", "#00000000", 2, "#00000000", false, true, 153184, "IconDesc_PlutoniumFuelRod_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PlutoniumPellet_C", "Produced in the Particle Accelerator through conversion of Non-fissile Uranium.\r\nUsed to produce Encased Plutonium Cells for Plutonium Fuel Rods.\r\n\r\nPower Usage: 250-750 MW (500 MW average).\r\nCaution: Moderately Radioactive.", "Plutonium Pellet", "#00000000", 2, "#00000000", true, 0, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PlutoniumPellet_C", "IconDesc_PlutoniumPellet_256", "Produced in the Particle Accelerator through conversion of Non-fissile Uranium.\r\nUsed to produce Encased Plutonium Cells for Plutonium Fuel Rods.\r\n\r\nPower Usage: 250-750 MW (500 MW average).\r\nCaution: Moderately Radioactive.", "Plutonium Pellet", "#00000000", 2, "#00000000", false, true, 0, "IconDesc_PlutoniumPellet_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PlutoniumWaste_C", "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.", "Plutonium Waste", "#00000000", 2, "#00000000", true, 0, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PlutoniumWaste_C", "IconDesc_PlutoniumWaste_256", "The by-product of consuming Plutonium Fuel Rods in the Nuclear Power Plant.\r\nNeeds to be stored in a safe location. Handle with caution.\r\n\r\nCaution: EXTREMELY Radioactive.", "Plutonium Waste", "#00000000", 2, "#00000000", false, true, 0, "IconDesc_PlutoniumWaste_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PolymerResin_C", "Used for crafting.\r\nA by-product of oil refinement into fuel. Commonly used to manufacture plastics.", "Polymer Resin", "#00000000", 2, "#00000000", false, 12, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PolymerResin_C", "IconDesc_PolymerResin_256", "Used for crafting.\r\nA by-product of oil refinement into fuel. Commonly used to manufacture plastics.", "Polymer Resin", "#00000000", 2, "#00000000", false, false, 12, "IconDesc_PolymerResin_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_PressureConversionCube_C", "Converts outgoing force into internal pressure. Required to contain unstable, high-energy matter.", "Pressure Conversion Cube", "#00000000", 2, "#00000000", false, 257312, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_PressureConversionCube_C", "IconDesc_ConversionCube_256", "Converts outgoing force into internal pressure. Required to contain unstable, high-energy matter.", "Pressure Conversion Cube", "#00000000", 2, "#00000000", false, false, 257312, "IconDesc_ConversionCube_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_QuartzCrystal_C", "Derived from Raw Quartz. Used in the production of advanced radar technology and high-quality display screens.", "Quartz Crystal", "#00000000", 2, "#00000000", false, 50, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_QuartzCrystal_C", "IconDesc_QuartzResource_256", "Derived from Raw Quartz. Used in the production of advanced radar technology and high-quality display screens.", "Quartz Crystal", "#00000000", 2, "#00000000", false, false, 50, "IconDesc_QuartzResource_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_RawQuartz_C", "Raw Quartz can be processed into Quartz Crystals and Silica, which both offer a variety of applications.", "Raw Quartz", "#00000000", 2, "#00000000", false, 15, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_RawQuartz_C", "IconDesc_QuartzCrystal_256", "Raw Quartz can be processed into Quartz Crystals and Silica, which both offer a variety of applications.", "Raw Quartz", "#00000000", 2, "#00000000", false, false, 15, "IconDesc_QuartzCrystal_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_RebarGunProjectile_C", "Slot: Hands\r\nAmmo: Spiked Rebar\r\n\r\nImprovised ranged weapon for self defense. Has to be reloaded after each use.", "Rebar Gun", "#00000000", 2, "#00000000", false, 1968, 1 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_RebarGunProjectile_C", "RebarGun_256", "Slot: Hands\r\nAmmo: Spiked Rebar\r\n\r\nImprovised ranged weapon for self defense. Has to be reloaded after each use.", "Rebar Gun", "#00000000", 2, "#00000000", false, false, 1968, "RebarGun_64", 1 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Rotor_C", "Used for crafting.\r\nThe moving parts of a motor.", "Rotor", "#00000000", 2, "#00000000", false, 140, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Rotor_C", "IconDesc_Rotor_256", "Used for crafting.\r\nThe moving parts of a motor.", "Rotor", "#00000000", 2, "#00000000", false, false, 140, "IconDesc_Rotor_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Rubber_C", "Rubber is a material that is very flexible and has a lot of friction.", "Rubber", "#00000000", 2, "#00000000", false, 60, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Rubber_C", "IconDesc_Rubber_256", "Rubber is a material that is very flexible and has a lot of friction.", "Rubber", "#00000000", 2, "#00000000", false, false, 60, "IconDesc_Rubber_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Shroom_C", "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore two health segments.", "Bacon Agaric", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Shroom_C", "Mushroom_256", "Slot: Hands\r\nConsumable\r\n\r\nCan be eaten to restore two health segments.", "Bacon Agaric", "#00000000", 2, "#00000000", false, false, 0, "Mushroom_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Silica_C", "Derived from Raw Quartz. Commonly used to create glass structures, advanced refinement processes, and alternative production of electronics.", "Silica", "#00000000", 2, "#00000000", false, 20, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Silica_C", "IconDesc_Silica_256", "Derived from Raw Quartz. Commonly used to create glass structures, advanced refinement processes, and alternative production of electronics.", "Silica", "#00000000", 2, "#00000000", false, false, 20, "IconDesc_Silica_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Snow_C", "It's snow. Not the nice, thick, crunchy kind though... more the disgustingly wet, slushy kind... Guess we can make stuff from it.", "Actual Snow", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Snow_C", "IconDesc_Snow_256", "It's snow. Not the nice, thick, crunchy kind though... more the disgustingly wet, slushy kind... Guess we can make stuff from it.", "Actual Snow", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Snow_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SnowballProjectile_C", "Compressed dihydrogen monoxide crystals.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Snowball", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SnowballProjectile_C", "IconDesc_SnowballProjectile_256", "Compressed dihydrogen monoxide crystals.\r\n\r\nAlternative Nobelisk Ammo. Use G to swap!", "Snowball", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_SnowballProjectile_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_1_C", "Project Part #1. Ship with the Space Elevator to complete phases of Project Assembly.", "Smart Plating", "#00000000", 2, "#00000000", false, 520, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_1_C", "IconDesc_SpelevatorPart_1_256", "Project Part #1. Ship with the Space Elevator to complete phases of Project Assembly.", "Smart Plating", "#00000000", 2, "#00000000", false, false, 520, "IconDesc_SpelevatorPart_1_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_2_C", "Project Part #2. Ship with the Space Elevator to complete phases of Project Assembly.", "Versatile Framework", "#00000000", 2, "#00000000", false, 1176, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_2_C", "IconDesc_SpelevatorPart_2_256", "Project Part #2. Ship with the Space Elevator to complete phases of Project Assembly.", "Versatile Framework", "#00000000", 2, "#00000000", false, false, 1176, "IconDesc_SpelevatorPart_2_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_3_C", "Project Part #3. Ship with the Space Elevator to complete phases of Project Assembly.", "Automated Wiring", "#00000000", 2, "#00000000", false, 1440, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_3_C", "SpelevatorPart_3_256", "Project Part #3. Ship with the Space Elevator to complete phases of Project Assembly.", "Automated Wiring", "#00000000", 2, "#00000000", false, false, 1440, "SpelevatorPart_3_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_4_C", "Project Part #4. Ship with the Space Elevator to complete phases of Project Assembly.", "Modular Engine", "#00000000", 2, "#00000000", false, 9960, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_4_C", "IconDesc_SpelevatorPart_4_256", "Project Part #4. Ship with the Space Elevator to complete phases of Project Assembly.", "Modular Engine", "#00000000", 2, "#00000000", false, false, 9960, "IconDesc_SpelevatorPart_4_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_5_C", "Project Part #5. Ship with the Space Elevator to complete phases of Project Assembly.", "Adaptive Control Unit", "#00000000", 2, "#00000000", false, 86120, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_5_C", "IconDesc_SpelevatorPart_5_256", "Project Part #5. Ship with the Space Elevator to complete phases of Project Assembly.", "Adaptive Control Unit", "#00000000", 2, "#00000000", false, false, 86120, "IconDesc_SpelevatorPart_5_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_6_C", "Project Part #7. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThese modular generators use superconducting magnets and vast amounts of electricity to produce an easily expandable and powerful magnetic field.", "Magnetic Field Generator", "#00000000", 2, "#00000000", false, 15650, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_6_C", "IconDesc_MagneticFieldGenerator_256", "Project Part #7. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThese modular generators use superconducting magnets and vast amounts of electricity to produce an easily expandable and powerful magnetic field.", "Magnetic Field Generator", "#00000000", 2, "#00000000", false, false, 15650, "IconDesc_MagneticFieldGenerator_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_7_C", "Project Part #6. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThis extremely fast and precise computing system is specifically designed to direct the Project Assembly: Assembly Phase.", "Assembly Director System", "#00000000", 2, "#00000000", false, 543632, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_7_C", "IconDesc_AssemblyDirectorSystem_256", "Project Part #6. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nThis extremely fast and precise computing system is specifically designed to direct the Project Assembly: Assembly Phase.", "Assembly Director System", "#00000000", 2, "#00000000", false, false, 543632, "IconDesc_AssemblyDirectorSystem_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_8_C", "Project Part #8. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nUses extreme heat to produce the high pressure plasma required to get Project Assembly into motion.", "Thermal Propulsion Rocket", "#00000000", 2, "#00000000", false, 732956, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_8_C", "IconDesc_ThermalPropulsionRocket_256", "Project Part #8. Ship with the Space Elevator to complete phases of Project Assembly.\r\n\r\nUses extreme heat to produce the high pressure plasma required to get Project Assembly into motion.", "Thermal Propulsion Rocket", "#00000000", 2, "#00000000", false, false, 732956, "IconDesc_ThermalPropulsionRocket_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpaceElevatorPart_9_C", "Project Part #9. Ship with the Space Elevator to complete phases of Project Assembly.\r\nPower Usage: 500-1500 MW (1000 MW average).\r\n\r\nNuclear Pasta is extremely dense degenerate matter, formed when extreme pressure forces protons and electrons together into neutrons. It is theorized to exist naturally within the crust of neutron stars.", "Nuclear Pasta", "#00000000", 2, "#00000000", false, 543424, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpaceElevatorPart_9_C", "IconDesc_NuclearPasta_256", "Project Part #9. Ship with the Space Elevator to complete phases of Project Assembly.\r\nPower Usage: 500-1500 MW (1000 MW average).\r\n\r\nNuclear Pasta is extremely dense degenerate matter, formed when extreme pressure forces protons and electrons together into neutrons. It is theorized to exist naturally within the crust of neutron stars.", "Nuclear Pasta", "#00000000", 2, "#00000000", false, false, 543424, "IconDesc_NuclearPasta_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpikedRebar_C", "Ammo for the Rebar Gun.", "Spiked Rebar", "#00000000", 2, "#00000000", false, 8, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpikedRebar_C", "IconDesc_SpikedRebar_256", "Ammo for the Rebar Gun.", "Spiked Rebar", "#00000000", 2, "#00000000", false, false, 8, "IconDesc_SpikedRebar_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SpitterParts_C", "Organs from alien creatures.", "Alien Organs", "#00000000", 2, "#00000000", false, 0, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SpitterParts_C", "IconDesc_SpitterPart_256", "Organs from alien creatures.", "Alien Organs", "#00000000", 2, "#00000000", false, false, 0, "IconDesc_SpitterPart_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Stator_C", "Used for crafting.\r\nThe static parts of a motor.", "Stator", "#00000000", 2, "#00000000", false, 240, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Stator_C", "IconDesc_Stator_256", "Used for crafting.\r\nThe static parts of a motor.", "Stator", "#00000000", 2, "#00000000", false, false, 240, "IconDesc_Stator_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SteelIngot_C", "Steel Ingots are made from Iron Ore that's been smelted with Coal. They are made into several parts used in building construction.", "Steel Ingot", "#00000000", 2, "#00000000", false, 8, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SteelIngot_C", "IconDesc_SteelIngot_256", "Steel Ingots are made from Iron Ore that's been smelted with Coal. They are made into several parts used in building construction.", "Steel Ingot", "#00000000", 2, "#00000000", false, false, 8, "IconDesc_SteelIngot_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SteelPipe_C", "Steel Pipes are used most often when constructing a little more advanced buildings.", "Steel Pipe", "#00000000", 2, "#00000000", false, 24, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SteelPipe_C", "IconDesc_SteelPipe_256", "Steel Pipes are used most often when constructing a little more advanced buildings.", "Steel Pipe", "#00000000", 2, "#00000000", false, false, 24, "IconDesc_SteelPipe_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SteelPlate_C", "Steel Beams are used most often when constructing a little more advanced buildings.", "Steel Beam", "#00000000", 2, "#00000000", false, 64, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SteelPlate_C", "IconDesc_SteelBeam_256", "Steel Beams are used most often when constructing a little more advanced buildings.", "Steel Beam", "#00000000", 2, "#00000000", false, false, 64, "IconDesc_SteelBeam_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SteelPlateReinforced_C", "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.", "Encased Industrial Beam", "#00000000", 2, "#00000000", false, 632, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SteelPlateReinforced_C", "IconDesc_EncasedSteelBeam_256", "Encased Industrial Beams utilizes the compressive strength of concrete and tensile strength of steel simultaneously.\r\nMostly used as a stable basis for constructing buildings.", "Encased Industrial Beam", "#00000000", 2, "#00000000", false, false, 632, "IconDesc_EncasedSteelBeam_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Stone_C", "Used for crafting.\r\nBasic resource mainly used for stable foundations.", "Limestone", "#00000000", 2, "#00000000", false, 2, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Stone_C", "Stone_256", "Used for crafting.\r\nBasic resource mainly used for stable foundations.", "Limestone", "#00000000", 2, "#00000000", false, false, 2, "Stone_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Sulfur_C", "Sulfur is primarily used for Black Powder.", "Sulfur", "#00000000", 2, "#00000000", false, 11, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Sulfur_C", "Sulfur_256", "Sulfur is primarily used for Black Powder.", "Sulfur", "#00000000", 2, "#00000000", false, false, 11, "Sulfur_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_SulfuricAcid_C", "A mineral acid produced by combining Sulfur and Water in a complex reaction. Primarily used in refinement processes and Battery production.", "Sulfuric Acid", "#FFFF00FF", 3, "#00000000", false, 16, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_SulfuricAcid_C", "IconDesc_LiquidSulfuricAcid_Pipe_512", "A mineral acid produced by combining Sulfur and Water in a complex reaction. Primarily used in refinement processes and Battery production.", "Sulfuric Acid", "#FFFF00FF", 3, "#00000000", false, false, 16, "IconDesc_LiquidSulfuricAcid_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_TurboFuel_C", "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Turbofuel", "#D4292EFF", 2, "#00000000", false, 570, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_TurboFuel_C", "IconDesc_TurboFuel_256", "Turbofuel, packaged for alternative transport. Can be used as fuel for Vehicles.", "Packaged Turbofuel", "#D4292EFF", 2, "#00000000", false, false, 570, "IconDesc_TurboFuel_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_UraniumCell_C", "Uranium Cells are produced from Uranium Ore. \r\nUsed to produce Uranium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Mildly Radioactive.", "Encased Uranium Cell", "#00000000", 2, "#00000000", true, 147, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_UraniumCell_C", "IconDesc_NuclearCell_256", "Uranium Cells are produced from Uranium Ore. \r\nUsed to produce Uranium Fuel Rods for Nuclear Power production.\r\n\r\nCaution: Mildly Radioactive.", "Encased Uranium Cell", "#00000000", 2, "#00000000", false, true, 147, "IconDesc_NuclearCell_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Water_C", "It's water.", "Water", "#7AB0D4FF", 3, "#00000000", false, 5, 0 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Water_C", "LiquidWater_Pipe_512", "It's water.", "Water", "#7AB0D4FF", 3, "#00000000", false, false, 5, "LiquidWater_Pipe_256", 0 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Wire_C", "Used for crafting.\r\nOne of the most basic parts.", "Wire", "#00000000", 2, "#00000000", false, 6, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Wire_C", "IconDesc_Wire_256", "Used for crafting.\r\nOne of the most basic parts.", "Wire", "#00000000", 2, "#00000000", false, false, 6, "IconDesc_Wire_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_Wood_C", "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.", "Wood", "#00000000", 2, "#00000000", false, 30, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_Wood_C", "IconDesc_Wood_256", "Primarily used as fuel.\r\nBiomass Burners and vehicles can use it for power.", "Wood", "#00000000", 2, "#00000000", false, false, 30, "IconDesc_Wood_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBall1_C", "Used for making FICSMAS Decorations.", "Red FICSMAS Ornament", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBall1_C", "IconDesc_XmasBall_Red_256", "Used for making FICSMAS Decorations.", "Red FICSMAS Ornament", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_XmasBall_Red_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBall2_C", "Again, used for making FICSMAS Decorations.", "Blue FICSMAS Ornament", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBall2_C", "IconDesc_XmasBall_Blue_256", "Again, used for making FICSMAS Decorations.", "Blue FICSMAS Ornament", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_XmasBall_Blue_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBall3_C", "Still used for making FICSMAS Decorations.", "Copper FICSMAS Ornament", "#00000000", 2, "#00000000", false, 1, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBall3_C", "IconDesc_XmasBall_Yellow_256", "Still used for making FICSMAS Decorations.", "Copper FICSMAS Ornament", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_XmasBall_Yellow_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBall4_C", "This super special... nope... still just used for making FICSMAS Decorations.", "Iron FICSMAS Ornament", "#00000000", 2, "#00000000", false, 1, 200 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBall4_C", "IconDesc_XmasBall_Silver_256", "This super special... nope... still just used for making FICSMAS Decorations.", "Iron FICSMAS Ornament", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_XmasBall_Silver_64", 200 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBallCluster_C", "All the FICSMAS Ornaments smashed together to make even more FICSMAS Decorations!", "FICSMAS Ornament Bundle", "#00000000", 2, "#00000000", false, 1, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBallCluster_C", "IconDesc_Balls_256", "All the FICSMAS Ornaments smashed together to make even more FICSMAS Decorations!", "FICSMAS Ornament Bundle", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Balls_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBow_C", "A fancy Bow, maybe someone can wear this? You certainly can't! Probably, some parts and decorations can be made from this.", "FICSMAS Bow", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBow_C", "IconDesc_Bow_256", "A fancy Bow, maybe someone can wear this? You certainly can't! Probably, some parts and decorations can be made from this.", "FICSMAS Bow", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Bow_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasBranch_C", "A special Tree Branch, used to produce parts and buildings during the FICSMAS Event.", "FICSMAS Tree Branch", "#00000000", 2, "#00000000", false, 1, 500 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasBranch_C", "IconDesc_Branch_256", "A special Tree Branch, used to produce parts and buildings during the FICSMAS Event.", "FICSMAS Tree Branch", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Branch_64", 500 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasStar_C", "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Event, so it's time to get back to work.", "FICSMAS Wonder Star", "#00000000", 2, "#00000000", false, 1, 50 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasStar_C", "IconDesc_Star_256", "This special FICSMAS Star signifies the productivity of FICSIT all across the universe. It also signifies the fact that you have nearly completed the Holiday Event, so it's time to get back to work.", "FICSMAS Wonder Star", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Star_64", 50 });
 
             migrationBuilder.InsertData(
                 table: "Items",
-                columns: new[] { "Id", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsRadioactive", "ResourceSinkPoints", "StackSize" },
-                values: new object[] { "Desc_XmasWreath_C", "A decoration used to make decorations. Its use cases are questionable.", "FICSMAS Decoration", "#00000000", 2, "#00000000", false, 1, 100 });
+                columns: new[] { "Id", "BigIcon", "Description", "DisplayName", "FluidColorHexa", "Form", "GasColorHexa", "IsEvent", "IsRadioactive", "ResourceSinkPoints", "SmallIcon", "StackSize" },
+                values: new object[] { "Desc_XmasWreath_C", "IconDesc_Wreath_256", "A decoration used to make decorations. Its use cases are questionable.", "FICSMAS Decoration", "#00000000", 2, "#00000000", true, false, 1, "IconDesc_Wreath_64", 100 });
 
             migrationBuilder.InsertData(
                 table: "Recipes",

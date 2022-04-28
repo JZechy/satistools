@@ -27,7 +27,7 @@ public class DatabaseController : ControllerBase
     [Route("items")]
     public async Task<IEnumerable<Item>> GetItems()
     {
-        return await _gameDataContext.Items.OrderBy(i => i.DisplayName).ToListAsync();
+        return await _gameDataContext.Items.Where(i => !i.IsEvent).OrderBy(i => i.DisplayName).ToListAsync();
     }
 
     /// <summary>

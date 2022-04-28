@@ -7,7 +7,10 @@ export type Item = {
     isRadioactive: boolean;
     fluidColorHexa: string;
     gasColorHexa: string;
+    smallIcon: string;
+    bigIcon: string;
     resourceSinkPoints: number;
+    isEvent: boolean;
 }
 
 export enum ItemForm {
