@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
+import {Collapse, Container, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, UncontrolledDropdown} from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 type NavMenuState = {
@@ -27,22 +27,24 @@ export class NavMenu extends Component<any, NavMenuState> {
     render(): JSX.Element {
         return (
             <header>
-                <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" light>
+                <Navbar className="navbar-expand-sm navbar-toggleable-sm mb-5" color="dark" dark>
                     <Container>
                         <NavbarBrand tag={Link} to="/">Satistools.Web</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} className="mr-2"/>
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-                            <ul className="navbar-nav flex-grow">
+                            <Nav className="ms-auto" navbar>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                                    <NavLink tag={Link} to="/">Home</NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
-                                </NavItem>
-                            </ul>
+                                <UncontrolledDropdown inNavbar nav>
+                                    <DropdownToggle nav caret>Database</DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem tag={Link} to="/database/items">
+                                            Items
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
+                            </Nav>
                         </Collapse>
                     </Container>
                 </Navbar>

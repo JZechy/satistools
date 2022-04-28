@@ -1,9 +1,9 @@
 import {Component} from 'react';
 import {Route} from 'react-router';
-import {Layout} from './components/Layout';
-import {Home} from './components/Home';
-import {FetchData} from './components/FetchData';
-import {Counter} from './components/Counter';
+import {Layout} from './components/layout/Layout';
+import {Home} from './pages/Home';
+import {Items} from "./components/database/Items";
+import {ItemDetail} from "./components/database/ItemDetail";
 
 export default class App extends Component {
     static displayName: string = App.name;
@@ -12,8 +12,8 @@ export default class App extends Component {
         return (
             <Layout>
                 <Route exact path='/' component={Home}/>
-                <Route path='/counter' component={Counter}/>
-                <Route path='/fetch-data' component={FetchData}/>
+                <Route exact path='/database/items' component={Items}/>
+                <Route exact path='/database/items/:itemId' render={(props: any) => <ItemDetail id={props.match.params.itemId}/>}/>
             </Layout>
         );
     }
