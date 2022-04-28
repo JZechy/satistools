@@ -15,23 +15,11 @@ public abstract class RecipePart
     /// How many items are needed by this ingredient.
     /// </summary>
     public int Amount { get; set; }
-
-    public Recipe Recipe { get; set; } = null!;
-    public Item Item { get; set; } = null!;
-
+    
     /// <summary>
-    /// Returns how many items are needed per minut.
+    /// How many items are needed or produced per min.
     /// </summary>
-    public float PerMin
-    {
-        get
-        {
-            if (Item.Form == ItemForm.Liquid)
-            {
-                return Recipe.PerMin * Amount / 1000;
-            }
-
-            return Recipe.PerMin * Amount;
-        }
-    }
+    public float AmountPerMin { get; set; }
+    
+    public Item Item { get; set; } = null!;
 }

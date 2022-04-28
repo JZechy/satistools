@@ -44,9 +44,4 @@ public class Recipe
 
     public ICollection<RecipeIngredient> Ingredients { get; set; } = null!;
     public ICollection<RecipeProduct> Products { get; set; } = null!;
-
-    /// <summary>
-    /// Gets the rate to calculate the production per minut.
-    /// </summary>
-    public float PerMin => 60 / ManufactoringDuration;
 }

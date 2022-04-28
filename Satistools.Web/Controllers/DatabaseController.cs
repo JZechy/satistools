@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Satistools.GameData;
 using Satistools.GameData.Items;
+using Satistools.GameData.Recipes;
 
 namespace Satistools.Web.Controllers;
 
@@ -46,5 +47,42 @@ public class DatabaseController : ControllerBase
         }
 
         return Ok(item);
+    }
+
+    /// <summary>
+    /// Gets all recipes which are producing selected items.
+    /// </summary>
+    /// <param name="itemId">Identification of the item.</param>
+    /// <returns>Collection of recipes producing selected item.</returns>
+    [HttpGet]
+    [Route("recipes/whoProduces/{itemId}")]
+    public async Task<ActionResult<ICollection<Recipe>>> GetRecipesProducing(string itemId)
+    {
+        List<Recipe> producers = await (
+            from recipe in _gameDataContext.Recipes
+            join product in _gameDataContext.RecipeProducts on recipe.Id equals product.RecipeId
+            where product.ItemId == itemId
+            select recipe
+        ).Include(r => r.Products).ThenInclude(p => p.Item)
+            .Include(r => r.Ingredients).ThenInclude(p => p.Item)
+            .ToListAsync();
+
+        return Ok(producers);
+    }
+
+    [HttpGet]
+    [Route("recipes/whoUses/{itemId}")]
+    public async Task<ActionResult<ICollection<Recipe>>> GetRecipesUsing(string itemId)
+    {
+        List<Recipe> producers = await (
+            from recipe in _gameDataContext.Recipes
+            join ingredient in _gameDataContext.RecipeIngredients on recipe.Id equals ingredient.RecipeId
+            where ingredient.ItemId == itemId
+            select recipe
+        ).Include(r => r.Products).ThenInclude(p => p.Item)
+            .Include(r => r.Ingredients).ThenInclude(p => p.Item)
+            .ToListAsync();
+
+        return Ok(producers);
     }
 }

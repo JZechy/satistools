@@ -52,9 +52,9 @@ public class GameDataContext : DbContext
         }
 
         FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), ".."), "FactoryGame.json");
-        ImportItems(modelBuilder, reader);
+        List<Item> items = ImportItems(modelBuilder, reader);
         List<BuildableManufacturerDescriptor> buildings = ImportBuildings(modelBuilder, reader);
-        ImportRecipes(modelBuilder, reader, buildings);
+        ImportRecipes(modelBuilder, reader, buildings, items);
     }
 
     /// <summary>
@@ -75,7 +75,8 @@ public class GameDataContext : DbContext
     /// <param name="modelBuilder"></param>
     /// <param name="reader"></param>
     /// <param name="buildings"></param>
-    private static void ImportRecipes(ModelBuilder modelBuilder, FactoryGameReader reader, List<BuildableManufacturerDescriptor> buildings)
+    /// <param name="items"></param>
+    private static void ImportRecipes(ModelBuilder modelBuilder, FactoryGameReader reader, List<BuildableManufacturerDescriptor> buildings, List<Item> items)
     {
         List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>().Where(r => r.ProducedIn.Any(p => buildings.Any(b => b.ClassName == p.ClassName))).ToList();
         modelBuilder.Entity<Recipe>().HasData(RecipeMapper.Create(buildings).Map<List<RecipeDescriptor>, List<Recipe>>(recipes));
@@ -84,8 +85,8 @@ public class GameDataContext : DbContext
         List<RecipeProduct> products = new();
         foreach (RecipeDescriptor recipe in recipes)
         {
-            ingredients.AddRange(RecipeIngredientMapper.Create(recipe).Map<RecipeDescriptor.Part[], List<RecipeIngredient>>(recipe.Ingredients));
-            products.AddRange(RecipeProductMapper.Create(recipe).Map<RecipeDescriptor.Part[], List<RecipeProduct>>(recipe.Products));
+            ingredients.AddRange(RecipeIngredientMapper.Create(recipe, items).Map<RecipeDescriptor.Part[], List<RecipeIngredient>>(recipe.Ingredients));
+            products.AddRange(RecipeProductMapper.Create(recipe, items).Map<RecipeDescriptor.Part[], List<RecipeProduct>>(recipe.Products));
         }
 
         modelBuilder.Entity<RecipeIngredient>().HasData(ingredients);
@@ -97,7 +98,7 @@ public class GameDataContext : DbContext
     /// </summary>
     /// <param name="modelBuilder"></param>
     /// <param name="reader"></param>
-    private static void ImportItems(ModelBuilder modelBuilder, FactoryGameReader reader)
+    private static List<Item> ImportItems(ModelBuilder modelBuilder, FactoryGameReader reader)
     {
         List<ItemDescriptor> items = reader.Read<ItemDescriptor>();
         List<ResourceDescriptor> resources = reader.Read<ResourceDescriptor>();
@@ -120,5 +121,7 @@ public class GameDataContext : DbContext
         mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeInstantHit>, List<Item>>(instantHits));
         mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeColorCartridge>, List<Item>>(colorCartridges));
         modelBuilder.Entity<Item>().HasData(mappedItems);
+
+        return mappedItems;
     }
 }

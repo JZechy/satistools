@@ -10,16 +10,9 @@ public class RecipeIngredientConfiguration : IEntityTypeConfiguration<RecipeIngr
     {
         builder.HasKey(nameof(RecipeIngredient.RecipeId), nameof(RecipeIngredient.ItemId));
         
-        builder.HasOne(e => e.Recipe)
-            .WithMany(r => r.Ingredients)
-            .HasForeignKey(e => e.RecipeId)
-            .IsRequired();
-
         builder.HasOne(e => e.Item)
             .WithMany()
             .HasForeignKey(e => e.ItemId)
             .IsRequired();
-
-        builder.Ignore(p => p.PerMin);
     }
 }

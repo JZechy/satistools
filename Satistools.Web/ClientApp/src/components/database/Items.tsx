@@ -30,7 +30,7 @@ export class Items extends Component<EmptyProps, ItemsState> {
     private renderItems(items: Item[]): JSX.Element {
         let cards: JSX.Element[] = new Array(items.length);
         items.forEach((item: Item) => {
-            cards.push(<ItemCard item={item}/>);
+            cards.push(<ItemCard item={item} key={item.id}/>);
         });
         
         return (
