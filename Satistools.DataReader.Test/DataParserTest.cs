@@ -61,6 +61,23 @@ public class DataParserTest
         RecipeDescriptor.Producer firstProducer = recipeDescriptor.ProducedIn.First();
         firstProducer.ClassName.Should().Be("Build_AssemblerMk1_C");
     }
+    
+    /// <summary>
+    /// Rests reading of recipe.
+    /// </summary>
+    [Test]
+    public void Test_Recipe_NonFissibleUranium()
+    {
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "nonfissibleuranium.json");
+        List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>();
+        recipes.Should().HaveCount(1);
+
+        RecipeDescriptor recipeDescriptor = recipes.First();
+        recipeDescriptor.DisplayName.Should().Be("Non-fissile Uranium");
+        recipeDescriptor.ManufactoringDuration.Should().Be(24f);
+        recipeDescriptor.Ingredients.Should().HaveCount(4);
+        recipeDescriptor.Products.Should().HaveCount(2);
+    }
 
     [Test]
     public void Test_Buildings()
