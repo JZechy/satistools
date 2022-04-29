@@ -2,6 +2,8 @@ import {LoadingState} from "../../@types/LoadingState";
 import {Recipe, RecipePart} from "../../@types/Recipe";
 import {Component} from "react";
 import {Badge, Card, CardHeader, Table} from "reactstrap";
+import {Image} from "../common/Image";
+import {ItemLink} from "../common/ItemLink";
 
 type ItemRecipesProps = {
     itemId: string;
@@ -39,8 +41,14 @@ export abstract class ItemRecipes extends Component<ItemRecipesProps, ItemRecipe
         this.state.recipes.forEach((recipe: Recipe) => {
             rendered.push(
                 <Card className="my-3" key={recipe.id}>
-                    <CardHeader tag="h5">
-                        {recipe.displayName} {recipe.isAlternate ? <Badge className="bg-success rounded-pill">ALTERNATE</Badge> : <></>}
+                    <CardHeader className="d-flex justify-content-between align-items-center">
+                        <h5 className="mb-0">
+                            {recipe.displayName} {recipe.isAlternate ? <Badge className="bg-danger rounded-pill">ALTERNATE</Badge> : <></>}
+                        </h5>
+                        <div className="d-flex align-items-center badge rounded-pill bg-secondary">
+                            <Image name={recipe.producedIn.bigIcon} size={24} alt={recipe.producedIn.displayName}/>
+                            <span className="mx-2">{recipe.producedIn.displayName}</span>
+                        </div>
                     </CardHeader>
                     <Table bordered className="mb-0">
                         <thead>
@@ -66,14 +74,11 @@ export abstract class ItemRecipes extends Component<ItemRecipesProps, ItemRecipe
     private renderItems(parts: RecipePart[]): JSX.Element {
         let rendered: JSX.Element[] = new Array(parts.length);
         parts.forEach((part: RecipePart) => {
-            let imgSrc: string = "img/" + part.item.bigIcon + ".png";
-            let link: string = "/database/items/" + part.item.id;
-
             rendered.push(
                 <div key={part.item.id} className="d-flex w-100 my-2 align-items-middle">
-                    <img src={imgSrc} width={24} alt={part.item.displayName}/>
+                    <Image name={part.item.bigIcon} size={24} alt={part.item.displayName}/>
                     <div className="mx-2">
-                        <a href={link}>{part.item.displayName}</a>
+                        <ItemLink item={part.item}/>
                     </div>
                     <small>
                         <span className="badge bg-secondary mx-2">{part.amount}x</span>

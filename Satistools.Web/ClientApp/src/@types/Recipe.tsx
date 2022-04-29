@@ -1,4 +1,5 @@
 ﻿import {Item} from "./Item";
+import {Building} from "./Building";
 
 export type Recipe = {
     id: string;
@@ -7,6 +8,7 @@ export type Recipe = {
     isAlternate: boolean;
     ingredients: RecipePart[];
     products: RecipePart[];
+    producedIn: Building;
 }
 
 export type RecipePart = {

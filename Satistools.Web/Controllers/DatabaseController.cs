@@ -70,6 +70,7 @@ public class DatabaseController : ControllerBase
             select recipe
         ).Include(r => r.Products).ThenInclude(p => p.Item)
             .Include(r => r.Ingredients).ThenInclude(p => p.Item)
+            .Include(r => r.ProducedIn)
             .ToListAsync();
 
         return Ok(producers);
@@ -86,6 +87,7 @@ public class DatabaseController : ControllerBase
             select recipe
         ).Include(r => r.Products).ThenInclude(p => p.Item)
             .Include(r => r.Ingredients).ThenInclude(p => p.Item)
+            .Include(r => r.ProducedIn)
             .ToListAsync();
 
         return Ok(producers);
