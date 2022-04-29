@@ -22,13 +22,13 @@ public class GameDataContext : DbContext
     /// <summary>
     /// Are we on development environment?
     /// </summary>
-    private bool _isDevelopment;
+    private readonly bool _isDevelopment;
 
     public DbSet<Item> Items { get; set; } = null!;
     public DbSet<Recipe> Recipes { get; set; } = null!;
     public DbSet<RecipeIngredient> RecipeIngredients { get; set; } = null!;
     public DbSet<RecipeProduct> RecipeProducts { get; set; } = null!;
-    public DbSet<BuildableManufacturer> BuildableManufacturers { get; set; } = null!;
+    public DbSet<Building> Buildings { get; set; } = null!;
 
     public GameDataContext()
     {
@@ -67,18 +67,18 @@ public class GameDataContext : DbContext
 
         FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), ".."), "FactoryGame.json");
         List<Item> items = ImportItems(modelBuilder, reader);
-        List<ManufacturerDescriptor> buildings = ImportBuildings(modelBuilder, reader);
+        IEnumerable<BuildingDescriptor> buildings = ImportBuildings(modelBuilder, reader);
         ImportRecipes(modelBuilder, reader, buildings, items);
     }
 
     /// <summary>
     /// Configures default data about buildings.
     /// </summary>
-    private static List<ManufacturerDescriptor> ImportBuildings(ModelBuilder modelBuilder, FactoryGameReader reader)
+    private static IEnumerable<BuildingDescriptor> ImportBuildings(ModelBuilder modelBuilder, FactoryGameReader reader)
     {
-        List<ManufacturerDescriptor> buildings = reader.Read<ManufacturerDescriptor>();
-        modelBuilder.Entity<BuildableManufacturer>()
-            .HasData(BuildableManufacturerMapper.Create().Map<List<ManufacturerDescriptor>, List<BuildableManufacturer>>(buildings));
+        List<BuildingDescriptor> buildings = reader.Read<BuildingDescriptor>();
+        modelBuilder.Entity<Building>()
+            .HasData(BuildingMapper.Create().Map<List<BuildingDescriptor>, List<Building>>(buildings));
 
         return buildings;
     }
@@ -90,7 +90,7 @@ public class GameDataContext : DbContext
     /// <param name="reader"></param>
     /// <param name="buildings"></param>
     /// <param name="items"></param>
-    private static void ImportRecipes(ModelBuilder modelBuilder, FactoryGameReader reader, List<ManufacturerDescriptor> buildings, List<Item> items)
+    private static void ImportRecipes(ModelBuilder modelBuilder, FactoryGameReader reader, IEnumerable<BuildingDescriptor> buildings, IReadOnlyCollection<Item> items)
     {
         List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>().Where(r => r.ProducedIn.Any(p => buildings.Any(b => b.ClassName == p.ClassName))).ToList();
         modelBuilder.Entity<Recipe>().HasData(RecipeMapper.Create(buildings).Map<List<RecipeDescriptor>, List<Recipe>>(recipes));
@@ -115,25 +115,9 @@ public class GameDataContext : DbContext
     private static List<Item> ImportItems(ModelBuilder modelBuilder, FactoryGameReader reader)
     {
         List<ItemDescriptor> items = reader.Read<ItemDescriptor>();
-        List<ResourceDescriptor> resources = reader.Read<ResourceDescriptor>();
-        List<ItemDescriptorBiomass> biomasses = reader.Read<ItemDescriptorBiomass>();
-        List<ConsumableDescriptor> consumables = reader.Read<ConsumableDescriptor>();
-        List<EquipmentDescriptor> equipments = reader.Read<EquipmentDescriptor>();
-        List<ItemDescAmmoTypeProjectile> projectiles = reader.Read<ItemDescAmmoTypeProjectile>();
-        List<ItemDescriptorNuclearFuel> nuclearFuels = reader.Read<ItemDescriptorNuclearFuel>();
-        List<ItemDescAmmoTypeInstantHit> instantHits = reader.Read<ItemDescAmmoTypeInstantHit>();
-        List<ItemDescAmmoTypeColorCartridge> colorCartridges = reader.Read<ItemDescAmmoTypeColorCartridge>();
 
         IMapper itemMapper = ItemMapper.Create();
         List<Item> mappedItems = itemMapper.Map<List<ItemDescriptor>, List<Item>>(items);
-        mappedItems.AddRange(itemMapper.Map<List<ResourceDescriptor>, List<Item>>(resources));
-        mappedItems.AddRange(itemMapper.Map<List<ItemDescriptorBiomass>, List<Item>>(biomasses));
-        mappedItems.AddRange(itemMapper.Map<List<ConsumableDescriptor>, List<Item>>(consumables));
-        mappedItems.AddRange(itemMapper.Map<List<EquipmentDescriptor>, List<Item>>(equipments));
-        mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeProjectile>, List<Item>>(projectiles));
-        mappedItems.AddRange(itemMapper.Map<List<ItemDescriptorNuclearFuel>, List<Item>>(nuclearFuels));
-        mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeInstantHit>, List<Item>>(instantHits));
-        mappedItems.AddRange(itemMapper.Map<List<ItemDescAmmoTypeColorCartridge>, List<Item>>(colorCartridges));
         modelBuilder.Entity<Item>().HasData(mappedItems);
 
         return mappedItems;

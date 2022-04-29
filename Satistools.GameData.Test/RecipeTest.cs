@@ -32,12 +32,10 @@ public class RecipeTest : GameDataTest
         {
             Id = "Desc_IronPlateReinforced_C"
         };
-        BuildableManufacturer b = new()
+        Building b = new()
         {
             Id = "Build_AssemblerMk1_C",
-            DisplayName = "Assembler",
-            PowerConsumption = 15f,
-            PowerConsumptionExponent = 1.6f
+            DisplayName = "Assembler"
         };
 
         await Context.AddRangeAsync(ironPlate, screw, reinforced, b);

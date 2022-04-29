@@ -12,10 +12,6 @@ public class ResourceExtractorDescriptor : BuildingDescriptor
 
     [JsonPropertyName("mPowerConsumptionExponent")]
     public float PowerConsumptionExponent { get; set; }
-    
-    [JsonPropertyName("mCanChangePotential")]
-    [JsonConverter(typeof(BooleanJsonConverter))]
-    public bool CanChangePotential { get; set; }
-    
+
     public override BuildingType BuildingType => BuildingType.ResourceExtractor;
 }

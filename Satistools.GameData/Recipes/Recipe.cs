@@ -40,7 +40,7 @@ public class Recipe
     /// <summary>
     /// 
     /// </summary>
-    public BuildableManufacturer ProducedIn { get; set; } = null!;
+    public Building ProducedIn { get; set; } = null!;
 
     public ICollection<RecipeIngredient> Ingredients { get; set; } = null!;
     public ICollection<RecipeProduct> Products { get; set; } = null!;

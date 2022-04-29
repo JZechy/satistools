@@ -8,7 +8,7 @@ public static class ItemMapper
     /// <summary>
     /// List of event items.
     /// </summary>
-    private static readonly string[] EventItems = {
+    private static readonly string[] SeasonalItems = {
         "BP_EquipmentDescriptorCandyCane_C",
         "BP_EquipmentDescriptorSnowballMittens_C",
         "Desc_CandyCane_C",
@@ -70,6 +70,6 @@ public static class ItemMapper
             .ForMember(d => d.SmallIcon, opt => opt.MapFrom(src => src.SmallIcon))
             .ForMember(d => d.BigIcon, opt => opt.MapFrom(src => src.PersistentBigIcon))
             .ForMember(d => d.IsProjectAssembly, opt => opt.MapFrom(src => src.ClassName.Contains("SpaceElevatorPart")))
-            .ForMember(d => d.IsSeasonal, opt => opt.MapFrom(src => EventItems.Contains(src.ClassName)));
+            .ForMember(d => d.IsSeasonal, opt => opt.MapFrom(src => SeasonalItems.Contains(src.ClassName)));
     }
 }

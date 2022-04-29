@@ -1,5 +1,8 @@
 ﻿namespace Satistools.DataReader.Entities.Buildings;
 
+/// <summary>
+/// Enumeration describing the type of building.
+/// </summary>
 public enum BuildingType
 {
     /// <summary>

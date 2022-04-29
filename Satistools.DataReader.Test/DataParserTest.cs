@@ -63,13 +63,13 @@ public class DataParserTest
     }
 
     [Test]
-    public void Test_BuildableManufacturer()
+    public void Test_Buildings()
     {
-        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildablemanufacturer.json");
-        List<ManufacturerDescriptor> manufacturers = reader.Read<ManufacturerDescriptor>();
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildings.json");
+        List<BuildingDescriptor> manufacturers = reader.Read<BuildingDescriptor>();
         manufacturers.Should().HaveCount(2);
 
-        ManufacturerDescriptor manufacturerDescriptor = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
+        ManufacturerDescriptor manufacturerDescriptor = (ManufacturerDescriptor) manufacturers.Single(m => m.ClassName == "Build_ConstructorMk1_C");
         manufacturerDescriptor.PowerConsumption.Should().Be(4f);
         manufacturerDescriptor.PowerConsumptionExponent.Should().Be(1.6f);
     }
