@@ -61,19 +61,33 @@ public class DataParserTest
         RecipeDescriptor.Producer firstProducer = recipeDescriptor.ProducedIn.First();
         firstProducer.ClassName.Should().Be("Build_AssemblerMk1_C");
     }
+    
+    /// <summary>
+    /// Rests reading of recipe.
+    /// </summary>
+    [Test]
+    public void Test_Recipe_NonFissibleUranium()
+    {
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "nonfissibleuranium.json");
+        List<RecipeDescriptor> recipes = reader.Read<RecipeDescriptor>();
+        recipes.Should().HaveCount(1);
+
+        RecipeDescriptor recipeDescriptor = recipes.First();
+        recipeDescriptor.DisplayName.Should().Be("Non-fissile Uranium");
+        recipeDescriptor.ManufactoringDuration.Should().Be(24f);
+        recipeDescriptor.Ingredients.Should().HaveCount(4);
+        recipeDescriptor.Products.Should().HaveCount(2);
+    }
 
     [Test]
-    public void Test_BuildableManufacturer()
+    public void Test_Buildings()
     {
-        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildablemanufacturer.json");
-        List<BuildableManufacturerDescriptor> manufacturers = reader.Read<BuildableManufacturerDescriptor>();
+        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildings.json");
+        List<BuildingDescriptor> manufacturers = reader.Read<BuildingDescriptor>();
         manufacturers.Should().HaveCount(2);
 
-        BuildableManufacturerDescriptor manufacturerDescriptor = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
+        ManufacturerDescriptor manufacturerDescriptor = (ManufacturerDescriptor) manufacturers.Single(m => m.ClassName == "Build_ConstructorMk1_C");
         manufacturerDescriptor.PowerConsumption.Should().Be(4f);
         manufacturerDescriptor.PowerConsumptionExponent.Should().Be(1.6f);
-        manufacturerDescriptor.ExtensionData.Should().NotBeNull();
-        manufacturerDescriptor.ExtensionData.Should().HaveCountGreaterThan(0);
-        manufacturerDescriptor.ExtensionData.ContainsKey("mIsPendingToKillVFX").Should().BeTrue();
     }
 }

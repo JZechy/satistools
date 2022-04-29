@@ -17,12 +17,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="gamedata.db">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Include="..\FactoryGame.json">
         <Link>FactoryGame.json</Link>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

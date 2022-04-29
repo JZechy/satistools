@@ -59,29 +59,41 @@ public class FactoryGameReader
     public List<TTargetEntity> Read<TTargetEntity>()
     {
         Type entityType = typeof(TTargetEntity);
-        if (!_entities.ContainsKey(entityType))
+        Dictionary<Type, string> readableTypes = _entities
+            .Where(p => p.Key.IsAssignableFrom(entityType) || p.Key == entityType || p.Key.IsAssignableTo(entityType))
+            .ToDictionary(p => p.Key, p => p.Value);
+        
+        if (readableTypes.Count == 0)
         {
             throw new Exception($"Descriptor for target type '{entityType}' not found.");
         }
 
-        string nativeClass = _entities[entityType];
-        Data data = _jsonData.Single(f => f.NativeClass == nativeClass);
-
-        JsonSerializerOptions options = new()
+        List<TTargetEntity> parsedData = new();
+        foreach ((Type? targetType, string? nativeClass) in readableTypes)
         {
-            NumberHandling = JsonNumberHandling.AllowReadingFromString
-        };
-        List<TTargetEntity> parsedData = new(data.Classes.Length);
-        foreach (JsonNode node in data.Classes)
-        {
-            TTargetEntity? parsed = node.Deserialize<TTargetEntity>(options);
-            if (parsed is null)
+            Data? data = _jsonData.SingleOrDefault(f => f.NativeClass == nativeClass);
+            if (data is null)
             {
-                throw new NullReferenceException($"Node {node} could not be parsed to target type {entityType}");
+                continue;
             }
+            
+            JsonSerializerOptions options = new()
+            {
+                NumberHandling = JsonNumberHandling.AllowReadingFromString
+            };
+        
+            foreach (JsonNode node in data.Classes)
+            {
+                TTargetEntity? parsed = (TTargetEntity?) node.Deserialize(targetType, options);
+                if (parsed is null)
+                {
+                    throw new NullReferenceException($"Node {node} could not be parsed to target type {entityType}");
+                }
 
-            parsedData.Add(parsed);
+                parsedData.Add(parsed);
+            }
         }
+        
 
         return parsedData;
     }

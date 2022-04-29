@@ -16,7 +16,7 @@
 				"mSmallIcon":"Texture2D /Game/FactoryGame/Resource/Parts/NuclearWaste/UI/IconDesc_NuclearWaste_64.IconDesc_NuclearWaste_64",
 				"mPersistentBigIcon":"Texture2D /Game/FactoryGame/Resource/Parts/NuclearWaste/UI/IconDesc_NuclearWaste_256.IconDesc_NuclearWaste_256",
 				"mSubCategories":"",
-				"mMenuPriority":"0.000000",
+				"mMenuPriority":"0.000000", 
 				"mFluidColor":"(B=0,G=0,R=0,A=0)",
 				"mGasColor":"(B=0,G=0,R=0,A=0)",
 				"mResourceSinkPoints":"0",

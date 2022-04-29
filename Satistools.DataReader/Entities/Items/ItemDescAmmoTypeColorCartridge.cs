@@ -9,4 +9,6 @@ public class ItemDescAmmoTypeColorCartridge : ItemDescriptor
 {
     [JsonExtensionData]
     public Dictionary<string, JsonElement> ExtensionData { get; set; } = new();
+
+    public override ItemCategory ItemCategory => ItemCategory.Ammo;
 }

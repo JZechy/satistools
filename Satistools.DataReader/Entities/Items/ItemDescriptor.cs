@@ -46,9 +46,11 @@ public class ItemDescriptor
     public ItemForm Form { get; set; } = ItemForm.NotAvailable;
 
     [JsonPropertyName("mSmallIcon")]
+    [JsonConverter(typeof(ImagePathJsonConverter))]
     public string SmallIcon { get; set; } = string.Empty;
 
     [JsonPropertyName("mPersistentBigIcon")]
+    [JsonConverter(typeof(ImagePathJsonConverter))]
     public string PersistentBigIcon { get; set; } = string.Empty;
 
     [JsonPropertyName("mSubCategories")]
@@ -70,4 +72,6 @@ public class ItemDescriptor
 
     [JsonPropertyName("mBuildMenuPriority")]
     public float BuildMenuPriority { get; set; }
+    
+    public virtual ItemCategory ItemCategory => ItemCategory.Part;
 }

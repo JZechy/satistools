@@ -24,6 +24,11 @@ public class Item
     /// Description of the item.
     /// </summary>
     public string Description { get; set; } = string.Empty;
+    
+    /// <summary>
+    /// The basic category of item according to Native class in json data.
+    /// </summary>
+    public ItemCategory ItemCategory { get; set; }
 
     /// <summary>
     /// The physical form of the item.
@@ -49,6 +54,32 @@ public class Item
     /// The color of the gas in the hexa format.
     /// </summary>
     public string GasColorHexa { get; set; } = Color.Transparent.ToHexaString();
+
+    /// <summary>
+    /// The path to the small icon for the item.
+    /// </summary>
+    /// <remarks>
+    /// Small icon have dimension 64x64
+    /// </remarks>
+    public string SmallIcon { get; set; } = string.Empty;
+
+    /// <summary>
+    /// The path to the big icon for the item.
+    /// </summary>
+    /// <remarks>
+    /// Big iconshave dimension 256x256
+    /// </remarks>
+    public string BigIcon { get; set; } = string.Empty;
+    
+    /// <summary>
+    /// Is this item used as part for space elevator?
+    /// </summary>
+    public bool IsProjectAssembly { get; set; }
+    
+    /// <summary>
+    /// Is this item used for events?
+    /// </summary>
+    public bool IsSeasonal { get; set; }
 
     /// <summary>
     /// The color of the fluid form of the item.
