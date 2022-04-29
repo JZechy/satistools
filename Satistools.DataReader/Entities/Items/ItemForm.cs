@@ -8,5 +8,6 @@ public enum ItemForm
     NotAvailable,
     Invalid,
     Solid,
-    Liquid
+    Liquid,
+    Gas
 }

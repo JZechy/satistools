@@ -1,6 +1,6 @@
 import {Component} from "react";
 import {LoadingState} from "../../@types/LoadingState";
-import {Item} from "../../@types/Item";
+import {Item, ItemCategory, ItemForm} from "../../@types/Item";
 import {Card, CardBody, CardHeader, Nav, NavItem, NavLink, Table} from "reactstrap";
 import {ItemUsesRecipes} from "./ItemUsesRecipes";
 import {ItemProducesRecipes} from "./ItemProducesRecipes";
@@ -49,34 +49,72 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
     
     private itemAssemblyBadge(): JSX.Element {
         if(this.state.item?.isProjectAssembly) {
-            return <h5><span className="badge bg-primary">Project Assembly</span></h5>
+            return <span className="badge bg-primary mx-2">Project Assembly</span>;
         }
         
         return <></>;
     }
     
+    private itemCategoryBadge(): JSX.Element {
+        let item: Item = this.state.item!;
+        let category: string;
+        switch(item.itemCategory) {
+            case ItemCategory.Part:
+                category = "Product";
+                break;
+            case ItemCategory.Resource:
+                category = "Resource";
+                break;
+            case ItemCategory.Consumable:
+                category = "Consumable";
+                break;
+            case ItemCategory.Equipment:
+                category = "Equipment";
+                break;
+            case ItemCategory.Ammo:
+                category = "Ammo";
+                break;
+            case ItemCategory.Biomass:
+                category = "Biomass";
+                break;
+
+        }
+        
+        return <span className="badge bg-info mx-2">{category}</span>;
+    }
+    
+    private itemFluidBadge(): JSX.Element {
+        if(this.state.item!.form === ItemForm.Liquid) {
+            return <span className="badge bg-info mx-2">Fluid</span>;
+        }
+        
+        return <></>;
+    }
+    
+    private renderItemCardBody(): JSX.Element {
+        switch(this.state.menu) {
+            case Menu.Description:
+                return <p>{this.state.item!.description}</p>;
+            case Menu.UsedBy:
+                return <ItemUsesRecipes itemId={this.state.item!.id}/>;
+            case Menu.ProducedBy:
+                return <ItemProducesRecipes itemId={this.state.item!.id}/>;
+        }
+    }
+    
     private renderItemDetails(): JSX.Element {
         let item: Item = this.state.item!;
         let imgSrc: string = "/img/"+item.bigIcon+".png";
-        let cardBody: JSX.Element;
-        
-        switch(this.state.menu) {
-            case Menu.Description:
-                cardBody = <p>{item.description}</p>;
-                break;
-            case Menu.UsedBy:
-                cardBody = <ItemUsesRecipes itemId={item.id}/>;
-                break;
-            case Menu.ProducedBy:
-                cardBody = <ItemProducesRecipes itemId={item.id}/>;
-                break;
-        }
         
         return (
             <>
                 <div  className="mb-5">
                     <h1>{this.state.item?.displayName}</h1>
-                    {this.itemAssemblyBadge()}
+                    <h5>
+                        {this.itemAssemblyBadge()}
+                        {this.itemCategoryBadge()}
+                        {this.itemFluidBadge()}
+                    </h5>
                 </div>
                 <div className="row">
                     <div className="col-3">
@@ -128,7 +166,7 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
                                 </Nav>
                             </CardHeader>
                             <CardBody>
-                                {cardBody}
+                                {this.renderItemCardBody()}
                             </CardBody>
                         </Card>
                     </div>

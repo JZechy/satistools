@@ -9,7 +9,7 @@ namespace Satistools.GameData.Recipes.Mappers;
 /// </summary>
 public static class RecipeMapper
 {
-    public static IMapper Create(IEnumerable<BuildableManufacturerDescriptor> buildings)
+    public static IMapper Create(IEnumerable<ManufacturerDescriptor> buildings)
     {
         return new MapperConfiguration(cfg =>
         {

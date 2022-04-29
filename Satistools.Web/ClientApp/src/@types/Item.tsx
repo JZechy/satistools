@@ -28,7 +28,8 @@ export enum ItemForm {
     NotAvailable,
     Invalid,
     Solid,
-    Liquid
+    Liquid,
+    Gas
 }
 
 export enum ItemStackSize {

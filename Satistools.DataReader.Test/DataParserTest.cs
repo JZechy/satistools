@@ -66,14 +66,11 @@ public class DataParserTest
     public void Test_BuildableManufacturer()
     {
         FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), "Files"), "buildablemanufacturer.json");
-        List<BuildableManufacturerDescriptor> manufacturers = reader.Read<BuildableManufacturerDescriptor>();
+        List<ManufacturerDescriptor> manufacturers = reader.Read<ManufacturerDescriptor>();
         manufacturers.Should().HaveCount(2);
 
-        BuildableManufacturerDescriptor manufacturerDescriptor = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
+        ManufacturerDescriptor manufacturerDescriptor = manufacturers.Single(m => m.ClassName == "Build_SmelterMk1_C");
         manufacturerDescriptor.PowerConsumption.Should().Be(4f);
         manufacturerDescriptor.PowerConsumptionExponent.Should().Be(1.6f);
-        manufacturerDescriptor.ExtensionData.Should().NotBeNull();
-        manufacturerDescriptor.ExtensionData.Should().HaveCountGreaterThan(0);
-        manufacturerDescriptor.ExtensionData.ContainsKey("mIsPendingToKillVFX").Should().BeTrue();
     }
 }

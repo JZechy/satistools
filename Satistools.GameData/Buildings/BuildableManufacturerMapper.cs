@@ -10,7 +10,7 @@ public static class BuildableManufacturerMapper
     {
         return new MapperConfiguration(cfg =>
         {
-            cfg.CreateMap<BuildableManufacturerDescriptor, BuildableManufacturer>()
+            cfg.CreateMap<ManufacturerDescriptor, BuildableManufacturer>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
                 .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
                 .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description))
