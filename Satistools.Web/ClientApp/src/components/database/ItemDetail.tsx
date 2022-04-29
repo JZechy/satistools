@@ -47,10 +47,19 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
         this.setState({menu: menuItem, loading: false, item: this.state.item});
     }
     
+    private itemAssemblyBadge(): JSX.Element {
+        if(this.state.item?.isProjectAssembly) {
+            return <h5><span className="badge bg-primary">Project Assembly</span></h5>
+        }
+        
+        return <></>;
+    }
+    
     private renderItemDetails(): JSX.Element {
         let item: Item = this.state.item!;
         let imgSrc: string = "/img/"+item.bigIcon+".png";
         let cardBody: JSX.Element;
+        
         switch(this.state.menu) {
             case Menu.Description:
                 cardBody = <p>{item.description}</p>;
@@ -65,7 +74,10 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
         
         return (
             <>
-                <h1 className="mb-5">{this.state.item?.displayName}</h1>
+                <div  className="mb-5">
+                    <h1>{this.state.item?.displayName}</h1>
+                    {this.itemAssemblyBadge()}
+                </div>
                 <div className="row">
                     <div className="col-3">
                         <Table bordered>

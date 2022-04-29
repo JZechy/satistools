@@ -72,4 +72,6 @@ public class ItemDescriptor
 
     [JsonPropertyName("mBuildMenuPriority")]
     public float BuildMenuPriority { get; set; }
+    
+    public virtual ItemCategory ItemCategory => ItemCategory.Part;
 }

@@ -60,6 +60,7 @@ public static class ItemMapper
             .ForMember(d => d.Id, opt => opt.MapFrom(src => src.ClassName))
             .ForMember(d => d.DisplayName, opt => opt.MapFrom(src => src.DisplayName))
             .ForMember(d => d.Description, opt => opt.MapFrom(src => src.Description))
+            .ForMember(d => d.ItemCategory, opt => opt.MapFrom(src => src.ItemCategory))
             .ForMember(d => d.Form, opt => opt.MapFrom(src => src.Form))
             .ForMember(d => d.StackSize, opt => opt.MapFrom(src => src.StackSize))
             .ForMember(d => d.IsRadioactive, opt => opt.MapFrom(src => src.RadioactiveDecay > 0))
@@ -68,6 +69,7 @@ public static class ItemMapper
             .ForMember(d => d.ResourceSinkPoints, opt => opt.MapFrom(src => src.ResourceSinkPoints))
             .ForMember(d => d.SmallIcon, opt => opt.MapFrom(src => src.SmallIcon))
             .ForMember(d => d.BigIcon, opt => opt.MapFrom(src => src.PersistentBigIcon))
+            .ForMember(d => d.IsProjectAssembly, opt => opt.MapFrom(src => src.ClassName.Contains("SpaceElevatorPart")))
             .ForMember(d => d.IsSeasonal, opt => opt.MapFrom(src => EventItems.Contains(src.ClassName)));
     }
 }

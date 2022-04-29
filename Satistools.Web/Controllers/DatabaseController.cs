@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Satistools.DataReader.Entities.Items;
 using Satistools.GameData;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
@@ -28,7 +29,11 @@ public class DatabaseController : ControllerBase
     [Route("items")]
     public async Task<IEnumerable<Item>> GetItems()
     {
-        return await _gameDataContext.Items.Where(i => !i.IsSeasonal).OrderBy(i => i.DisplayName).ToListAsync();
+        return await _gameDataContext.Items
+            .Where(i => !i.IsSeasonal)
+            .Where(i => i.ItemCategory != ItemCategory.Equipment && i.ItemCategory != ItemCategory.Consumable)
+            .OrderBy(i => i.DisplayName)
+            .ToListAsync();
     }
 
     /// <summary>

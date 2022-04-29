@@ -24,6 +24,11 @@ public class Item
     /// Description of the item.
     /// </summary>
     public string Description { get; set; } = string.Empty;
+    
+    /// <summary>
+    /// The basic category of item according to Native class in json data.
+    /// </summary>
+    public ItemCategory ItemCategory { get; set; }
 
     /// <summary>
     /// The physical form of the item.

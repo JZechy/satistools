@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Satistools.DataReader;
 using Satistools.DataReader.Entities.Buildings;
 using Satistools.DataReader.Entities.Items;
@@ -18,6 +19,11 @@ public class GameDataContext : DbContext
     /// </summary>
     private bool _populateData;
 
+    /// <summary>
+    /// Are we on development environment?
+    /// </summary>
+    private bool _isDevelopment;
+
     public DbSet<Item> Items { get; set; } = null!;
     public DbSet<Recipe> Recipes { get; set; } = null!;
     public DbSet<RecipeIngredient> RecipeIngredients { get; set; } = null!;
@@ -28,17 +34,24 @@ public class GameDataContext : DbContext
     {
     }
 
-    public GameDataContext(DbContextOptions<GameDataContext> options) : base(options)
+    public GameDataContext(DbContextOptions<GameDataContext> options, IConfiguration configuration) : base(options)
     {
+        _isDevelopment = _populateData = configuration["ASPNETCORE_ENVIRONMENT"] == "Development";
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+        if (_isDevelopment)
+        {
+            optionsBuilder.EnableSensitiveDataLogging();
+        }
+        
         if (optionsBuilder.IsConfigured)
         {
             return;
         }
-
+        
+        // This part is used by design time for migrations.
         optionsBuilder.UseSqlite("Data Source=gamedata.db");
         optionsBuilder.EnableSensitiveDataLogging();
         _populateData = true;

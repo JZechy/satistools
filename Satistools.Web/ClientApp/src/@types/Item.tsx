@@ -2,6 +2,7 @@ export type Item = {
     id: string;
     displayName: string;
     description: string;
+    itemCategory: ItemCategory;
     form: ItemForm;
     stackSize: ItemStackSize;
     isRadioactive: boolean;
@@ -12,6 +13,15 @@ export type Item = {
     resourceSinkPoints: number;
     isProjectAssembly: boolean;
     isSeasonal: boolean;
+}
+
+export enum ItemCategory {
+    Part,
+    Resource,
+    Consumable,
+    Equipment,
+    Ammo,
+    Biomass
 }
 
 export enum ItemForm {
