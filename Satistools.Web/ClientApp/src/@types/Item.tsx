@@ -10,7 +10,8 @@ export type Item = {
     smallIcon: string;
     bigIcon: string;
     resourceSinkPoints: number;
-    isEvent: boolean;
+    isProjectAssembly: boolean;
+    isSeasonal: boolean;
 }
 
 export enum ItemForm {

@@ -40,7 +40,7 @@ export abstract class ItemRecipes extends Component<ItemRecipesProps, ItemRecipe
             rendered.push(
                 <Card className="my-3" key={recipe.id}>
                     <CardHeader tag="h5">
-                        <a href="#">{recipe.displayName}</a> {recipe.isAlternate ? <Badge className="bg-success rounded-pill">ALTERNATE</Badge> : <></>}
+                        {recipe.displayName} {recipe.isAlternate ? <Badge className="bg-success rounded-pill">ALTERNATE</Badge> : <></>}
                     </CardHeader>
                     <Table bordered className="mb-0">
                         <thead>

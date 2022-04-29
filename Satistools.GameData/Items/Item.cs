@@ -67,9 +67,14 @@ public class Item
     public string BigIcon { get; set; } = string.Empty;
     
     /// <summary>
+    /// Is this item used as part for space elevator?
+    /// </summary>
+    public bool IsProjectAssembly { get; set; }
+    
+    /// <summary>
     /// Is this item used for events?
     /// </summary>
-    public bool IsEvent { get; set; }
+    public bool IsSeasonal { get; set; }
 
     /// <summary>
     /// The color of the fluid form of the item.

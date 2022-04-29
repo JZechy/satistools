@@ -68,6 +68,6 @@ public static class ItemMapper
             .ForMember(d => d.ResourceSinkPoints, opt => opt.MapFrom(src => src.ResourceSinkPoints))
             .ForMember(d => d.SmallIcon, opt => opt.MapFrom(src => src.SmallIcon))
             .ForMember(d => d.BigIcon, opt => opt.MapFrom(src => src.PersistentBigIcon))
-            .ForMember(d => d.IsEvent, opt => opt.MapFrom(src => EventItems.Contains(src.ClassName)));
+            .ForMember(d => d.IsSeasonal, opt => opt.MapFrom(src => EventItems.Contains(src.ClassName)));
     }
 }

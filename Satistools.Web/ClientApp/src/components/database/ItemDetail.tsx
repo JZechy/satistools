@@ -89,7 +89,7 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
                             </tr>
                             <tr>
                                 <td><strong>Seasonal Event</strong></td>
-                                <td className="text-end">{item.isEvent?'Yes':'No'}</td>
+                                <td className="text-end">{item.isSeasonal?'Yes':'No'}</td>
                             </tr>
                             </tbody>
                         </Table>
