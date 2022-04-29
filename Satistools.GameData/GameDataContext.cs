@@ -7,6 +7,7 @@ using Satistools.DataReader.Entities.Recipes;
 using Satistools.GameData.Buildings;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
+using Satistools.GameData.Recipes.Mappers;
 
 namespace Satistools.GameData;
 

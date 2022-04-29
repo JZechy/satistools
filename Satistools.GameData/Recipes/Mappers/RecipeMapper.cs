@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
-using Satistools.DataReader.Entities;
 using Satistools.DataReader.Entities.Buildings;
 using Satistools.DataReader.Entities.Recipes;
 
-namespace Satistools.GameData.Recipes;
+namespace Satistools.GameData.Recipes.Mappers;
 
+/// <summary>
+/// Maps RecipesDescriptor to it's datamodel entity.
+/// </summary>
 public static class RecipeMapper
 {
     public static IMapper Create(IEnumerable<BuildableManufacturerDescriptor> buildings)
