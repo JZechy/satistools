@@ -5,7 +5,14 @@
 /// </summary>
 public class Mover
 {
+    /// <summary>
+    /// Base dir from which the image are analysed
+    /// </summary>
     private readonly string _baseDir;
+    
+    /// <summary>
+    /// Target dir where the images are copied.
+    /// </summary>
     private readonly string _targetDir;
 
     public Mover(string baseDir, string targetDir)
@@ -14,11 +21,18 @@ public class Mover
         _targetDir = targetDir;
     }
 
+    /// <summary>
+    /// Runs the directory processing.
+    /// </summary>
     public void Run()
     {
         ProcessDirectory(_baseDir);
     }
 
+    /// <summary>
+    /// Get all files and subdirectories and recursively process others.
+    /// </summary>
+    /// <param name="directory">The directory to be processed.</param>
     private void ProcessDirectory(string directory)
     {
         Console.WriteLine($"Processing directory {directory}");
@@ -35,6 +49,11 @@ public class Mover
         }
     }
 
+    /// <summary>
+    /// Copy the found file to location if it doesn't exists yet.
+    /// </summary>
+    /// <param name="filePath">The path of the file.</param>
+    /// <param name="sourceDir">Directory in which the file was found.</param>
     private void ProcessFile(string filePath, string sourceDir)
     {
         string fileName = filePath[(sourceDir.Length + 1)..];
@@ -43,7 +62,7 @@ public class Mover
 
         if (File.Exists(targetPath))
         {
-            Console.WriteLine($"Target path {targetPath} already exists");
+            Console.WriteLine($"Target path {targetPath} already exists, skipping");
             return;
         }
         

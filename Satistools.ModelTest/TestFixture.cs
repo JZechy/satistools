@@ -5,6 +5,11 @@ using Xunit.Abstractions;
 
 namespace Satistools.ModelTest;
 
+/// <summary>
+/// Base class for all unit tests
+/// </summary>
+/// <typeparam name="TFactory">The type of used test factory</typeparam>
+/// <typeparam name="TDbContext">The type of used database context class</typeparam>
 public abstract class TestFixture<TFactory, TDbContext> : IClassFixture<TFactory>, IAsyncLifetime
     where TFactory : TestFactory
     where TDbContext : DbContext
