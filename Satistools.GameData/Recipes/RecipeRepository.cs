@@ -31,8 +31,7 @@ public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
     /// <inheritdoc />  
     public async Task<IEnumerable<Recipe>> FindRecipesUsingItem(string itemId)
     {
-        return await (
-            from recipe in FullInfoSource
+        return await (from recipe in FullInfoSource
             join ingredient in JoinDbSet<RecipeIngredient>() on recipe.Id equals ingredient.RecipeId
             where ingredient.ItemId == itemId
             select recipe).ToListAsync();

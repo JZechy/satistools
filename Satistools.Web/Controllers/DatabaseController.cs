@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Satistools.DataReader.Entities.Items;
-using Satistools.GameData;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
 
@@ -31,7 +28,7 @@ public class DatabaseController : ControllerBase
     [Route("items")]
     public async Task<IEnumerable<Item>> GetItems()
     {
-        return await _itemRepository.GetAll();
+        return await _itemRepository.FindAutomatedProducts();
     }
 
     /// <summary>
