@@ -2,8 +2,8 @@ import {Component} from 'react';
 import {Route} from 'react-router';
 import {Layout} from './components/layout/Layout';
 import {Home} from './pages/Home';
-import {Items} from "./components/database/Items";
-import {ItemDetail} from "./components/database/ItemDetail";
+import {Items} from "./components/database/items/Items";
+import {ItemDetail} from "./components/database/items/ItemDetail";
 
 export default class App extends Component {
     static displayName: string = App.name;

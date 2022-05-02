@@ -1,9 +1,9 @@
-import {LoadingState} from "../../@types/LoadingState";
-import {Recipe, RecipePart} from "../../@types/Recipe";
+import {LoadingState} from "../../../@types/LoadingState";
+import {Recipe, RecipePart} from "../../../@types/Recipe";
 import {Component} from "react";
 import {Badge, Card, CardHeader, Table} from "reactstrap";
-import {Image} from "../common/Image";
-import {ItemLink} from "../common/ItemLink";
+import {Image} from "../../common/Image";
+import {ItemLink} from "../../common/ItemLink";
 
 type ItemRecipesProps = {
     itemId: string;

@@ -1,4 +1,4 @@
-import {Item} from "../../@types/Item";
+import {Item} from "../../../@types/Item";
 import {Component} from "react";
 import {Card, CardBody, CardImg, CardTitle} from "reactstrap";
 import {Link} from "react-router-dom";
