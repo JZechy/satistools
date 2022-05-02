@@ -3,7 +3,7 @@
 namespace Satistools.ModelTest;
 
 /// <summary>
-/// 
+/// Factory class preparing the environment for unit tests.
 /// </summary>
 public abstract class TestFactory
 {

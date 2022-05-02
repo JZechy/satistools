@@ -9,10 +9,11 @@ using Satistools.GameData.Buildings;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
 using Satistools.GameData.Recipes.Mappers;
+using Satistools.Model.Repository;
 
 namespace Satistools.GameData;
 
-public class GameDataContext : DbContext
+public class GameDataContext : RepositoryContext
 {
     /// <summary>
     /// If the context is already preconfigured, the database is not populated with game date.
@@ -34,7 +35,11 @@ public class GameDataContext : DbContext
     {
     }
 
-    public GameDataContext(DbContextOptions<GameDataContext> options, IConfiguration configuration) : base(options)
+    public GameDataContext(
+        DbContextOptions<GameDataContext> options,
+        IConfiguration configuration,
+        IEnumerable<IRepository> repositories
+    ) : base(options, repositories)
     {
         _isDevelopment = _populateData = configuration["ASPNETCORE_ENVIRONMENT"] == "Development";
     }
@@ -45,12 +50,12 @@ public class GameDataContext : DbContext
         {
             optionsBuilder.EnableSensitiveDataLogging();
         }
-        
+
         if (optionsBuilder.IsConfigured)
         {
             return;
         }
-        
+
         // This part is used by design time for migrations.
         optionsBuilder.UseSqlite("Data Source=gamedata.db");
         optionsBuilder.EnableSensitiveDataLogging();

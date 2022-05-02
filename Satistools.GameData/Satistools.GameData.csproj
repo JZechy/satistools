@@ -25,6 +25,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Satistools.DataReader\Satistools.DataReader.csproj" />
+      <ProjectReference Include="..\Satistools.Model.Repository\Satistools.Model.Repository.csproj" />
     </ItemGroup>
 
 </Project>

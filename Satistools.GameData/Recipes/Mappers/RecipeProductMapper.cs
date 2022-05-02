@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Satistools.DataReader.Entities.Recipes;
+using Satistools.GameData.Helpers;
 using Satistools.GameData.Items;
 
 namespace Satistools.GameData.Recipes.Mappers;

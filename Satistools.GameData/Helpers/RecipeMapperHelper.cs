@@ -2,7 +2,7 @@
 using Satistools.DataReader.Entities.Recipes;
 using Satistools.GameData.Items;
 
-namespace Satistools.GameData.Recipes.Mappers;
+namespace Satistools.GameData.Helpers;
 
 /// <summary>
 /// Helper class for additional data mapping from the descriptors.
@@ -11,7 +11,7 @@ public static class RecipeMapperHelper
 {
     public static int CalculateAmount(RecipeDescriptor.Part part, Item item)
     {
-        if (item.Form == ItemForm.Liquid)
+        if (item.Form is ItemForm.Liquid or ItemForm.Gas)
         {
             return part.Amount / 1000;
         }
@@ -22,7 +22,7 @@ public static class RecipeMapperHelper
     public static float CalculateAmountPerMin(RecipeDescriptor recipe, RecipeDescriptor.Part part, Item item)
     {
         float rate = 60 / recipe.ManufactoringDuration;
-        if (item.Form == ItemForm.Liquid)
+        if (item.Form is ItemForm.Liquid or ItemForm.Gas)
         {
             return rate * part.Amount / 1000;
         }
