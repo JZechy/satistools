@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.ImageMove", "Sat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.Model.Repository", "Satistools.Model.Repository\Satistools.Model.Repository.csproj", "{FA5ED6EC-F9E2-4D76-8D36-42EB0BE79FF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.Calculator", "Satistools.Calculator\Satistools.Calculator.csproj", "{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{FA5ED6EC-F9E2-4D76-8D36-42EB0BE79FF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA5ED6EC-F9E2-4D76-8D36-42EB0BE79FF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA5ED6EC-F9E2-4D76-8D36-42EB0BE79FF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{852B5F63-A368-42FB-A2AF-38C8F599D436} = {1B36C950-076F-4D86-9875-87248184E888}
