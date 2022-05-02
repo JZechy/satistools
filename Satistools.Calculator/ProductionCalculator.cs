@@ -56,33 +56,32 @@ public class ProductionCalculator : IProductionCalculator
         return graph;
     }
 
-    private async Task<GraphNode?> AnalyseRecipePart(ProductionGraph graph, RecipePart part, float productionRate)
+    private async Task<(GraphNode, float)> AnalyseRecipePart(ProductionGraph graph, RecipePart part, float productionRate)
     {
+        float amount;
+        GraphNode node;
+        
         Recipe? recipe = await _recipeRepository.GetOriginalRecipe(part.ItemId);
         if (recipe is null)
         {
-            GraphNode resourceNode = new(null, 0, part.Item, part.AmountPerMin * productionRate);
-            graph.Add(resourceNode);
-            return resourceNode;
+            amount = part.AmountPerMin * productionRate;
+            node = new GraphNode(null, 0, part.Item, amount);
+            return (graph.AddOrUpdate(node), amount);
         }
 
         RecipeProduct product = recipe.GetProduct(part.ItemId);
-        float amount = product.AmountPerMin * productionRate;
+        amount = part.AmountPerMin * productionRate;
         float buildingsCount = amount / product.AmountPerMin; // Serves also as the production rate for the next ingredient.
         
-        GraphNode node = new(recipe.ProducedIn, buildingsCount, part.Item, amount);
-        graph.Add(node);
+        node = new GraphNode(recipe.ProducedIn, buildingsCount, part.Item, amount);
+        node = graph.AddOrUpdate(node);
         
         foreach (RecipeIngredient ingredient in recipe.Ingredients)
         {
-            GraphNode? subNode = await AnalyseRecipePart(graph, ingredient, buildingsCount);
-            if (subNode is null)
-            {
-                continue;
-            }
-            graph.NodeIsUsedBy(subNode, node.Id, amount);
+            (GraphNode subNode, float subAmount) = await AnalyseRecipePart(graph, ingredient, buildingsCount);
+            graph.NodeIsUsedBy(subNode, node.Id, subAmount);
         }
 
-        return node;
+        return (node, amount);
     }
 }

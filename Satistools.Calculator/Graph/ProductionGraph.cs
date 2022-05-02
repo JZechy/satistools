@@ -10,7 +10,7 @@ public class ProductionGraph : IEnumerable<GraphNode>
     /// <summary>
     /// List of all nodes inside the graph.
     /// </summary>
-    private readonly List<GraphNode> _nodes = new();
+    private readonly Dictionary<string, GraphNode> _nodes = new();
 
     /// <summary>
     /// Gets node by the ID of item which is producing.
@@ -20,7 +20,7 @@ public class ProductionGraph : IEnumerable<GraphNode>
     {
         get
         {
-            return _nodes.Single(n => n.Id == id);
+            return _nodes.Single(pair => pair.Key == id).Value;
         }
     }
 
@@ -30,12 +30,21 @@ public class ProductionGraph : IEnumerable<GraphNode>
     public int Count => _nodes.Count;
 
     /// <summary>
-    /// Adds new node without any relation.
+    /// Adds new node without any relation. Or update the existing one.
     /// </summary>
     /// <param name="node">Instance of new node.</param>
-    public void Add(GraphNode node)
+    public GraphNode AddOrUpdate(GraphNode node)
     {
-        _nodes.Add(node);
+        if (_nodes.ContainsKey(node.Id))
+        {
+            GraphNode existing = _nodes[node.Id];
+            existing.BuildingAmount += node.BuildingAmount;
+            existing.TargetAmount += node.TargetAmount;
+            return existing;
+        }
+
+        _nodes.Add(node.Id, node);
+        return node;
     }
 
     /// <summary>
@@ -47,14 +56,14 @@ public class ProductionGraph : IEnumerable<GraphNode>
     public void NodeIsUsedBy(GraphNode node, string id, float amount)
     {
         GraphNode neededNode = this[id];
-        neededNode.NeededProducts.Add(new NodeRelation(node, amount));
-        node.UsedBy.Add(new NodeRelation(neededNode, amount));
+        neededNode.UpdateNeeds(new NodeRelation(node, amount));
+        node.UpdateUsage(new NodeRelation(neededNode, amount));
     }
 
     /// <inheritdoc />
     public IEnumerator<GraphNode> GetEnumerator()
     {
-        return _nodes.GetEnumerator();
+        return _nodes.Values.GetEnumerator();
     }
 
     /// <inheritdoc />

@@ -24,5 +24,5 @@ public class NodeRelation
     /// <summary>
     /// How many units of the product are need by the target node.
     /// </summary>
-    public float UnitsAmount { get; }
+    public float UnitsAmount { get; set; }
 }

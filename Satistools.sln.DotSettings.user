@@ -13,6 +13,8 @@
     &lt;TestId&gt;xUnit::1A5B0491-7105-40A0-BAFA-2EE067D8DF4A::net6.0::Satistools.GameData.Test.Helpers.ColorHelperTest.Test_FromHexaString&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4::net6.0::Satistools.Calculator.Test.ProductionCalculatorTest.Test_IronIngot&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4::net6.0::Satistools.Calculator.Test.ProductionCalculatorTest.Test_IronPlate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4::net6.0::Satistools.Calculator.Test.ProductionCalculatorTest.Test_DoubleProduction&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4::net6.0::Satistools.Calculator.Test.IronProductsTest.Test_ReinforcedIronPlate&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

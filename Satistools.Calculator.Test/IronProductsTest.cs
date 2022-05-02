@@ -9,9 +9,9 @@ using Xunit.Abstractions;
 
 namespace Satistools.Calculator.Test;
 
-public class ProductionCalculatorTest : CalcTest
+public class IronProductsTest : CalcTest
 {
-    public ProductionCalculatorTest(CalculatorFactory factory, ITestOutputHelper testOutputHelper) : base(factory, testOutputHelper)
+    public IronProductsTest(CalculatorFactory factory, ITestOutputHelper testOutputHelper) : base(factory, testOutputHelper)
     {
     }
 
@@ -56,5 +56,43 @@ public class ProductionCalculatorTest : CalcTest
         GraphNode plate = graph["Desc_IronPlate_C"];
         plate.NeededProducts.Should().HaveCount(1);
         plate.BuildingAmount.Should().Be(2.5f);
+    }
+
+    [Fact]
+    public async Task Test_DoubleProduction()
+    {
+        IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
+        calculator.AddTargetProduct("Desc_IronPlate_C", 20);
+        calculator.AddTargetProduct("Desc_IronRod_C", 15);
+        ProductionGraph graph = await calculator.Calculate();
+
+        graph.Count.Should().Be(4);
+
+        GraphNode ore = graph["Desc_OreIron_C"];
+        ore.TargetAmount.Should().Be(45f);
+
+        GraphNode ingot = graph["Desc_IronIngot_C"];
+        ingot.TargetAmount.Should().Be(45f);
+        ingot.UsedBy.Should().HaveCount(2);
+    }
+
+    [Fact]
+    public async Task Test_ReinforcedIronPlate()
+    {
+        IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
+        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 5);
+        ProductionGraph graph = await calculator.Calculate();
+
+        graph.Should().HaveCount(6);
+        
+        GraphNode ore = graph["Desc_OreIron_C"];
+        ore.TargetAmount.Should().Be(60f);
+        
+        GraphNode ingot = graph["Desc_IronIngot_C"];
+        ingot.TargetAmount.Should().Be(60f);
+        ingot.UsedBy.Should().HaveCount(2);
+
+        GraphNode rip = graph["Desc_IronPlateReinforced_C"];
+        rip.NeededProducts.Should().HaveCount(2);
     }
 }
