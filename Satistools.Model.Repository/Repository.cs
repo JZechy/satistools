@@ -133,6 +133,16 @@ namespace Satistools.Model.Repository;
         {
             return Context.GetRepository<TAnotherEntity>().Table;
         }
+
+        /// <summary>
+        /// Finds a <see cref="DbSet{TEntity}"/> on context by the target type of entites.
+        /// </summary>
+        /// <typeparam name="TAnotherEntity">The type of target entity.</typeparam>
+        /// <returns>DbSet of repository for the entity.</returns>
+        protected DbSet<TAnotherEntity> JoinDbSet<TAnotherEntity>() where TAnotherEntity : class
+        {
+            return Context.Set<TAnotherEntity>();
+        }
     }
 
     /// <summary>

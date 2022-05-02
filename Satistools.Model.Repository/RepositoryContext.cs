@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.ObjectModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace Satistools.Model.Repository;
 
@@ -12,6 +13,11 @@ public abstract class RepositoryContext : DbContext
     /// </summary>
     private readonly IDictionary<Type, IRepository> _repositories;
 
+    protected RepositoryContext()
+    {
+        _repositories = new ReadOnlyDictionary<Type, IRepository>(new Dictionary<Type, IRepository>());
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -19,7 +25,7 @@ public abstract class RepositoryContext : DbContext
     /// <param name="repositories"></param>
     protected RepositoryContext(DbContextOptions options, IEnumerable<IRepository> repositories) : base(options)
     {
-        _repositories = new Dictionary<Type, IRepository>(repositories.Select(repo => new KeyValuePair<Type, IRepository>(repo.EntityType, repo)));
+        _repositories = new ReadOnlyDictionary<Type, IRepository>(repositories.ToDictionary(repo => repo.EntityType, repo => repo));
     }
 
     /// <summary>

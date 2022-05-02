@@ -14,11 +14,13 @@ namespace Satistools.Web.Controllers;
 [Route("[controller]")]
 public class DatabaseController : ControllerBase
 {
-    private readonly GameDataContext _gameDataContext;
+    private readonly IItemRepository _itemRepository;
+    private readonly IRecipeRepository _recipeRepository;
 
-    public DatabaseController(GameDataContext gameDataContext)
+    public DatabaseController(IItemRepository itemRepository, IRecipeRepository recipeRepository)
     {
-        _gameDataContext = gameDataContext;
+        _itemRepository = itemRepository;
+        _recipeRepository = recipeRepository;
     }
 
     /// <summary>
@@ -29,11 +31,7 @@ public class DatabaseController : ControllerBase
     [Route("items")]
     public async Task<IEnumerable<Item>> GetItems()
     {
-        return await _gameDataContext.Items
-            .Where(i => !i.IsSeasonal)
-            .Where(i => i.ItemCategory != ItemCategory.Equipment && i.ItemCategory != ItemCategory.Consumable)
-            .OrderBy(i => i.DisplayName)
-            .ToListAsync();
+        return await _itemRepository.GetAll();
     }
 
     /// <summary>
@@ -45,7 +43,7 @@ public class DatabaseController : ControllerBase
     [Route("items/{id}")]
     public async Task<ActionResult<Item>> GetItem(string id)
     {
-        Item? item = await _gameDataContext.Items.FindAsync(id);
+        Item? item = await _itemRepository.Get(id);
         if (item is null)
         {
             return NotFound();
@@ -63,33 +61,13 @@ public class DatabaseController : ControllerBase
     [Route("recipes/whoProduces/{itemId}")]
     public async Task<ActionResult<ICollection<Recipe>>> GetRecipesProducing(string itemId)
     {
-        List<Recipe> producers = await (
-            from recipe in _gameDataContext.Recipes
-            join product in _gameDataContext.RecipeProducts on recipe.Id equals product.RecipeId
-            where product.ItemId == itemId
-            select recipe
-        ).Include(r => r.Products).ThenInclude(p => p.Item)
-            .Include(r => r.Ingredients).ThenInclude(p => p.Item)
-            .Include(r => r.ProducedIn)
-            .ToListAsync();
-
-        return Ok(producers);
+        return Ok(await _recipeRepository.FindRecipesProducingItem(itemId));
     }
 
     [HttpGet]
     [Route("recipes/whoUses/{itemId}")]
     public async Task<ActionResult<ICollection<Recipe>>> GetRecipesUsing(string itemId)
     {
-        List<Recipe> producers = await (
-            from recipe in _gameDataContext.Recipes
-            join ingredient in _gameDataContext.RecipeIngredients on recipe.Id equals ingredient.RecipeId
-            where ingredient.ItemId == itemId
-            select recipe
-        ).Include(r => r.Products).ThenInclude(p => p.Item)
-            .Include(r => r.Ingredients).ThenInclude(p => p.Item)
-            .Include(r => r.ProducedIn)
-            .ToListAsync();
-
-        return Ok(producers);
+        return Ok(await _recipeRepository.FindRecipesUsingItem(itemId));
     }
 }
