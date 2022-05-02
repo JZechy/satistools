@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Satistools.GameData;
 using Satistools.GameData.Extensions;
 
@@ -40,5 +42,6 @@ public class Startup
 
             cfg.MapFallbackToFile("index.html");
         });
+        
     }
 }

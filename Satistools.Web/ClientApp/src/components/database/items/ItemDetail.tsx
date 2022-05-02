@@ -1,6 +1,6 @@
 import {Component} from "react";
-import {LoadingState} from "../../@types/LoadingState";
-import {Item, ItemCategory, ItemForm} from "../../@types/Item";
+import {LoadingState} from "../../../@types/LoadingState";
+import {Item, ItemCategory, ItemForm} from "../../../@types/Item";
 import {Card, CardBody, CardHeader, Nav, NavItem, NavLink, Table} from "reactstrap";
 import {ItemUsesRecipes} from "./ItemUsesRecipes";
 import {ItemProducesRecipes} from "./ItemProducesRecipes";
@@ -38,7 +38,7 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
     }
     
     private async fetchItemData(): Promise<void> {
-        let response: Response = await fetch("Database/items/"+this.props.id);
+        let response: Response = await fetch("api/database/items/"+this.props.id);
         let data: Item = await response.json();
         this.setState({item: data, loading: false});
     }

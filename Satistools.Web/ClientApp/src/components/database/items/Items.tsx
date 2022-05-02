@@ -1,10 +1,10 @@
-import {Item} from "../../@types/Item";
+import {Item} from "../../../@types/Item";
 import {Component} from "react";
-import {LoadingState} from "../../@types/LoadingState";
-import {EmptyProps} from "../../@types/EmptyProps";
+import {LoadingState} from "../../../@types/LoadingState";
+import {EmptyProps} from "../../../@types/EmptyProps";
 import {ItemCard} from "./ItemCard";
 
-type ItemsState  = LoadingState & {
+type ItemsState = LoadingState & {
     items: Item[];
 }
 
@@ -22,7 +22,7 @@ export class Items extends Component<EmptyProps, ItemsState> {
     }
     
     private async fetchItemsData(): Promise<void> {
-        let response: Response = await fetch("Database/items");
+        let response: Response = await fetch("api/database/items");
         let data: Item[] = await response.json();
         this.setState({items: data, loading: false})
     }
