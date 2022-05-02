@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Satistools.GameData;
+using Satistools.GameData.Extensions;
 
 namespace Satistools.Web;
 
@@ -15,10 +16,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddDbContext<GameDataContext>(options =>
-        {
-            options.UseSqlite(_configuration.GetConnectionString("sqlite"));
-        });
+        services.AddGameDataModel(_configuration);
     }
 
     public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)

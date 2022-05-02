@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Satistools.Model.Repository.Extensions
@@ -15,7 +14,6 @@ namespace Satistools.Model.Repository.Extensions
         /// <param name="options"></param>
         public static void UseRepositoryPattern(this IServiceCollection services, Action<RepositoryPatternBuilderOptions>? options)
         {
-            services.AddScoped(b => (RepositoryContext) b.GetRequiredService<DbContext>());
             options?.Invoke(new RepositoryPatternBuilderOptions(services));
         }
     }
