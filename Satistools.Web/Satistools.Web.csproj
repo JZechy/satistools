@@ -30,6 +30,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Satistools.Calculator\Satistools.Calculator.csproj" />
       <ProjectReference Include="..\Satistools.GameData\Satistools.GameData.csproj" />
     </ItemGroup>
 

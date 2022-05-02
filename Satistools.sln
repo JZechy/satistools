@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.Model.Repository
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.Calculator", "Satistools.Calculator\Satistools.Calculator.csproj", "{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satistools.Calculator.Test", "Satistools.Calculator.Test\Satistools.Calculator.Test.csproj", "{42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CC7143E-7EC0-48C4-9AA5-A8F5BC5ED088}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{852B5F63-A368-42FB-A2AF-38C8F599D436} = {1B36C950-076F-4D86-9875-87248184E888}
@@ -80,5 +86,6 @@ Global
 		{7680AEEC-B421-445B-A144-ED226614382B} = {E74876A2-78FA-4AC0-845F-4364E12ACBF7}
 		{8E0C4DF3-36FC-4CF5-BA1A-3047CDAB13B3} = {B7495254-A6B0-4A1A-87BD-40C8F34BAE95}
 		{FA5ED6EC-F9E2-4D76-8D36-42EB0BE79FF8} = {E74876A2-78FA-4AC0-845F-4364E12ACBF7}
+		{42B8821B-B2C4-4C4E-9D65-C0B22AE8E8B4} = {1B36C950-076F-4D86-9875-87248184E888}
 	EndGlobalSection
 EndGlobal

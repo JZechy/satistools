@@ -20,11 +20,9 @@ public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
         .AsSplitQuery();
 
     /// <inheritdoc />
-    public async Task<IEnumerable<Recipe>> FindOrderedByName()
+    public async Task<Recipe?> GetOriginalRecipe(string itemId)
     {
-        return await FullInfoSource
-            .OrderBy(r => r.DisplayName)
-            .ToListAsync();
+        return await FullInfoSource.SingleOrDefaultAsync(r => !r.IsAlternate && r.Products.Any(p => p.ItemId == itemId));
     }
 
     /// <inheritdoc />

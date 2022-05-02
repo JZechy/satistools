@@ -44,4 +44,14 @@ public class Recipe
 
     public ICollection<RecipeIngredient> Ingredients { get; set; } = null!;
     public ICollection<RecipeProduct> Products { get; set; } = null!;
+
+    /// <summary>
+    /// Gets the recipe product by ID of item.
+    /// </summary>
+    /// <param name="id">Item identification.</param>
+    /// <returns>Found recipe product.</returns>
+    public RecipeProduct GetProduct(string id)
+    {
+        return Products.Single(p => p.ItemId == id);
+    }
 }

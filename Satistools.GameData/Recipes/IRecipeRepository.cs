@@ -5,6 +5,16 @@ namespace Satistools.GameData.Recipes;
 public interface IRecipeRepository : IRepository<Recipe, string>
 {
     /// <summary>
+    /// Gets the original which is used for production of the item.
+    /// </summary>
+    /// <remarks>
+    /// By original recipe is meant the one, which is not marked as alternate.
+    /// </remarks>
+    /// <param name="itemId">ID of item used for production of the item.</param>
+    /// <returns>Instance of original recipe for the item or null, if there is no original recipe.</returns>
+    Task<Recipe?> GetOriginalRecipe(string itemId);
+
+    /// <summary>
     /// Finds all recipes which are producing selected item.
     /// </summary>
     /// <param name="itemId">Item which be should be produced by the recipes.</param>
