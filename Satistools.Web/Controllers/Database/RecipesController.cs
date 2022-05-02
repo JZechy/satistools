@@ -7,7 +7,7 @@ namespace Satistools.Web.Controllers.Database;
 /// Database of Satisfactory recipes.
 /// </summary>
 [ApiController]
-[Route("database/[controller]")]
+[Route("api/database/[controller]")]
 public class RecipesController : ControllerBase
 {
     private readonly IRecipeRepository _recipeRepository;

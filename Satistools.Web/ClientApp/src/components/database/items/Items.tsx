@@ -22,7 +22,7 @@ export class Items extends Component<EmptyProps, ItemsState> {
     }
     
     private async fetchItemsData(): Promise<void> {
-        let response: Response = await fetch("database/items");
+        let response: Response = await fetch("api/database/items");
         let data: Item[] = await response.json();
         this.setState({items: data, loading: false})
     }

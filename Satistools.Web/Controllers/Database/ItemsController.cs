@@ -7,7 +7,7 @@ namespace Satistools.Web.Controllers.Database;
 /// Database of satisfactory items.
 /// </summary>
 [ApiController]
-[Route("database/[controller]")]
+[Route("api/database/[controller]")]
 public class ItemsController : ControllerBase
 {
     private readonly IItemRepository _itemRepository;

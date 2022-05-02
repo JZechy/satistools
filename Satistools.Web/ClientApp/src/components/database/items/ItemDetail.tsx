@@ -38,7 +38,7 @@ export class ItemDetail extends Component<ItemDetailProps, ItemDetailState> {
     }
     
     private async fetchItemData(): Promise<void> {
-        let response: Response = await fetch("database/items/"+this.props.id);
+        let response: Response = await fetch("api/database/items/"+this.props.id);
         let data: Item = await response.json();
         this.setState({item: data, loading: false});
     }
