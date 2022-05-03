@@ -18,10 +18,7 @@ public class ProductionGraph : IEnumerable<GraphNode>
     /// <param name="id">Identification of the produced item by node.</param>
     public GraphNode this[string id]
     {
-        get
-        {
-            return _nodes.Single(pair => pair.Key == id).Value;
-        }
+        get { return _nodes.Values.Single(n => n.Produces(id)); }
     }
 
     /// <summary>
@@ -35,15 +32,21 @@ public class ProductionGraph : IEnumerable<GraphNode>
     /// <param name="node">Instance of new node.</param>
     public GraphNode AddOrUpdate(GraphNode node)
     {
-        if (_nodes.ContainsKey(node.Id))
+        if (_nodes.ContainsKey(node.ProductId))
         {
-            GraphNode existing = _nodes[node.Id];
+            GraphNode existing = _nodes[node.ProductId];
             existing.BuildingAmount += node.BuildingAmount;
-            existing.TargetAmount += node.TargetAmount;
+
+            existing.Product.TargetAmount += node.Product.TargetAmount;
+            if (node.Byproduct is not null)
+            {
+                existing.Byproduct!.TargetAmount += node.Byproduct.TargetAmount;
+            }
+
             return existing;
         }
 
-        _nodes.Add(node.Id, node);
+        _nodes.Add(node.ProductId, node);
         return node;
     }
 
@@ -51,21 +54,24 @@ public class ProductionGraph : IEnumerable<GraphNode>
     /// Creates a relation between two nodes.
     /// </summary>
     /// <param name="node">Instance of node which is used by the product.</param>
-    /// <param name="id">ID of node which is requesting the new one.</param>
+    /// <param name="product"></param>
     /// <param name="amount">Amount of product parts used in this relation.</param>
-    public void NodeIsUsedBy(GraphNode node, string id, float amount)
+    public void NodeIsUsedBy(GraphNode node, NodeProduct product, float amount)
     {
-        GraphNode neededNode = this[id];
+        // node is like Iron Ore & neededNode is like Iron Ingot
+        GraphNode neededNode = this[product.Id];
         neededNode.UpdateNeeds(new NodeRelation(node, amount));
         node.UpdateUsage(new NodeRelation(neededNode, amount));
+
+        node.Product.UsedAmount += amount;
     }
 
-    public void NodeNeedsProduct(GraphNode node, string id, float amount)
+    /*public void NodeNeedsProduct(GraphNode node, string id, float amount)
     {
         GraphNode usedNode = this[id];
         usedNode.UpdateUsage(new NodeRelation(node, amount));
         node.UpdateNeeds(new NodeRelation(usedNode, amount));
-    }
+    }*/
 
     /// <inheritdoc />
     public IEnumerator<GraphNode> GetEnumerator()

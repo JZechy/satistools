@@ -1,4 +1,6 @@
-﻿namespace Satistools.Calculator.Graph;
+﻿using Satistools.GameData.Items;
+
+namespace Satistools.Calculator.Graph;
 
 /// <summary>
 /// Represents a single relation between nodes in both directions.
@@ -20,7 +22,7 @@ public class NodeRelation
     /// Reference to the other node.
     /// </summary>
     public GraphNode TargetNode { get; }
-    
+
     /// <summary>
     /// How many units of the product are need by the target node.
     /// </summary>
@@ -28,6 +30,6 @@ public class NodeRelation
 
     public override string ToString()
     {
-        return $"{TargetNode.Product.DisplayName} {UnitsAmount} units/min";
+        return $"{TargetNode.Product.Item.DisplayName} {UnitsAmount} units/min";
     }
 }

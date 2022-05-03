@@ -27,13 +27,13 @@ public class IronProductsTest : CalcTest
 
         graph.Count.Should().Be(2);
         GraphNode topNode = graph.First();
-        topNode.TargetAmount.Should().Be(30f);
+        topNode.Product.TargetAmount.Should().Be(30f);
         topNode.Product.Id.Should().Be("Desc_IronIngot_C");
         topNode.NeededProducts.Should().HaveCount(1);
         topNode.UsedBy.Should().HaveCount(0);
 
         GraphNode lastNode = graph.Last();
-        lastNode.TargetAmount.Should().Be(30f);
+        lastNode.Product.TargetAmount.Should().Be(30f);
         lastNode.Product.Id.Should().Be("Desc_OreIron_C");
         lastNode.UsedBy.Should().HaveCount(1);
         lastNode.NeededProducts.Should().HaveCount(0);
@@ -78,10 +78,10 @@ public class IronProductsTest : CalcTest
         graph.Count.Should().Be(4);
 
         GraphNode ore = graph["Desc_OreIron_C"];
-        ore.TargetAmount.Should().Be(45f);
+        ore.Product.TargetAmount.Should().Be(45f);
 
         GraphNode ingot = graph["Desc_IronIngot_C"];
-        ingot.TargetAmount.Should().Be(45f);
+        ingot.Product.TargetAmount.Should().Be(45f);
         ingot.UsedBy.Should().HaveCount(2);
     }
 
@@ -98,10 +98,10 @@ public class IronProductsTest : CalcTest
         graph.Should().HaveCount(6);
 
         GraphNode ore = graph["Desc_OreIron_C"];
-        ore.TargetAmount.Should().Be(60f);
+        ore.Product.TargetAmount.Should().Be(60f);
 
         GraphNode ingot = graph["Desc_IronIngot_C"];
-        ingot.TargetAmount.Should().Be(60f);
+        ingot.Product.TargetAmount.Should().Be(60f);
         ingot.UsedBy.Should().HaveCount(2);
 
         GraphNode rip = graph["Desc_IronPlateReinforced_C"];
@@ -123,11 +123,11 @@ public class IronProductsTest : CalcTest
         graph.Should().HaveCount(8);
 
         GraphNode ingot = graph["Desc_IronIngot_C"];
-        ingot.TargetAmount.Should().Be(153f);
+        ingot.Product.TargetAmount.Should().Be(153f);
         ingot.UsedBy.Should().HaveCount(2);
 
         GraphNode rip = graph["Desc_IronPlateReinforced_C"];
-        rip.TargetAmount.Should().Be(8);
+        rip.Product.TargetAmount.Should().Be(8);
         rip.NeededProducts.Should().HaveCount(2);
         rip.UsedBy.Should().HaveCount(1);
     }
@@ -165,9 +165,9 @@ public class IronProductsTest : CalcTest
         graph.Should().HaveCount(8);
 
         GraphNode ironOre = graph["Desc_OreIron_C"];
-        ironOre.TargetAmount.Should().Be(15f);
+        ironOre.Product.TargetAmount.Should().Be(15f);
 
         GraphNode coal = graph["Desc_Coal_C"];
-        coal.TargetAmount.Should().Be(15f);
+        coal.Product.TargetAmount.Should().Be(15f);
     }
 }

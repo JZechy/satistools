@@ -24,6 +24,25 @@ public class OilProductsTest : CalcTest
         calculator.AddTargetProduct("Desc_Plastic_C", 20f);
         ProductionGraph graph = await calculator.Calculate();
 
+        graph.Should().HaveCount(2);
+
+        GraphNode plastic = graph["Desc_Plastic_C"];
+        plastic.Byproduct.Should().NotBeNull();
+        plastic.Byproduct!.TargetAmount.Should().Be(10f);
+
+        GraphNode residue = graph["Desc_HeavyOilResidue_C"]; // We are able to find the node also by byproduct
+        residue.ProductId.Should().Be(plastic.ProductId);
+        residue.ByproductId.Should().Be(residue.ByproductId);
+    }
+
+    [Fact]
+    public async Task Test_PlasticAndFuel()
+    {
+        IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
+        calculator.AddTargetProduct("Desc_Plastic_C", 20f);
+        calculator.AddTargetProduct("Desc_LiquidFuel_C", 6.66f);
+        ProductionGraph graph = await calculator.Calculate();
+
         graph.Should().HaveCount(3);
     }
 }

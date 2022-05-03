@@ -28,15 +28,15 @@ public class CateriumProductsTest : CalcTest
         graph.Count.Should().Be(3);
 
         GraphNode ingot = graph["Desc_GoldIngot_C"];
-        ingot.TargetAmount.Should().Be(36f);
+        ingot.Product.TargetAmount.Should().Be(36f);
         ingot.BuildingAmount.Should().Be(3f);
         ingot.Building!.Id.Should().Be("Build_OilRefinery_C");
         ingot.NeededProducts.Should().HaveCount(2);
 
         GraphNode water = graph["Desc_Water_C"];
-        water.TargetAmount.Should().Be(72f);
+        water.Product.TargetAmount.Should().Be(72f);
 
         GraphNode ore = graph["Desc_OreGold_C"];
-        ore.TargetAmount.Should().Be(72f);
+        ore.Product.TargetAmount.Should().Be(72f);
     }
 }
