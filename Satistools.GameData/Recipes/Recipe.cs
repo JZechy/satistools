@@ -36,6 +36,11 @@ public class Recipe
     /// Marks if the recipe is alternative.
     /// </summary>
     public bool IsAlternate { get; set; }
+    
+    /// <summary>
+    /// Marks if the recipe is default choice when there is multiple alternative unlocked by default.
+    /// </summary>
+    public bool IsDefault { get; set; }
 
     /// <summary>
     /// 
@@ -44,4 +49,14 @@ public class Recipe
 
     public ICollection<RecipeIngredient> Ingredients { get; set; } = null!;
     public ICollection<RecipeProduct> Products { get; set; } = null!;
+
+    /// <summary>
+    /// Gets the recipe product by ID of item.
+    /// </summary>
+    /// <param name="id">Item identification.</param>
+    /// <returns>Found recipe product.</returns>
+    public RecipeProduct GetProduct(string id)
+    {
+        return Products.Single(p => p.ItemId == id);
+    }
 }

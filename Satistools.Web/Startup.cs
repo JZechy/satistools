@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Satistools.Calculator.Extensions;
 using Satistools.GameData;
 using Satistools.GameData.Extensions;
 
@@ -19,6 +20,7 @@ public class Startup
     {
         services.AddControllersWithViews();
         services.AddGameDataModel(_configuration);
+        services.AddCalculator();
     }
 
     public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)

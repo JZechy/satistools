@@ -70,7 +70,7 @@ public class GameDataContext : RepositoryContext
             return;
         }
 
-        FactoryGameReader reader = new(Path.Combine(Directory.GetCurrentDirectory(), ".."), "FactoryGame.json");
+        FactoryGameReader reader = new(Directory.GetCurrentDirectory(), "FactoryGame.json");
         List<Item> items = ImportItems(modelBuilder, reader);
         IEnumerable<BuildingDescriptor> buildings = ImportBuildings(modelBuilder, reader);
         ImportRecipes(modelBuilder, reader, buildings, items);
