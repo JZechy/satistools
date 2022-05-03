@@ -22,7 +22,7 @@ public class IronProductsTest : CalcTest
     public async Task Test_IronIngot()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_IronIngot_C", 30);
+        calculator.AddTargetProduct("Desc_IronIngot_C", 30f);
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Count.Should().Be(2);
@@ -49,7 +49,7 @@ public class IronProductsTest : CalcTest
     public async Task Test_IronPlate()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_IronPlate_C", 50);
+        calculator.AddTargetProduct("Desc_IronPlate_C", 50f);
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Count.Should().Be(3);
@@ -71,8 +71,8 @@ public class IronProductsTest : CalcTest
     public async Task Test_DoubleProduction()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_IronPlate_C", 20);
-        calculator.AddTargetProduct("Desc_IronRod_C", 15);
+        calculator.AddTargetProduct("Desc_IronPlate_C", 20f);
+        calculator.AddTargetProduct("Desc_IronRod_C", 15f);
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Count.Should().Be(4);
@@ -92,7 +92,7 @@ public class IronProductsTest : CalcTest
     public async Task Test_ReinforcedIronPlate()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 5);
+        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 5f);
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Should().HaveCount(6);
@@ -115,9 +115,9 @@ public class IronProductsTest : CalcTest
     public async Task Test_AdvancedIronProducts()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 5);
-        calculator.AddTargetProduct("Desc_Rotor_C", 4);
-        calculator.AddTargetProduct("Desc_ModularFrame_C", 2);
+        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 5f);
+        calculator.AddTargetProduct("Desc_Rotor_C", 4f);
+        calculator.AddTargetProduct("Desc_ModularFrame_C", 2f);
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Should().HaveCount(8);
@@ -139,12 +139,12 @@ public class IronProductsTest : CalcTest
     public async Task Test_BalancedProduction()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 7);
-        calculator.AddTargetProduct("Desc_Rotor_C", 4);
-        calculator.AddTargetProduct("Desc_ModularFrame_C", 2);
-        calculator.AddTargetProduct("Desc_IronScrew_C", 20);
-        calculator.AddTargetProduct("Desc_IronRod_C", 13);
-        calculator.AddTargetProduct("Desc_IronIngot_C", 15);
+        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 7f);
+        calculator.AddTargetProduct("Desc_Rotor_C", 4f);
+        calculator.AddTargetProduct("Desc_ModularFrame_C", 2f);
+        calculator.AddTargetProduct("Desc_IronScrew_C", 20f);
+        calculator.AddTargetProduct("Desc_IronRod_C", 13f);
+        calculator.AddTargetProduct("Desc_IronIngot_C", 15f);
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Should().HaveCount(8);
@@ -158,7 +158,7 @@ public class IronProductsTest : CalcTest
     public async Task Test_AlternateSteelRotor()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_Rotor_C", 5);
+        calculator.AddTargetProduct("Desc_Rotor_C", 5f);
         calculator.UseAlternateRecipe("Recipe_Alternate_Rotor_C");
         ProductionGraph graph = await calculator.Calculate();
 

@@ -15,7 +15,7 @@ public class ProductionCalculator : IProductionCalculator
     /// <summary>
     /// Contains IDs of all items which production should calculated in Tuple with target amount.
     /// </summary>
-    private readonly List<(string, int)> _targetIds = new();
+    private readonly List<(string, float)> _targetIds = new();
 
     /// <summary>
     /// Contains IDs of used alternate recipes for calculations.
@@ -34,7 +34,7 @@ public class ProductionCalculator : IProductionCalculator
     }
 
     /// <inheritdoc />
-    public void AddTargetProduct(string itemId, int amount)
+    public void AddTargetProduct(string itemId, float amount)
     {
         _targetIds.Add((itemId, amount));
     }
@@ -55,7 +55,7 @@ public class ProductionCalculator : IProductionCalculator
 
         ProductionGraph graph = new();
 
-        foreach ((string targetId, int targetAmount) in _targetIds)
+        foreach ((string targetId, float targetAmount) in _targetIds)
         {
             Item? item = await _itemRepository.Get(targetId);
             if (item is null)

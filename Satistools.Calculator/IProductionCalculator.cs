@@ -9,7 +9,7 @@ public interface IProductionCalculator
     /// </summary>
     /// <param name="itemId">ID of item which will be final.</param>
     /// <param name="amount">How many parts of the product should be produced.</param>
-    void AddTargetProduct(string itemId, int amount);
+    void AddTargetProduct(string itemId, float amount);
 
     /// <summary>
     /// Adds a new alternate recipe for calculations.

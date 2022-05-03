@@ -21,7 +21,7 @@ public class CateriumProductsTest : CalcTest
     public async Task Test_PureCateriumIngot()
     {
         IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
-        calculator.AddTargetProduct("Desc_GoldIngot_C", 36);
+        calculator.AddTargetProduct("Desc_GoldIngot_C", 36f);
         calculator.UseAlternateRecipe("Recipe_Alternate_PureCateriumIngot_C");
         ProductionGraph graph = await calculator.Calculate();
 
