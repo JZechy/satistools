@@ -132,6 +132,12 @@ public class GraphNode : IEquatable<GraphNode>
 
     public override string ToString()
     {
-        return $"{Product.DisplayName} {TargetAmount}/min ({UsedAmount} used) ({PercentageUsage}%)";
+        string description = $"{Product.DisplayName} {TargetAmount}/min ({UsedAmount} used) ({PercentageUsage}%)";
+        if (Building is not null)
+        {
+            description += $"; {BuildingAmount}x {Building.DisplayName}";
+        }
+        
+        return description;
     }
 }

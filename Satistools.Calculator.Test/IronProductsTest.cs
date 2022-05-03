@@ -53,7 +53,7 @@ public class IronProductsTest : CalcTest
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Count.Should().Be(3);
-        
+
         GraphNode ingot = graph["Desc_IronIngot_C"];
         ingot.UsedBy.Should().HaveCount(1);
         ingot.NeededProducts.Should().HaveCount(1);
@@ -96,10 +96,10 @@ public class IronProductsTest : CalcTest
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Should().HaveCount(6);
-        
+
         GraphNode ore = graph["Desc_OreIron_C"];
         ore.TargetAmount.Should().Be(60f);
-        
+
         GraphNode ingot = graph["Desc_IronIngot_C"];
         ingot.TargetAmount.Should().Be(60f);
         ingot.UsedBy.Should().HaveCount(2);
@@ -121,11 +121,11 @@ public class IronProductsTest : CalcTest
         ProductionGraph graph = await calculator.Calculate();
 
         graph.Should().HaveCount(8);
-        
+
         GraphNode ingot = graph["Desc_IronIngot_C"];
         ingot.TargetAmount.Should().Be(153f);
         ingot.UsedBy.Should().HaveCount(2);
-        
+
         GraphNode rip = graph["Desc_IronPlateReinforced_C"];
         rip.TargetAmount.Should().Be(8);
         rip.NeededProducts.Should().HaveCount(2);
@@ -149,5 +149,25 @@ public class IronProductsTest : CalcTest
 
         graph.Should().HaveCount(8);
         graph.Sum(n => n.BuildingAmount).Should().Be(27f);
+    }
+
+    /// <summary>
+    /// Tests production of rotot via Alternate: Steel Rotor.
+    /// </summary>
+    [Fact]
+    public async Task Test_AlternateSteelRotor()
+    {
+        IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
+        calculator.AddTargetProduct("Desc_Rotor_C", 5);
+        calculator.UseAlternateRecipe("Recipe_Alternate_Rotor_C");
+        ProductionGraph graph = await calculator.Calculate();
+
+        graph.Should().HaveCount(8);
+
+        GraphNode ironOre = graph["Desc_OreIron_C"];
+        ironOre.TargetAmount.Should().Be(15f);
+
+        GraphNode coal = graph["Desc_Coal_C"];
+        coal.TargetAmount.Should().Be(15f);
     }
 }

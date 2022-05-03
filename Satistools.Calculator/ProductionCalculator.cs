@@ -66,7 +66,7 @@ public class ProductionCalculator : IProductionCalculator
             Recipe? recipe = await GetRecipe(targetId);
             if (recipe is null)
             {
-                throw new Exception($"Original recipe for {item.Id} was not found");
+                throw new Exception($"Recipe for {item.Id} was not found");
             }
 
             RecipeProduct product = recipe.GetProduct(targetId);
