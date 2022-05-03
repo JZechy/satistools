@@ -25,4 +25,9 @@ public class NodeRelation
     /// How many units of the product are need by the target node.
     /// </summary>
     public float UnitsAmount { get; set; }
+
+    public override string ToString()
+    {
+        return $"{TargetNode.Product.DisplayName} {UnitsAmount} units/min";
+    }
 }

@@ -49,6 +49,16 @@ public class GraphNode : IEquatable<GraphNode>
     public float TargetAmount { get; set; }
 
     /// <summary>
+    /// How many units of the product is used.
+    /// </summary>
+    public float UsedAmount => UsedBy.Sum(relation => relation.UnitsAmount);
+
+    /// <summary>
+    /// How many percents of the production is used.
+    /// </summary>
+    public float PercentageUsage => UsedAmount / TargetAmount * 100;
+
+    /// <summary>
     /// List of all nodes which are using the selected product.
     /// </summary>
     public ICollection<NodeRelation> UsedBy { get; } = new List<NodeRelation>();
@@ -118,5 +128,10 @@ public class GraphNode : IEquatable<GraphNode>
     public override int GetHashCode()
     {
         return HashCode.Combine(Id, Building, Product);
+    }
+
+    public override string ToString()
+    {
+        return $"{Product.DisplayName} {TargetAmount}/min ({UsedAmount} used) ({PercentageUsage}%)";
     }
 }

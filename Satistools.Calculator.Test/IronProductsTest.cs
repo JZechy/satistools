@@ -15,6 +15,9 @@ public class IronProductsTest : CalcTest
     {
     }
 
+    /// <summary>
+    /// Tests calculation of basic iron ingot production.
+    /// </summary>
     [Fact]
     public async Task Test_IronIngot()
     {
@@ -39,6 +42,9 @@ public class IronProductsTest : CalcTest
         oreIsUsed.UnitsAmount.Should().Be(30f);
     }
 
+    /// <summary>
+    /// Test production of bigger amount of iron plate.
+    /// </summary>
     [Fact]
     public async Task Test_IronPlate()
     {
@@ -58,6 +64,9 @@ public class IronProductsTest : CalcTest
         plate.BuildingAmount.Should().Be(2.5f);
     }
 
+    /// <summary>
+    /// Tests two target products. Iron Plate & Iron Rod.
+    /// </summary>
     [Fact]
     public async Task Test_DoubleProduction()
     {
@@ -76,6 +85,9 @@ public class IronProductsTest : CalcTest
         ingot.UsedBy.Should().HaveCount(2);
     }
 
+    /// <summary>
+    /// Tests production of Reinforced Iron Plate.
+    /// </summary>
     [Fact]
     public async Task Test_ReinforcedIronPlate()
     {
@@ -94,5 +106,48 @@ public class IronProductsTest : CalcTest
 
         GraphNode rip = graph["Desc_IronPlateReinforced_C"];
         rip.NeededProducts.Should().HaveCount(2);
+    }
+
+    /// <summary>
+    /// Tests production of all advanced iron products - Rotors, Modular Frames & Reinforced Plates.
+    /// </summary>
+    [Fact]
+    public async Task Test_AdvancedIronProducts()
+    {
+        IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
+        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 5);
+        calculator.AddTargetProduct("Desc_Rotor_C", 4);
+        calculator.AddTargetProduct("Desc_ModularFrame_C", 2);
+        ProductionGraph graph = await calculator.Calculate();
+
+        graph.Should().HaveCount(8);
+        
+        GraphNode ingot = graph["Desc_IronIngot_C"];
+        ingot.TargetAmount.Should().Be(153f);
+        ingot.UsedBy.Should().HaveCount(2);
+        
+        GraphNode rip = graph["Desc_IronPlateReinforced_C"];
+        rip.TargetAmount.Should().Be(8);
+        rip.NeededProducts.Should().HaveCount(2);
+        rip.UsedBy.Should().HaveCount(1);
+    }
+
+    /// <summary>
+    /// Just like previous test, but every manufactuerer is producing at 100%.
+    /// </summary>
+    [Fact]
+    public async Task Test_BalancedProduction()
+    {
+        IProductionCalculator calculator = ServiceProvider.GetRequiredService<IProductionCalculator>();
+        calculator.AddTargetProduct("Desc_IronPlateReinforced_C", 7);
+        calculator.AddTargetProduct("Desc_Rotor_C", 4);
+        calculator.AddTargetProduct("Desc_ModularFrame_C", 2);
+        calculator.AddTargetProduct("Desc_IronScrew_C", 20);
+        calculator.AddTargetProduct("Desc_IronRod_C", 13);
+        calculator.AddTargetProduct("Desc_IronIngot_C", 15);
+        ProductionGraph graph = await calculator.Calculate();
+
+        graph.Should().HaveCount(8);
+        graph.Sum(n => n.BuildingAmount).Should().Be(27f);
     }
 }
