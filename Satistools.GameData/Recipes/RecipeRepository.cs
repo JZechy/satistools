@@ -23,7 +23,7 @@ public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
     /// <inheritdoc />
     public async Task<Recipe?> GetOriginalRecipe(string itemId)
     {
-        return await FullInfoSource.SingleOrDefaultAsync(r => !r.IsAlternate && r.Products.Any(p => p.ItemId == itemId && p.Item.ItemCategory != ItemCategory.Resource));
+        return await FullInfoSource.SingleOrDefaultAsync(r => r.IsDefault && !r.IsAlternate && r.Products.Any(p => p.ItemId == itemId && p.Item.ItemCategory != ItemCategory.Resource));
     }
 
     /// <inheritdoc />

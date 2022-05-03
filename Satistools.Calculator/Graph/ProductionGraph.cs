@@ -60,6 +60,13 @@ public class ProductionGraph : IEnumerable<GraphNode>
         node.UpdateUsage(new NodeRelation(neededNode, amount));
     }
 
+    public void NodeNeedsProduct(GraphNode node, string id, float amount)
+    {
+        GraphNode usedNode = this[id];
+        usedNode.UpdateUsage(new NodeRelation(node, amount));
+        node.UpdateNeeds(new NodeRelation(usedNode, amount));
+    }
+
     /// <inheritdoc />
     public IEnumerator<GraphNode> GetEnumerator()
     {

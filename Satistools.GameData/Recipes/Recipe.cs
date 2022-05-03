@@ -36,6 +36,11 @@ public class Recipe
     /// Marks if the recipe is alternative.
     /// </summary>
     public bool IsAlternate { get; set; }
+    
+    /// <summary>
+    /// Marks if the recipe is default choice when there is multiple alternative unlocked by default.
+    /// </summary>
+    public bool IsDefault { get; set; }
 
     /// <summary>
     /// 

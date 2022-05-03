@@ -71,13 +71,18 @@ public class ProductionCalculator : IProductionCalculator
 
             RecipeProduct product = recipe.GetProduct(targetId);
             float productionRate = targetAmount / product.AmountPerMin;
-            await AnalyseRecipePart(graph, product, productionRate);
+            AnalyseResult result = await AnalyseRecipePart(graph, product, productionRate);
+
+            foreach (GraphNode byproduct in result.Byproducts)
+            {
+                graph.NodeNeedsProduct(byproduct, targetId, targetAmount);
+            }
         }
 
         return graph;
     }
 
-    private async Task<(GraphNode, float)> AnalyseRecipePart(ProductionGraph graph, RecipePart part, float productionRate)
+    private async Task<AnalyseResult> AnalyseRecipePart(ProductionGraph graph, RecipePart part, float productionRate)
     {
         float amount;
         GraphNode node;
@@ -87,7 +92,7 @@ public class ProductionCalculator : IProductionCalculator
         {
             amount = part.AmountPerMin * productionRate;
             node = new GraphNode(null, 0, part.Item, amount);
-            return (graph.AddOrUpdate(node), amount);
+            return new AnalyseResult(graph.AddOrUpdate(node), amount);
         }
 
         RecipeProduct product = recipe.GetProduct(part.ItemId);
@@ -96,14 +101,23 @@ public class ProductionCalculator : IProductionCalculator
 
         node = new GraphNode(recipe.ProducedIn, buildingsCount, part.Item, amount);
         node = graph.AddOrUpdate(node);
-
+        
+        List<RecipeProduct> unusedProducts = recipe.Products.Where(p => p.ItemId != part.ItemId).ToList();
+        List<GraphNode> byproducts = new(unusedProducts.Count);
+        byproducts.AddRange(unusedProducts.Select(unusedProduct => graph.AddOrUpdate(new GraphNode(recipe.ProducedIn, buildingsCount, unusedProduct.Item, unusedProduct.AmountPerMin * productionRate))));
+        
         foreach (RecipeIngredient ingredient in recipe.Ingredients)
         {
-            (GraphNode subNode, float subAmount) = await AnalyseRecipePart(graph, ingredient, buildingsCount);
-            graph.NodeIsUsedBy(subNode, node.Id, subAmount);
+            AnalyseResult result = await AnalyseRecipePart(graph, ingredient, buildingsCount);
+            graph.NodeIsUsedBy(result.ProductNode, node.Id, result.ProductAmount);
+            
+            foreach (GraphNode byproduct in result.Byproducts)
+            {
+                graph.NodeNeedsProduct(byproduct, part.ItemId, amount);
+            }
         }
-
-        return (node, amount);
+        
+        return new AnalyseResult(node, amount, byproducts);
     }
 
     /// <summary>
