@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Satistools.DataReader.Entities.Items;
 using Satistools.Model.Repository;
 
 namespace Satistools.GameData.Recipes;
@@ -22,7 +23,13 @@ public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
     /// <inheritdoc />
     public async Task<Recipe?> GetOriginalRecipe(string itemId)
     {
-        return await FullInfoSource.SingleOrDefaultAsync(r => !r.IsAlternate && r.Products.Any(p => p.ItemId == itemId));
+        return await FullInfoSource.SingleOrDefaultAsync(r => !r.IsAlternate && r.Products.Any(p => p.ItemId == itemId && p.Item.ItemCategory != ItemCategory.Resource));
+    }
+
+    /// <inheritdoc />
+    public async Task<IEnumerable<Recipe>> FindByIds(IEnumerable<string> recipeIds)
+    {
+        return await FullInfoSource.Where(r => recipeIds.Contains(r.Id)).ToListAsync();
     }
 
     /// <inheritdoc />

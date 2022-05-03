@@ -15,6 +15,13 @@ public interface IRecipeRepository : IRepository<Recipe, string>
     Task<Recipe?> GetOriginalRecipe(string itemId);
 
     /// <summary>
+    /// Search recipes by their IDs.
+    /// </summary>
+    /// <param name="recipeIds">Enumerable of all IDs which should be found.</param>
+    /// <returns>Enumeration of all found recipes.</returns>
+    Task<IEnumerable<Recipe>> FindByIds(IEnumerable<string> recipeIds);
+
+    /// <summary>
     /// Finds all recipes which are producing selected item.
     /// </summary>
     /// <param name="itemId">Item which be should be produced by the recipes.</param>

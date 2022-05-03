@@ -12,6 +12,12 @@ public interface IProductionCalculator
     void AddTargetProduct(string itemId, int amount);
 
     /// <summary>
+    /// Adds a new alternate recipe for calculations.
+    /// </summary>
+    /// <param name="recipeId">Identification of the recipe.</param>
+    void UseAlternateRecipe(string recipeId);
+
+    /// <summary>
     /// Calculates the production graph for the set inputs.
     /// </summary>
     /// <returns>Returns an instance of calculated graph of production.</returns>

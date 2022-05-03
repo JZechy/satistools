@@ -11,18 +11,28 @@ public class ProductionCalculator : IProductionCalculator
 {
     private readonly IRecipeRepository _recipeRepository;
     private readonly IItemRepository _itemRepository;
-    
+
     /// <summary>
     /// Contains IDs of all items which production should calculated in Tuple with target amount.
     /// </summary>
     private readonly List<(string, int)> _targetIds = new();
+
+    /// <summary>
+    /// Contains IDs of used alternate recipes for calculations.
+    /// </summary>
+    private readonly List<string> _alternateIds = new();
+
+    /// <summary>
+    /// Contains all found alternate recipes.
+    /// </summary>
+    private readonly List<Recipe> _alternateRecipes = new();
 
     public ProductionCalculator(IRecipeRepository recipeRepository, IItemRepository itemRepository)
     {
         _recipeRepository = recipeRepository;
         _itemRepository = itemRepository;
     }
-    
+
     /// <inheritdoc />
     public void AddTargetProduct(string itemId, int amount)
     {
@@ -30,8 +40,19 @@ public class ProductionCalculator : IProductionCalculator
     }
 
     /// <inheritdoc />
+    public void UseAlternateRecipe(string recipeId)
+    {
+        _alternateIds.Add(recipeId);
+    }
+
+    /// <inheritdoc />
     public async Task<ProductionGraph> Calculate()
     {
+        if (_alternateIds.Count > 0)
+        {
+            _alternateRecipes.AddRange(await _recipeRepository.FindByIds(_alternateIds));
+        }
+
         ProductionGraph graph = new();
 
         foreach ((string targetId, int targetAmount) in _targetIds)
@@ -42,7 +63,7 @@ public class ProductionCalculator : IProductionCalculator
                 throw new Exception($"Target item {targetId} was not found");
             }
 
-            Recipe? recipe = await _recipeRepository.GetOriginalRecipe(targetId);
+            Recipe? recipe = await GetRecipe(targetId);
             if (recipe is null)
             {
                 throw new Exception($"Original recipe for {item.Id} was not found");
@@ -52,7 +73,7 @@ public class ProductionCalculator : IProductionCalculator
             float productionRate = targetAmount / product.AmountPerMin;
             await AnalyseRecipePart(graph, product, productionRate);
         }
-        
+
         return graph;
     }
 
@@ -60,8 +81,8 @@ public class ProductionCalculator : IProductionCalculator
     {
         float amount;
         GraphNode node;
-        
-        Recipe? recipe = await _recipeRepository.GetOriginalRecipe(part.ItemId);
+
+        Recipe? recipe = await GetRecipe(part.ItemId);
         if (recipe is null)
         {
             amount = part.AmountPerMin * productionRate;
@@ -72,10 +93,10 @@ public class ProductionCalculator : IProductionCalculator
         RecipeProduct product = recipe.GetProduct(part.ItemId);
         amount = part.AmountPerMin * productionRate;
         float buildingsCount = amount / product.AmountPerMin; // Serves also as the production rate for the next ingredient.
-        
+
         node = new GraphNode(recipe.ProducedIn, buildingsCount, part.Item, amount);
         node = graph.AddOrUpdate(node);
-        
+
         foreach (RecipeIngredient ingredient in recipe.Ingredients)
         {
             (GraphNode subNode, float subAmount) = await AnalyseRecipePart(graph, ingredient, buildingsCount);
@@ -83,5 +104,27 @@ public class ProductionCalculator : IProductionCalculator
         }
 
         return (node, amount);
+    }
+
+    /// <summary>
+    /// Gets recipe for the product.
+    /// </summary>
+    /// <remarks>
+    /// First searches in the list of used alternate recipes, then queries the database for the original one.
+    /// </remarks>
+    /// <param name="productId">Identification of product.</param>
+    /// <returns>Found recipe or null if the product does not have any recipe.</returns>
+    private async Task<Recipe?> GetRecipe(string productId)
+    {
+        if (_alternateRecipes.Count > 0)
+        {
+            Recipe? alternate = _alternateRecipes.Find(r => r.Products.Any(p => p.ItemId == productId));
+            if (alternate is not null)
+            {
+                return alternate;
+            }
+        }
+
+        return await _recipeRepository.GetOriginalRecipe(productId);
     }
 }
