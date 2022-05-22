@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Satistools.ModelTest;
+using Sagittaras.Model.TestFramework;
 
 namespace Satistools.GameData.Test.SetUp;
 
@@ -10,7 +10,7 @@ public class GameDataFactory : TestFactory
     {
         services.AddDbContext<GameDataContext>(options =>
         {
-            options.UseInMemoryDatabase(GetDatabaseName());
+            options.UseInMemoryDatabase(GetConnectionString(Engine.InMemory));
         });
     }
 }

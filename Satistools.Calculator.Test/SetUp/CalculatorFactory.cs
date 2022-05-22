@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Sagittaras.Model.TestFramework;
 using Sagittaras.Repository.Extensions;
 using Satistools.Calculator.Extensions;
 using Satistools.GameData;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
-using Satistools.ModelTest;
 
 namespace Satistools.Calculator.Test.SetUp;
 
@@ -15,7 +15,7 @@ public class CalculatorFactory : TestFactory
     {
         services.AddDbContext<GameDataContext>(options =>
         {
-            options.UseInMemoryDatabase(GetDatabaseName());
+            options.UseInMemoryDatabase(GetConnectionString(Engine.InMemory));
         });
         services.UseRepositoryPattern(options =>
         {
