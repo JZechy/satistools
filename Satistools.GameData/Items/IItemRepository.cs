@@ -1,4 +1,4 @@
-﻿using Satistools.Model.Repository;
+﻿using Sagittaras.Repository;
 
 namespace Satistools.GameData.Items;
 

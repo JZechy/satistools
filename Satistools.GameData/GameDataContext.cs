@@ -9,11 +9,10 @@ using Satistools.GameData.Buildings;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
 using Satistools.GameData.Recipes.Mappers;
-using Satistools.Model.Repository;
 
 namespace Satistools.GameData;
 
-public class GameDataContext : RepositoryContext
+public class GameDataContext : DbContext
 {
     /// <summary>
     /// If the context is already preconfigured, the database is not populated with game date.
@@ -37,9 +36,8 @@ public class GameDataContext : RepositoryContext
 
     public GameDataContext(
         DbContextOptions<GameDataContext> options,
-        IConfiguration configuration,
-        IEnumerable<IRepository> repositories
-    ) : base(options, repositories)
+        IConfiguration configuration
+    ) : base(options)
     {
         _isDevelopment = _populateData = configuration["ASPNETCORE_ENVIRONMENT"] == "Development";
     }

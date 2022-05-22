@@ -14,6 +14,7 @@
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
+      <PackageReference Include="Sagittaras.Repository" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -25,7 +26,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Satistools.DataReader\Satistools.DataReader.csproj" />
-      <ProjectReference Include="..\Satistools.Model.Repository\Satistools.Model.Repository.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sagittaras.Repository;
 using Satistools.DataReader.Entities.Items;
-using Satistools.Model.Repository;
 
 namespace Satistools.GameData.Recipes;
 
 public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
 {
-    public RecipeRepository(RepositoryContext dbContext) : base(dbContext)
+    public RecipeRepository(DbContext dbContext) : base(dbContext)
     {
     }
 
@@ -36,7 +36,7 @@ public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
     public async Task<IEnumerable<Recipe>> FindRecipesProducingItem(string itemId)
     {
         return await (from recipe in FullInfoSource
-            join product in JoinDbSet<RecipeProduct>() on recipe.Id equals product.RecipeId
+            join product in Join<RecipeProduct>() on recipe.Id equals product.RecipeId
             where product.ItemId == itemId
             select recipe).ToListAsync();
     }
@@ -45,7 +45,7 @@ public class RecipeRepository : Repository<Recipe, string>, IRecipeRepository
     public async Task<IEnumerable<Recipe>> FindRecipesUsingItem(string itemId)
     {
         return await (from recipe in FullInfoSource
-            join ingredient in JoinDbSet<RecipeIngredient>() on recipe.Id equals ingredient.RecipeId
+            join ingredient in Join<RecipeIngredient>() on recipe.Id equals ingredient.RecipeId
             where ingredient.ItemId == itemId
             select recipe).ToListAsync();
     }

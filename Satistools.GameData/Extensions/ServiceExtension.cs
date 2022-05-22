@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sagittaras.Repository.Extensions;
 using Satistools.GameData.Items;
 using Satistools.GameData.Recipes;
-using Satistools.Model.Repository;
-using Satistools.Model.Repository.Extensions;
 
 namespace Satistools.GameData.Extensions;
 
@@ -21,7 +20,6 @@ public static class ServiceExtension
         {
             options.UseSqlite(configuration.GetConnectionString("sqlite"));
         });
-        services.AddScoped<RepositoryContext>(b => b.GetRequiredService<GameDataContext>());
         services.UseRepositoryPattern(options =>
         {
             options.AddRepository<IItemRepository, ItemRepository>();

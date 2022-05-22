@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sagittaras.Repository;
 using Satistools.DataReader.Entities.Items;
-using Satistools.Model.Repository;
 
 namespace Satistools.GameData.Items;
 
 public class ItemRepository : Repository<Item, string>, IItemRepository
 {
-    public ItemRepository(RepositoryContext dbContext) : base(dbContext)
+    public ItemRepository(DbContext dbContext) : base(dbContext)
     {
     }
 
